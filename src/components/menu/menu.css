@@ -1,0 +1,63 @@
+div.menu {
+    margin-top: 47px;
+    margin-right: 30px;
+    width: 255px;
+}
+
+div.menu div.tab1 div.active {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    cursor: pointer;
+}
+
+div.menu div.tab1 div.active div.linkAndArrow {
+    display: flex;
+    justify-content: space-between;
+    width: 243px;
+}
+
+div.menu div.tab1 hr {
+    margin: 16px 0;
+    border: none;
+    width: 255px;
+    height: 1px;
+    transform: rotate(180deg);
+}
+
+div.menu div.tab1 div.active div.linkAndArrow button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+div.menu div.tab1 div.categories {
+    display: none;
+}
+
+div.menu div.tab1 div.categories div.allBooks {
+    padding-left: 20px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    -webkit-background-clip: text;
+    color: #F83600;
+    background-clip: text;
+    cursor: pointer;
+}
+
+div.menu div.tab2,
+div.menu div.tab3 {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    cursor: pointer;
+}
+
+div.menu div.tab2 {
+    margin: 42px 0;
+}

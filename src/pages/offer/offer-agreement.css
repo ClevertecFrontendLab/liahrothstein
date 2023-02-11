@@ -1,0 +1,107 @@
+section.offer-agreement div.menu div.tab1 div.active {
+    color: #363636;
+}
+
+section.offer-agreement div.menu div.tab1 hr {
+    background: #363636;
+}
+
+section.offer-agreement div.menu div.tab2 {
+    color: #363636;
+}
+
+section.offer-agreement div.menu div.tab3 {
+    color: #F83600;
+}
+
+section.offer-agreement div.header div.menu.visible div.linkAndArrow a.links div.books {  
+    color: #363636;
+}
+
+section.offer-agreement div.header div.menu.visible div.linkAndArrow + hr {  
+    background: #363636;
+}
+
+section.offer-agreement div.header div.menu.visible a.links div.terms {
+    color: #363636;
+}
+
+section.offer-agreement div.header div.menu.visible a.links div.offer {
+    color: #F83600;
+}
+
+section.offer-agreement div.container div.menu div.tab1 div.categories {
+    display: none;
+}
+
+section.offer-agreement div.container div.menu div.tab1 div.active div.linkAndArrow button {
+    display: none;
+}
+
+section.offer-agreement div.header div.menu div.linkAndArrow button {
+    display: none;
+}
+
+section.offer-agreement div.header div.menu div.categories {
+    display: none;
+}
+
+section.offer-agreement div.container {
+    display: flex;
+    justify-content: center;
+}
+
+div.offer {
+    margin-top: 47px;
+    width: 57.29vw;
+}
+
+div.offer div.offerHeader {
+    margin-bottom: 32px;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+}
+
+div.offer div.paragraph {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+div.offer div.mainText {
+    margin: 16px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+div.offer div.first {
+    padding-left: 2.08vw;
+}
+
+div.offer div.second {
+    padding-left: 4.17vw;
+}
+
+div.offer div.third {
+    padding-left: 6.25vw;
+}
+
+@media (max-width: 768px) {
+    div.container div.offer {
+        padding-left: 8.33vw;
+        width: 83.33vw;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+    section.offer-agreement div.header {
+        width: 1110px;
+        margin: 0 auto;
+        margin-top: 32px;
+    }
+    section.offer-agreement div.container div.offer {
+        width: 825px;
+    }
+}

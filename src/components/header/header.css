@@ -1,0 +1,428 @@
+div.header {
+    display: flex;
+    margin: 32px 11.46vw 0;
+    justify-content: space-between;
+    color: #363636;
+}
+
+div.header div.logo {
+    display: flex;
+    align-items: center;
+}
+
+div.header div.logo div.logoName {
+    margin-left: 0.56vw;
+    font-size: 21px;
+}
+
+div.header div.nameOfPage {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    padding-right: 22.22vw;
+}
+
+div.header div.person {
+    display: flex;
+    align-items: center;
+}
+
+div.header div.person div.hiName {
+    padding-right: 0.69vw;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+div.header div.menu {
+    display: none;
+}
+
+div.header div.menu.visible {
+    display: block;
+    position: absolute;
+    width: 65.36vw;
+    left: 8.33vw;
+    top: 90px;
+    margin: 0;
+    background: #F9F9FA;
+    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+    border-radius: 10px;
+    padding: 4.17vw;
+    z-index: 11;
+}
+
+div.header div.menu div.books {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    color: #F83600;
+}
+
+div.header div.menu div.linkAndArrow + hr {
+    border: none;
+    width: 33.2vw;
+    height: 1px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    transform: rotate(180deg);
+    margin: 8px 0 42px 0;
+}
+
+div.header div.menu div.terms {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+div.header div.menu div.offer {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 42px 0 52px 0;
+}
+
+div.header div.menu a.links + hr + a.links + a.links + hr {
+    border: 1px solid #BFC4C9;
+    width: 100%;
+}
+
+div.header div.menu div.profile {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 32px 0 42px 0;
+}
+
+div.header div.menu div.exit {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+div.header div.menu a.links {
+    display: inline;
+}
+
+div.header div.menu div.linkAndArrow {
+    display: flex;
+    justify-content: space-between;
+    width: 31.64vw;
+}
+
+div.header div.menu div.linkAndArrow button {
+    border: none;
+    background: none;
+}
+
+div.header div.menu div.categories {
+    display: none;
+}
+
+div.header div.menu div.linkAndArrow button.arrowBtn.dropdown div.arrowBtn img {
+    content: url('../../components/header/assets/arrow-on.png');
+}
+
+div.header div.menu div.categories.dropdown {
+    display: block;
+}
+
+div.header div.menu div.categories div.allBooks {
+    padding-left: 1.39vw;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    -webkit-background-clip: text;
+    color: #F83600;
+    background-clip: text;
+    cursor: pointer;
+    margin-bottom: 16px;
+}
+
+div.header div.menu div.categories div.books {
+    padding-left: 1.67vw;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+div.header div.menu div.categories div.books div.book {
+    padding-right: 12.24vw;
+    color: #363636;
+    display: flex;
+}
+
+div.header div.menu div.categories div.books div.book div.nameOfBook {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 0.42vw;
+}
+
+div.header div.menu div.categories div.books div.book div.amount {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #A7A7A7;
+}
+
+button.burgerMenu.visible img {
+    content: url('../../components/header/assets/burger-opened.png');
+}
+
+button.burgerMenu {
+    border: none;
+    background: none;
+    position: relative;
+    z-index: 2;
+}
+
+div.header div.backgroundOfMenu {
+    width: 95vw;
+    position: absolute;
+    left: 0;
+    height: 200%;
+    display: none;
+}
+
+div.header div.backgroundOfMenu.backgroundOn {
+    display: block;
+}
+
+@media (min-width: 1160px) and (max-width: 2560px) {
+    div.header div.burgerMenu {
+        display: none;
+    }
+    div.header div.backgroundOfMenu {
+        display: none;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2560px) {
+    section.main-page div.header {
+        width: 1110px;
+        margin: 0 auto;
+        margin-top: 32px;
+    }
+}
+
+@media (min-width: 2560px) {
+    div.header div.nameOfPage {
+        padding-right: 435px;
+    }
+}
+
+@media (max-width: 1160px) {
+    div.header a.cleverland {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    section.main-page div.header div.person {
+        display: none;
+    }
+    section.offer-agreement div.header div.person {
+        display: none;
+    }
+    section.terms-of-use div.header div.person {
+        display: none;
+    }
+    div.header a div.logo {
+        display: none;
+    }
+    section.main-page div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    section.offer-agreement div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    section.terms-of-use div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    section.main-page div.header div.person {
+        display: none;
+    }
+    section.offer-agreement div.header div.person {
+        display: none;
+    }
+    section.terms-of-use div.header div.person {
+        display: none;
+    }
+    div.header a div.logo {
+        display: none;
+    }
+    div.header a {
+        display: none;
+    }
+    section.main-page div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    section.offer-agreement div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    section.terms-of-use div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 2560px) {
+
+}
+
+@media (max-width: 320px) {
+    section.main-page div.header {
+        margin-left: 5.63vw;
+    }
+    section.terms-of-use div.header {
+        margin-left: 5.63vw;
+    }
+    section.offer-agreement div.header {
+        margin-left: 5.63vw;
+    }
+    section.main-page div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.offer-agreement div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.terms-of-use div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.main-page div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    section.offer-agreement div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    section.terms-of-use div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    div.header div.menu.visible {
+        position: absolute;
+        width: 90vw;
+        left: 16px;
+        top: 76px;
+        padding: 5vw;
+    }
+    div.header div.menu.visible a.links div.books {
+        padding-top: 16px;
+    }
+    div.header div.menu.visible div.linkAndArrow + hr {
+        width: 79.69vw;
+    }
+    div.header div.menu.visible a.links div.terms {
+        margin-top: 42px;
+    }
+    div.header div.menu.visible div.exit {
+        margin-bottom: 36px;
+    }
+    div.header div.menu div.linkAndArrow {
+        width: 75.94vw;
+    }
+    div.header div.backgroundOfMenu {
+        height: 450%;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+    section.main-page div.header {
+        margin-left: 5.63vw;
+    }
+    section.terms-of-use div.header {
+        margin-left: 5.63vw;
+    }
+    section.offer-agreement div.header {
+        margin-left: 5.63vw;
+    }
+    section.main-page div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.offer-agreement div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.terms-of-use div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.main-page div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    section.offer-agreement div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    section.terms-of-use div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    div.header div.menu.visible {
+        position: absolute;
+        width: 90vw;
+        left: 16px;
+        top: 76px;
+        padding: 5vw;
+    }
+    div.header div.menu.visible a.links div.books {
+        padding-top: 16px;
+    }
+    div.header div.menu.visible div.linkAndArrow + hr {
+        width: 79.69vw;
+    }
+    div.header div.menu.visible a.links div.terms {
+        margin-top: 42px;
+    }
+    div.header div.menu.visible div.exit {
+        margin-bottom: 36px;
+    }
+    div.header div.menu div.linkAndArrow {
+        width: 75.94vw;
+    }
+    div.header div.backgroundOfMenu {
+        height: 450%;
+    }
+}
+
+@media (min-width: 1160px) and (max-width: 2560px) {
+    div.header div.menu.visible {
+        display: none;
+    }
+}

@@ -1,0 +1,643 @@
+div.header div.person {
+    display: flex;
+    align-items: center;
+}
+
+div.header div.person div.hiName {
+    padding-right: 0.69vw;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+div.bookMiniList {
+    background: #F9F9FA;
+    height: 64px;
+    padding: 20px 0 20px 11.46vw;
+    margin-top: 27px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #A7A7A7;
+}
+
+div.main {
+    display: flex;
+    gap: 2.08vw;
+    padding: 42px 11.46vw 0;
+}
+
+div.main div.image img {
+    max-width: none;
+}
+
+div.main div.mainContent div.header {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: 0.1px;
+    margin: 0;
+}
+
+div.main div.mainContent div.author {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    color: #A7A7A7;
+    padding: 24px 0 32px 0;
+}
+
+div.main div.mainContent div.button button {
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFFFFF;
+    height: 52px;
+    width: 350px;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+}
+
+div.main div.mainContent div.aboutBook {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: 0.1px;
+    padding: 62px 0 32px 0;
+}
+
+div.main div.mainContent div.aboutText {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.1px;
+}
+
+div.rating {
+    padding: 42px 11.46vw 0;
+}
+
+div.rating div.header {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+    display: block;
+}
+
+div.rating hr {
+    width: 24.31vw;
+    margin: 16px 0 20px 0;
+    border: 1px solid #EBEBEB
+}
+
+div.rating div.starsWithNumbers {
+    display: flex;
+    justify-content: space-between;
+    width: 221px;
+}
+
+div.rating div.starsWithNumbers div.stars {
+    display: flex;
+    gap: 1.11vw;
+}
+
+div.rating div.starsWithNumbers div.number {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+div.detailedInformation {
+    padding: 42px 11.46vw 0;
+}
+
+div.detailedInformation div.header {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 0;
+    display: block;
+}
+
+div.detailedInformation hr {
+    width: 24.31vw;
+    margin: 16px 0 0 0;
+    border: 1px solid #EBEBEB
+}
+
+div.detailedInformation div.main {
+    display: flex;
+    justify-content: space-between;
+    gap: 10.14vw;
+    padding: 0;
+}
+
+div.detailedInformation div.main div.column1 {
+    display: flex;
+    gap: 4.86vw;
+}
+
+div.detailedInformation div.main div.column2 {
+    display: flex;
+    gap: 5vw;
+}
+
+div.detailedInformation div.main div.column1 div.namesOfProperty div.nameOfProperty,
+div.detailedInformation div.main div.column2 div.namesOfProperty div.nameOfProperty,
+div.detailedInformation div.main div.column1 div.properties div.property,
+div.detailedInformation div.main div.column2 div.properties div.property {
+    padding-top: 16px;
+}
+
+div.detailedInformation div.main div.column1 div.namesOfProperty div.nameOfProperty,
+div.detailedInformation div.main div.column2 div.namesOfProperty div.nameOfProperty {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    color: #A7A7A7;
+}
+
+div.detailedInformation div.main div.column1 div.properties div.property,
+div.detailedInformation div.main div.column2 div.properties div.property {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+div.reviews {
+    padding: 62px 11.46vw 0;
+}
+
+div.reviews div.headerAndNumber {
+    display: flex;
+    gap: 0.42vw;
+    align-items: center;
+}
+
+div.reviews div.headerAndNumber div.dropdownReviewes button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    margin-left: 1.25vw;
+}    
+
+div.reviews div.headerAndNumber div.dropdownReviewes button.arrowBtn.dropdown img {
+    content: url('./assets/arrow-on.png');
+}
+
+div.reviews hr {
+    display: none;
+}
+
+div.reviews hr.dropdown {
+    display: block;
+}
+
+div.reviews div.review {
+    display: none;
+}
+
+div.reviews div.review.dropdown {
+    display: block;
+}
+
+div.reviews div.headerAndNumber div.header {
+    margin: 0;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+}
+
+div.reviews div.headerAndNumber div.number {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #A7A7A7;
+}
+
+div.reviews hr {
+    width: 24.31vw;
+    margin: 16px 0 16px 0;
+    border: 1px solid #EBEBEB
+}
+
+div.reviews div.review div.container {
+    display: flex;
+    align-items: center;
+    gap: 1.67vw;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #727272;
+}
+
+div.reviews div.review div.stars {
+    padding-top: 18px;
+    display: flex;
+    gap: 1.11vw;
+}
+
+div.reviews div.secondReview {
+    padding-top: 45px;
+}
+
+div.reviews div.review div.comment {
+    padding: 19px 0 42px 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+div.rateTheBook {
+    padding: 45px 11.46vw 0;
+}
+
+div.rateTheBook button {
+    background: linear-gradient(233.73deg, #F83600 -16.08%, #F9D423 327.37%);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    border: none;
+    height: 52px;
+    width: 24.31vw;
+    cursor: pointer;
+}
+
+@media (min-width: 769px) and (max-width: 2560px) {
+    
+}
+
+@media (max-width: 768px) {
+    section.book-page div.header div.person {
+        display: none;
+    }
+    div.header a div.logo {
+        display: none;
+    }
+    div.header a {
+        display: none;
+    }
+    section.book-page div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    div.bookMiniList {
+        padding: 20px 8.33vw 20px 8.33vw;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        height: 88px;
+    }
+    div.main div.image img {
+        width: 136px;
+        height: 198px;
+    }
+    div.main div.mainContent div.header {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+    }
+    div.main div.mainContent div.author {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    div.main div.mainContent div.aboutBook,
+    div.main div.mainContent div.aboutText {
+        position: relative;
+        right: 19.79vw;
+    }
+    
+    div.main div.mainContent div.button button {
+        width: 39.84vw;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+    }
+    div.rating div.header {
+        margin: 0;
+    }
+    
+    div.detailedInformation div.header {
+        margin: 0;
+    }
+    div.rateTheBook button {
+        width: 83.33vw;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    section.book-page div.header div.person {
+        display: none;
+    }
+    div.header a div.logo {
+        display: none;
+    }
+    div.header a {
+        display: none;
+    }
+    section.book-page div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    div.bookMiniList {
+        padding: 20px 8.33vw 20px 8.33vw;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        height: 88px;
+    }
+    div.main div.image img {
+        width: 136px;
+        height: 198px;
+    }
+    div.main div.mainContent div.header {
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 30px;
+    }
+    div.main div.mainContent div.author {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    div.main div.mainContent div.aboutBook,
+    div.main div.mainContent div.aboutText {
+        position: relative;
+        right: 19.79vw;
+    }
+    
+    div.main div.mainContent div.button button {
+        width: 39.84vw;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 150%;
+    }
+    div.rating div.header {
+        margin: 0;
+    }
+    
+    div.detailedInformation div.header {
+        margin: 0;
+    }
+    div.rateTheBook button {
+        width: 83.33vw;
+    }
+}
+
+@media (max-width: 320px) {
+    div.main div.image img {
+        width: 188px;
+        height: 259px;
+    }
+    section.book-page div.header {
+        margin-left: 5.63vw;
+    }
+    section.book-page div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.book-page div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    div.main {
+        display: block;
+        padding: 20px 5vw 0;
+    }
+    div.main div.image {
+        display: flex;
+        justify-content: center;
+    }
+    div.detailedInformation div.main {
+        display: block;
+    }
+    div.bookMiniList {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        height: 92px;
+    }
+    div.main div.mainContent div.header {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        padding-top: 16px;
+    }
+    div.main div.mainContent div.author {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    div.main div.mainContent div.button button {
+        width: 90vw;
+    }
+    div.main div.mainContent div.aboutBook,
+    div.main div.mainContent div.aboutText {
+        position: static;
+    }
+    div.rating div.starsWithNumbers {
+        width: 84.69vw;
+    }
+    div.rating div.starsWithNumbers div.stars {
+        gap: 5.74vw;
+        padding-left: 5vw;
+    }
+    div.rating hr {
+        width: 90vw;
+        margin: 8px 5vw 11px 5vw;
+    }
+    div.rating {
+        padding-left: 0;
+    }
+    div.detailedInformation {
+        padding-left: 5vw;
+    }
+    div.detailedInformation div.header {
+        margin: 0;
+    }
+    div.detailedInformation hr {
+        width: 90vw; 
+    }
+    div.reviews {
+        padding-left: 5vw;
+    }
+    div.reviews div.headerAndNumber div.number {
+        display: none;
+    }
+    div.reviews hr {
+        width: 90vw;
+    }
+    div.rateTheBook button {
+        width: 90vw;
+    }
+    div.rateTheBook {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+    div.main div.image img {
+        width: 188px;
+        height: 259px;
+    }
+    section.book-page div.header {
+        margin-left: 5.63vw;
+    }
+    section.book-page div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.book-page div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    div.main {
+        display: block;
+        padding: 20px 5vw 0;
+    }
+    div.main div.image {
+        display: flex;
+        justify-content: center;
+    }
+    div.detailedInformation div.main {
+        display: block;
+    }
+    div.bookMiniList {
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 16px;
+        height: 92px;
+    }
+    div.main div.mainContent div.header {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        padding-top: 16px;
+    }
+    div.main div.mainContent div.author {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    div.main div.mainContent div.button button {
+        width: 90vw;
+    }
+    div.main div.mainContent div.aboutBook,
+    div.main div.mainContent div.aboutText {
+        position: static;
+    }
+    div.rating div.starsWithNumbers {
+        width: 84.69vw;
+    }
+    div.rating div.starsWithNumbers div.stars {
+        gap: 5.74vw;
+        padding-left: 5vw;
+    }
+    div.rating hr {
+        width: 90vw;
+        margin: 8px 5vw 11px 5vw;
+    }
+    div.rating {
+        padding-left: 0;
+    }
+    div.detailedInformation {
+        padding-left: 5vw;
+    }
+    div.detailedInformation div.header {
+        margin: 0;
+    }
+    div.detailedInformation hr {
+        width: 90vw; 
+    }
+    div.reviews {
+        padding-left: 5vw;
+    }
+    div.reviews div.headerAndNumber div.number {
+        display: none;
+    }
+    div.reviews hr {
+        width: 90vw;
+    }
+    div.rateTheBook button {
+        width: 90vw;
+    }
+    div.rateTheBook {
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+}
+
+@media (min-width: 1920px) and (max-width: 2560px) {
+    section.book-page div.header {
+        width: 1110px;
+        margin: 0 auto;
+        margin-top: 32px;
+    }
+    section.book-page div.bookMiniList {
+        padding-left: 400px;
+    }
+    section.book-page div.main div.mainContent {
+        width: 635px;
+    }   
+    section.book-page div.main div.mainContent div.header {
+        width: 635px;
+    }   
+    section.book-page div.main {
+        justify-content: center;
+        gap: 30px;
+    }
+    section.book-page div.rating {
+        padding: 0;
+        padding-top: 42px;
+        margin: 0 auto;
+        width: 1110px;
+    }
+    section.book-page div.detailedInformation {
+        padding: 0;
+        padding-top: 42px;
+        margin: 0 auto;
+        width: 1110px;
+    }
+    section.book-page div.reviews {
+        padding: 0;
+        padding-top: 42px;
+        margin: 0 auto;
+        width: 1110px;
+    }
+    section.book-page div.reviews div.headerAndNumber div.header {
+        width: 78px;
+    }
+    section.book-page div.rateTheBook {
+        padding: 0;
+        padding-top: 42px;
+        margin: 0 auto;
+        width: 1110px;
+    }
+    section.book-page div.rateTheBook button {
+        width: 350px;
+    }
+}
+
+@media (min-width: 2506px) {
+    section.book-page div.bookMiniList {
+        padding-left: 28.2vw;
+    }
+}

@@ -1,0 +1,458 @@
+section.main-page div.menu div.tab1 div.active {
+    color: #F83600;
+}
+
+section.main-page div.menu div.tab2 {
+    color: #363636;
+}
+
+section.main-page div.menu div.tab3 {
+    color: #363636;
+}
+
+section.main-page div.menu div.tab1 hr {
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+}
+
+section.main-page div.header div.menu.visible div.linkAndArrow a.links div.books {  
+    color: #F83600;
+}
+
+section.main-page div.header div.menu.visible div.linkAndArrow + hr {  
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+}
+
+section.main-page div.header div.menu.visible a.links div.terms {
+    color: #363636;
+}
+
+section.main-page div.header div.menu.visible a.links div.offer {
+    color: #363636;
+}
+
+div.menu div.tab1 div.active div.linkAndArrow button.arrowBtn.dropdown div.arrowBtn img {
+    content: url('../../components/header/assets/arrow-on.png');
+}
+
+div.menu div.tab1 div.categories.dropdown {
+    display: block;
+}
+
+section.main-page div.container {
+    display: flex;
+    justify-content: center;
+}
+
+div.mainBooks {
+    margin-top: 47px;
+    width: 824px;
+}
+
+div.mainBooks div.navigationList {
+    display: flex;
+    justify-content: space-between;
+}
+
+div.mainBooks div.navigationList div.searchWithFilterButton {
+    display: flex;
+    align-items: center;
+}
+
+div.mainBooks div.navigationList div.searchWithFilterButton div.search {
+    position: relative;
+}
+
+div.mainBooks div.navigationList div.searchWithFilterButton div.search img {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 16px;
+    top: calc(50% - 16px/2);
+}
+
+div.mainBooks div.navigationList div.searchWithFilterButton div.search input {
+    height: 38px;
+    width: 350px;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+    border-radius: 599px;
+    border: none;
+    padding-left: 40px;
+}
+
+div.mainBooks div.navigationList div.searchWithFilterButton div.search, 
+div.mainBooks div.navigationList div.searchWithFilterButton div.filterButton {
+    cursor: pointer;
+}
+
+div.mainBooks div.navigationList div.buttonIcons {
+    display: flex;
+}
+
+div.mainBooks div.navigationList div.buttonIcons div.buttonIcon {
+    cursor: pointer;
+}
+
+div.mainBooks div.bookIcons {
+    margin-top: 32px;
+    display: grid;
+    grid-template-columns: repeat(4, 190px);
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 21.5px;
+}
+
+div.mainBooks div.bookIcons div.bookIcon {
+    cursor: pointer;
+    padding: 8px 0.56vw 16px 0.56vw;
+    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.stars {
+    display: flex;
+    gap: 0.69vw;
+    padding-top: 18px;
+    padding-left: 0.14vw;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.1px;
+    color: #A7A7A7;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.nameOfBook {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    padding-top: 28px;
+    padding-bottom: 17px;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.author {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #727272;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.button {
+    text-align: center;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.button button {
+    height: 40px;
+    width: 166px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    color: #FFFFFF;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.closed button {
+    background: #F9F9FA;
+    border: 1px solid #BFC4C9;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #A7A7A7;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.booked button {
+    background: #FFFFFF;
+    border: 1px solid #BFC4C9;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    color: #363636;
+}
+
+div.mainBooks div.bookIcons div.bookIcon div.container {
+    display: flex;
+}
+
+div.mainBooks div.bookIcons div.bookIcon a {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+section.main-page.notBurger div.header div.menu.visible {
+    display: none;
+}
+
+@media (min-width: 769px) and (max-width: 1160px) {
+    div.container div.menu {
+        display: none;
+    }
+
+}
+
+@media (max-width: 768px) {
+    div.container div.menu {
+        display: none;
+    }
+    div.container div.mainBooks div.bookIcons {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div.container div.mainBooks div.bookIcons {
+        width: 83.33vw;
+    }
+    div.container div.mainBooks {
+        margin-top: 32px;
+    }
+    div.container div.mainBooks div.navigationList {
+        margin-left: 8.33vw;
+        width: 83.33vw;
+    }
+
+    div.container div.bookIcons {
+        margin-top: 24px;
+        margin-left: 8.33vw;
+        gap: 4.43vw;
+    }
+    
+    div.container div.bookIcons div.bookIcon {
+        width: 24.74vw;
+    }
+    div.container div.bookIcons div.bookIcon div.button button {
+        width: 21.61vw;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    div.menu {
+        display: none;
+    }
+    div.container div.mainBooks div.bookIcons {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    div.container div.mainBooks div.bookIcons {
+        width: 83.33vw;
+    }
+    div.container div.mainBooks {
+        margin-top: 32px;
+    }
+    div.container div.mainBooks div.navigationList {
+        margin-left: 8.33vw;
+        width: 83.33vw;
+    }
+    
+    div.container div.bookIcons {
+        margin-top: 24px;
+        margin-left: 8.33vw;
+        gap: 4.43vw;
+    }
+    
+    div.container div.bookIcons div.bookIcon {
+        width: 24.74vw;
+    }
+    div.container div.bookIcons div.bookIcon div.button button {
+        width: 21.61vw;
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 18px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 2560px) {
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton {
+        display: none;
+    }
+}
+
+@media (max-width: 320px) {
+    div.container div.mainBooks {
+        margin-top: 35px;
+        width: 90vw;    
+    }
+    div.container div.mainBooks div.navigationList div.searchWithFilterButton {
+        display: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton {
+        display: flex;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniSearch button {
+        border: none;
+        background: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton.searchOpen,
+    div.container div.mainBooks div.navigationList div.buttonIcons.searchOpen {
+        display: none;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick {
+        display: none;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick.searchOpen {
+        display: block;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick input {
+        height: 32px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+        border-radius: 599px;
+        border: none;
+        padding-left: 16px;
+        padding-right: 36px;
+        width: 90vw;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick {
+        position: relative;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick div.closeSearch {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: 16px;
+        top: 8px;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick div.closeSearch button {
+        border: none;
+        background: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniSearch img,
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter img,
+    div.container div.mainBooks div.navigationList div.buttonIcons div.buttonIcon img {
+        height: 32px;
+    }
+    div.container div.bookIcons {
+        margin-top: 19px;
+        margin-left: 5vw;
+    }
+    div.container div.bookIcons div.bookIcon {
+        padding: 5vw;
+        width: 90vw;
+        height: 470px;
+    }
+    div.container div.bookIcons div.bookIcon div.imageOfBook {
+        display: flex;
+        justify-content: center;
+    }
+    div.container div.bookIcons div.bookIcon div.button button {
+        width: 80vw;
+    }
+    div.container div.bookIcons div.bookIcon div.stars {
+        gap: 3.13vw;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+    div.container div.mainBooks {
+        margin-top: 35px;
+        width: 90vw;    
+    }
+    div.container div.mainBooks div.navigationList div.searchWithFilterButton {
+        display: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton {
+        display: flex;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniSearch img,
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter img,
+    div.container div.mainBooks div.navigationList div.buttonIcons div.buttonIcon img {
+        height: 32px;
+    }
+    div.container div.bookIcons {
+        margin-top: 19px;
+        margin-left: 5vw;
+    }
+    div.container div.bookIcons div.bookIcon {
+        padding: 5vw;
+        width: 90vw;
+        height: 470px;
+    }
+    div.container div.bookIcons div.bookIcon div.imageOfBook {
+        display: flex;
+        justify-content: center;
+    }
+    div.container div.bookIcons div.bookIcon div.button button {
+        width: 80vw;
+    }
+    div.container div.bookIcons div.bookIcon div.stars {
+        gap: 3.13vw;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniSearch button {
+        border: none;
+        background: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton.searchOpen,
+    div.container div.mainBooks div.navigationList div.buttonIcons.searchOpen {
+        display: none;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick {
+        display: none;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick.searchOpen {
+        display: block;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick input {
+        height: 32px;
+        background: #FFFFFF;
+        box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+        border-radius: 599px;
+        border: none;
+        padding-left: 16px;
+        padding-right: 36px;
+        width: 90vw;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick {
+        position: relative;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick div.closeSearch {
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        right: 16px;
+        top: 8px;
+    }
+    div.container div.mainBooks div.navigationList div.searchAfterClick div.closeSearch button {
+        border: none;
+        background: none;
+    }
+    div.container div.mainBooks div.navigationList {
+        margin-left: 5vw;
+        width: 90vw;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 2560px) {
+    div.container div.mainBooks div.navigationList div.searchAfterClick {
+        display: none;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 769px) {
+    section.main-page div.container {
+        justify-content: flex-start;
+    }
+}
+
+@media (min-width: 968px) and (max-width: 1023px) {
+    section.main-page div.container div.mainBooks div.navigationList,
+    section.main-page div.container div.mainBooks div.bookIcons {
+        width: 81vw;
+    }
+}

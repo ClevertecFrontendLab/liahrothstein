@@ -1,0 +1,1 @@
+export { OneImageBook } from './one-image-book';
