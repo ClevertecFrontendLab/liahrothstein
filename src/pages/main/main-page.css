@@ -97,7 +97,7 @@ div.mainBooks div.bookIcons {
     margin-top: 32px;
     display: grid;
     grid-template-columns: repeat(4, 190px);
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: repeat(35, 1fr);
     gap: 21.5px;
 }
 

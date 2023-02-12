@@ -11,6 +11,7 @@ import fullImage1 from './assets/fullImage1.png';
 import fullImage2 from './assets/fullImage2.png';
 import MiniImage1 from './assets/image1.png';
 import MiniImage2 from './assets/image2.png';
+import { useGetIdBookQuery } from '../../redux';
 
 export function Slider () {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -24,6 +25,7 @@ export function Slider () {
                         {id:4, image:MiniImage1}, {id:5, image:MiniImage2},
                         {id:6, image:MiniImage1}, {id:7, image:MiniImage2}
     ];
+    const {data} = useGetIdBookQuery();
 
     return (
             <div className="image">
@@ -35,8 +37,8 @@ export function Slider () {
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 className='mainSlider mobileSlider'
                 >
-                    {fullImages.map(({image, id}) => (
-                        <SwiperSlide key={id}><img src={image} alt="" /></SwiperSlide>
+                    {data?.images?.map((image) => (
+                        <SwiperSlide key={data.id}><img src={`https://strapi.cleverland.by${image?.url}`} alt="" /></SwiperSlide>
                     ))}
                 </Swiper>
                 <Swiper
@@ -48,8 +50,8 @@ export function Slider () {
                     scrollbar={{ draggable: true }}
                     className='miniSlider'
                     >
-                    {miniImages.map(({image, id}) => (
-                        <SwiperSlide data-test-id='slide-mini' key={id}><img src={image} alt="" /></SwiperSlide>
+                    {data?.images?.map((image) => (
+                        <SwiperSlide data-test-id='slide-mini' key={data.id}><img src={`https://strapi.cleverland.by${image?.url}`} alt="" /></SwiperSlide>
                     ))}
                 </Swiper>
             </div>

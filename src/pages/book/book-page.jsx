@@ -13,9 +13,11 @@ import { Footer } from "../../components/footer";
 import { FourStars } from '../../components/stars/four-stars';
 import { ThreeStars } from '../../components/stars/three-stars';
 import { Slider } from '../../components/slider';
+import { useGetIdBookQuery } from '../../redux';
 
 export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
+    const {data} = useGetIdBookQuery();
 
     return (
         <section className='book-page'>
@@ -24,14 +26,11 @@ export function BookPage () {
         <div className="main">
             <Slider />
             <div className="mainContent">
-                <div className="header">Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих</div>
-                <div className="author">Адитья Бхаргава, 2019</div>
+                <div className="header">{data?.title}</div>
+                <div className="author">{data?.authors}, {data?.issueYear}</div>
                 <div className="button"><button type="button">Забронировать</button></div>
                 <div className="aboutBook">О книге</div>
-                <div className="aboutText">
-                Алгоритмы — это всего лишь пошаговые алгоритмы решения задач, и большинство таких задач уже были кем-то решены, протестированы и проверены. Можно, конечно, погрузится в глубокую философию гениального Кнута, изучить многостраничные фолианты с доказательствами и обоснованиями, но хотите ли вы тратить на это свое время?<br /><br />
-                Откройте великолепно иллюстрированную книгу и вы сразу поймете, что алгоритмы — это просто. А грокать алгоритмы — это веселое и увлекательное занятие.
-                </div>
+                <div className="aboutText">{data?.description}</div>
             </div>
         </div>
         <div className="rating">
@@ -55,11 +54,11 @@ export function BookPage () {
                         <div className="nameOfProperty">Формат</div>
                     </div>
                     <div className="properties">
-                        <div className="property">Питер</div>
-                        <div className="property">2019</div>
-                        <div className="property">288</div>
-                        <div className="property">Мягкая обложка</div>
-                        <div className="property">70х100</div>
+                        <div className="property">{data?.publish}</div>
+                        <div className="property">{data?.issueYear}</div>
+                        <div className="property">{data?.pages}</div>
+                        <div className="property">{data?.cover}</div>
+                        <div className="property">{data?.format}</div>
                     </div>
                 </div>
                 <div className="column2">
@@ -70,10 +69,10 @@ export function BookPage () {
                         <div className="nameOfProperty">Изготовитель</div>
                     </div>
                     <div className="properties">
-                        <div className="property">Компьютерная литература</div>
-                        <div className="property">370 г</div>
-                        <div className="property">978-5-4461-0923-4</div>
-                        <div className="property">ООО «Питер Мейл». РФ, 198 206, г. Санкт-Петербург, Петергофское ш, д. 73, лит. А29</div>
+                        <div className="property">{data?.categories}</div>
+                        <div className="property">{data?.weight} г</div>
+                        <div className="property">{data?.ISBN}</div>
+                        <div className="property">{data?.producer}</div>
                     </div>
                 </div>
             </div>

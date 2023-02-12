@@ -1,6 +1,7 @@
 import './main-page.css';
 
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import classNames from "classnames";
 
 import search from './assets/search.png';
@@ -13,17 +14,13 @@ import miniCloseSearch from './assets/mini-close-search.png';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { Menu } from '../../components/menu';
-import { BookIcon } from '../../components/book-icons/book-icon';
-import { EmptyIcon } from '../../components/book-icons/empty-icon';
-import { OneImageIcon } from '../../components/book-icons/one-image-icon';
+import { useGetBooksQuery } from '../../redux';
+import { FourStars } from '../../components/stars/four-stars';
 
 
 export function MainPage () {
     const [isSearchOpen, toggleSearch] = useState(false);
-    const bookIcons = [{id:0, Icon:BookIcon}, {id:1, Icon:EmptyIcon}, {id:2, Icon:OneImageIcon},
-                       {id:3, Icon:BookIcon}, {id:4, Icon:EmptyIcon}, {id:5, Icon:OneImageIcon},
-                       {id:6, Icon:BookIcon}, {id:7, Icon:EmptyIcon}, {id:8, Icon:OneImageIcon}
-    ];
+    const {data = [], isError, isLoading} = useGetBooksQuery();
 
     return (
         <section className='main-page'>
@@ -61,7 +58,21 @@ export function MainPage () {
                 </div>
             </div>
             <div className="bookIcons">
-                {bookIcons.map(({Icon, id}) => <Icon key={id} />)}
+                {data.map(icon => (
+                    <div key={icon.id} className='bookIcon'>
+                        <Link to={`/book/${icon.id}`} id={icon.id}>
+                    <div className="imageOfBook">
+                        <img src={`https://strapi.cleverland.by${icon?.image?.url}`} alt="book" />
+                    </div>
+                    <FourStars />
+                        <div className="nameOfBook">{icon.title}</div>
+                    <div className="author">{icon.authors}, {icon.issueYear}</div>
+                        <div className="button">
+                            <button type='button' data-test-id='card'>Забронировать</button>
+                        </div>
+                    </Link>
+                    </div>
+                ))}
             </div>
         </div>
         </div>

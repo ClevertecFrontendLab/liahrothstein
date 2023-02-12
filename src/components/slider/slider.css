@@ -37,6 +37,7 @@ div.swiper div.swiper-pagination {
 div.miniSlider div.swiper-wrapper div.swiper-slide-thumb-active img {
     border: #F83600 solid 1px;
     border-radius: 5px;
+    height: 86px;
 }
 
 @media (max-width: 1023px) {
