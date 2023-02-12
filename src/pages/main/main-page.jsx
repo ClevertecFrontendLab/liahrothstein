@@ -16,11 +16,16 @@ import { Footer } from '../../components/footer';
 import { Menu } from '../../components/menu';
 import { useGetBooksQuery } from '../../redux';
 import { FourStars } from '../../components/stars/four-stars';
+import { ErrorMainPage } from '../error-main';
+import { LoadingMainPage } from '../loading-main';
 
 
 export function MainPage () {
     const [isSearchOpen, toggleSearch] = useState(false);
     const {data = [], isError, isLoading} = useGetBooksQuery();
+
+    if (isError) return <ErrorMainPage />
+    if (isLoading) return <LoadingMainPage />
 
     return (
         <section className='main-page'>

@@ -1,0 +1,1 @@
+export { ErrorMainPage } from "./error-main-page";

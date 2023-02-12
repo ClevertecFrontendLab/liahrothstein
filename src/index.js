@@ -7,10 +7,8 @@ import { MainPage } from './pages/main';
 import { TermsOfUse } from './pages/terms';
 import { OfferAgreement } from './pages/offer';
 import { BookPage } from './pages/book';
-import { EmptyBook } from './pages/empty-book';
 
 import './index.css';
-import { OneImageBook } from './pages/one-image-book';
 import { store } from './redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,8 +21,6 @@ root.render(
         <Route path='/terms' element={<TermsOfUse />} />
         <Route path='/offer' element={<OfferAgreement />} />
         <Route path='/book/:id' element={<BookPage />} />
-        <Route path='/empty' element={<EmptyBook />} />
-        <Route path='/one-image' element={<OneImageBook />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>

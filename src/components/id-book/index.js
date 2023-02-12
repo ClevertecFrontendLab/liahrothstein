@@ -1,1 +1,0 @@
-export { IdBook } from "./id-book";

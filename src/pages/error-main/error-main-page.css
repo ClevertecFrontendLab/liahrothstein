@@ -1,0 +1,218 @@
+section.error-main-page div.container div.menu div.tab1 div.active div.linkAndArrow button,
+section.error-main-page div.container div.menu div.tab1 div.categories.dropdown {
+    display: none;
+}
+
+section.error-main-page div.container div.menu div.tab1 div.active {
+    color: #F83600;
+}
+
+section.error-main-page div.container div.menu div.tab1 div.active + hr {
+    background: #F83600;
+}
+
+section.error-main-page div.container {
+    width: 1110px;
+    margin: 0 auto;
+    margin-top: 32px;
+}
+
+section.error-main-page div.errorMessage {
+    width: 1110px;
+    height: 80px;
+    padding-left: 32px;
+    padding-right: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: calc(50% - 1110px/2);
+    top: 64px;
+    background: #FEEBEA;
+    border: 1.5px solid #F42C4F;
+    border-radius: 5px;
+    z-index: 11;
+}
+
+section.error-main-page div.errorMessage div.errorText {
+    padding-right: 366px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+section.error-main-page div.errorMessage div.closeError {
+    cursor: pointer;
+}
+
+section.error-main-page div.errorMessage div.closeError button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+section.error-main-page div.errorMessage.closeMessage {
+    display: none;
+}
+
+@media (min-width: 1160px) and (max-width: 2560px) {
+    div.header div.burgerMenu {
+        display: none;
+    }
+    div.header div.backgroundOfMenu {
+        display: none;
+    }
+}
+
+@media (min-width: 1440px) and (max-width: 2560px) {
+    section.error-main-page div.header {
+        width: 1110px;
+        margin: 0 auto;
+        margin-top: 32px;
+    }
+}
+
+@media (min-width: 2560px) {
+    section.error-main-page div.header div.nameOfPage {
+        padding-right: 435px;
+    }
+}
+
+@media (max-width: 1160px) {
+    section.error-main-page div.header a.cleverland {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    section.error-main-page div.header div.person {
+        display: none;
+    }
+    section.error-main-page div.container {
+        display: none;
+    }
+    section.error-main-page div.header a div.logo {
+        display: none;
+    }
+    section.error-main-page div.header {
+        justify-content: flex-start;
+        gap: 3.47vw;
+        align-items: center;
+        margin: 32px 0 0 8.68vw;
+    }
+    section.error-main-page div.header div.nameOfPage {
+        padding-left: 3.13vw;
+    }
+    section.error-main-page div.errorMessage {
+        width: 83.33vw;
+        left: 8.33vw;
+        padding-left: 2.08vw;
+        padding-right: 2.08vw;
+    }
+    section.error-main-page div.errorMessage div.errorText {
+        padding-right: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    section.error-main-page div.errorMessage div.icon img {
+        width: 24px;
+        height: 24px;
+        max-width: none;
+    }
+    section.error-main-page div.errorMessage div.closeError img {
+        width: 16px;
+        height: 16px;
+        max-width: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1160px) {
+    section.error-main-page div.header div.person {
+        display: none;
+    }
+    section.error-main-page div.container {
+        display: none;
+    }
+    section.error-main-page div.header {
+        padding-left: 64px;
+        width: 767px;
+        justify-content: flex-start;
+    }
+    section.error-main-page div.header div.nameOfPage {
+        padding-left: 3.13vw;
+    }
+    section.error-main-page div.errorMessage {
+        width: 83.33vw;
+        height: 72px;
+        left: 8.33vw;
+        padding-left: 2.08vw;
+        padding-right: 2.08vw;
+    }
+    section.error-main-page div.errorMessage div.errorText {
+        padding-right: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+@media (max-width: 320px) {
+    section.error-main-page div.header {
+        margin-left: 5.63vw;
+    }
+    section.error-main-page div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.error-main-page div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    section.error-main-page div.errorMessage {
+        align-items: flex-start;
+        width: 87.5vw;
+        height: 78px;
+        left: 6.25vw;
+        padding-top: 12px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    section.error-main-page div.errorMessage div.errorText {
+        padding-left: 3.75vw;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+    section.error-main-page div.header {
+        margin-left: 5.63vw;
+    }
+    section.error-main-page div.header div.nameOfPage {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+    }
+    section.error-main-page div.header div.burgerMenu img {
+        width: 24px;
+        height: 24px;
+    }
+    section.error-main-page div.errorMessage {
+        align-items: flex-start;
+        width: 87.5vw;
+        height: 78px;
+        left: 6.25vw;
+        padding-top: 12px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    section.error-main-page div.errorMessage div.errorText {
+        padding-left: 3.75vw;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+}

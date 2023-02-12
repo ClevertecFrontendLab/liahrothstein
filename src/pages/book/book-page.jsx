@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import classNames from "classnames";
+import { useParams } from 'react-router-dom';
 
 import './book-page.css';
 import 'swiper/css/scrollbar';
@@ -17,12 +18,13 @@ import { useGetIdBookQuery } from '../../redux';
 
 export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
-    const {data} = useGetIdBookQuery();
+    const { id } = useParams();
+    const {data} = useGetIdBookQuery(id);
 
     return (
         <section className='book-page'>
         <Header />
-        <div className="bookMiniList">Бизнес книги  /  Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих</div>
+        <div className="bookMiniList">{data?.categories}  /  {data?.title}</div>
         <div className="main">
             <Slider />
             <div className="mainContent">
