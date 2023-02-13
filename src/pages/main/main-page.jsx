@@ -65,7 +65,7 @@ export function MainPage () {
             <div className="bookIcons">
                 {data.map(icon => (
                     <div key={icon.id} className='bookIcon'>
-                        <Link to={`/book/${icon.id}`} id={icon.id}>
+                        <Link to={`/books/all/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
                         <img src={`https://strapi.cleverland.by${icon?.image?.url}`} alt="book" />
                     </div>

@@ -7,7 +7,7 @@ import loader from './loader.png';
 export function LoadingMainPage() {
 
     return (
-        <section className="loading-main-page">
+        <section className="loading-main-page" data-test-id='loader'>
             <Header />
             <div className="container">
                 <Menu />

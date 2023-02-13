@@ -10,7 +10,7 @@ export function ErrorBookPage() {
     const [isClose, toggleClose] = useState(false);
 
     return (
-        <section className="error-main-page">
+        <section className="error-main-page" data-test-id='error'>
             <Header />
             <div className="bookMiniList">Бизнес книги  /  Грокаем алгоритмы. Иллюстрированное пособие для программистов и любопытствующих</div>
             <div className={classNames('errorMessage', {closeMessage: isClose})}>

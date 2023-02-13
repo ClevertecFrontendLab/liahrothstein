@@ -20,7 +20,7 @@ root.render(
         <Route path='/' element={<MainPage />} />
         <Route path='/terms' element={<TermsOfUse />} />
         <Route path='/offer' element={<OfferAgreement />} />
-        <Route path='/book/:id' element={<BookPage />} />
+        <Route path='/books/all/:id' element={<BookPage />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>
