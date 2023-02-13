@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Scrollbar, Pagination, Thumbs } from 'swiper';
+import { useParams } from 'react-router-dom';
 
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
@@ -11,7 +12,8 @@ import { useGetIdBookQuery } from '../../redux';
 
 export function Slider () {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
-    const {data} = useGetIdBookQuery();
+    const { id } = useParams();
+    const {data} = useGetIdBookQuery(id);
 
     return (
             <div className="image">

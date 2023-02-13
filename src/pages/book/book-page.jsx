@@ -15,11 +15,16 @@ import { FourStars } from '../../components/stars/four-stars';
 import { ThreeStars } from '../../components/stars/three-stars';
 import { Slider } from '../../components/slider';
 import { useGetIdBookQuery } from '../../redux';
+import { LoadingBookPage } from '../loading-book';
+import { ErrorBookPage } from '../error-book';
 
 export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
     const { id } = useParams();
-    const {data} = useGetIdBookQuery(id);
+    const {data = [], isError, isLoading} = useGetIdBookQuery(id);
+
+    if (isLoading) return <LoadingBookPage />
+    if (isError) return <ErrorBookPage />
 
     return (
         <section className='book-page'>

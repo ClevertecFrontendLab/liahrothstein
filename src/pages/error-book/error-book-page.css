@@ -1,0 +1,11 @@
+@media (min-width: 1441px) and (max-width: 2560px) {
+    section.error-main-page div.bookMiniList {
+        padding-left: 400px;
+    }
+}
+
+@media (min-width: 2506px) {
+    section.error-main-page div.bookMiniList {
+        padding-left: 28.2vw;
+    }
+}
