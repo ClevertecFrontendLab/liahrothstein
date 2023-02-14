@@ -15,22 +15,21 @@ import { FourStars } from '../../components/stars/four-stars';
 import { ThreeStars } from '../../components/stars/three-stars';
 import { Slider } from '../../components/slider';
 import { useGetIdBookQuery } from '../../redux';
-import { LoadingBookPage } from '../loading-book';
-import { ErrorBookPage } from '../error-book';
+import { Loader } from '../../components/loader';
+import { ErrorMessage } from '../../components/error-message';
 
 export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
     const { id } = useParams();
     const {data = [], isError, isLoading} = useGetIdBookQuery(id);
 
-    if (isLoading) return <LoadingBookPage />
-    if (isError) return <ErrorBookPage />
-
     return (
         <section className='book-page'>
+            <Loader />
+            <ErrorMessage />
         <Header />
         <div className="bookMiniList">{data?.categories}  /  {data?.title}</div>
-        <div className="main">
+        <div className={classNames('main', {loader: isLoading}, {error: isError})}>
             <Slider />
             <div className="mainContent">
                 <div className="header">{data?.title}</div>
@@ -40,7 +39,7 @@ export function BookPage () {
                 <div className="aboutText">{data?.description}</div>
             </div>
         </div>
-        <div className="rating">
+        <div className={classNames('rating', {loader: isLoading}, {error: isError})}>
             <div className="header">Рейтинг</div>
             <hr />
             <div className="starsWithNumbers">
@@ -48,7 +47,7 @@ export function BookPage () {
                 <div className="number">4.3</div>
             </div>
         </div>
-        <div className="detailedInformation">
+        <div className={classNames('detailedInformation', {loader: isLoading}, {error: isError})}>
             <div className="header">Подробная информация</div>
             <hr />
             <div className="main">
@@ -84,7 +83,7 @@ export function BookPage () {
                 </div>
             </div>
         </div>
-        <div className="reviews">
+        <div className={classNames('reviews', {loader: isLoading}, {error: isError})}>
             <div className="headerAndNumber">
                 <div className="header">Отзывы</div>
                 <div className="number">2</div>
@@ -121,7 +120,7 @@ export function BookPage () {
                 <ThreeStars />
             </div>
         </div>
-        <div className="rateTheBook"><button type="button" data-test-id='button-rating'>оценить книгу</button></div>
+        <div className={classNames('rateTheBook', {loader: isLoading}, {error: isError})}><button type="button" data-test-id='button-rating'>оценить книгу</button></div>
         <Footer />
     </section>
     );

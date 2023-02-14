@@ -273,6 +273,23 @@ div.rateTheBook button {
     cursor: pointer;
 }
 
+div.main.loader,
+div.main.error,
+div.rating.loader,
+div.rating.error,
+div.detailedInformation.loader,
+div.detailedInformation.error,
+div.reviews.loader,
+div.reviews.error,
+div.rateTheBook.loader,
+div.rateTheBook.error {
+    display: none;
+}
+
+section.book-page div.errorMessage.bookError {
+    display: flex;
+}
+
 @media (min-width: 769px) and (max-width: 2560px) {
     
 }

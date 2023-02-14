@@ -16,24 +16,22 @@ import { Footer } from '../../components/footer';
 import { Menu } from '../../components/menu';
 import { useGetBooksQuery } from '../../redux';
 import { FourStars } from '../../components/stars/four-stars';
-import { ErrorMainPage } from '../error-main';
-import { LoadingMainPage } from '../loading-main';
-
+import { Loader } from '../../components/loader';
+import { ErrorMessage } from '../../components/error-message';
 
 export function MainPage () {
     const [isSearchOpen, toggleSearch] = useState(false);
     const {data = [], isError, isLoading} = useGetBooksQuery();
 
-    if (isError) return <ErrorMainPage />
-    if (isLoading) return <LoadingMainPage />
-
     return (
         <section className='main-page'>
+            <Loader />
+            <ErrorMessage />
         <Header />
         <div className="container">
         <Menu />
         <div className="mainBooks">
-            <div className="navigationList">
+            <div className={classNames('navigationList', {loader: isLoading}, {error: isError})}>
                 <div className="searchWithFilterButton">
                     <div className="search">
                         <input type="text" placeholder='Поиск книги или автора…' />
@@ -62,7 +60,7 @@ export function MainPage () {
                     </div>
                 </div>
             </div>
-            <div className="bookIcons">
+            <div className={classNames('bookIcons', {loader: isLoading})}>
                 {data.map(icon => (
                     <div key={icon.id} className='bookIcon'>
                         <Link to={`/books/all/${icon.id}`} id={icon.id}>

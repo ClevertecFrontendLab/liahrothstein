@@ -101,6 +101,10 @@ div.mainBooks div.bookIcons {
     gap: 21.5px;
 }
 
+div.mainBooks div.bookIcons.loader {
+    display: none;
+}
+
 div.mainBooks div.bookIcons div.bookIcon {
     cursor: pointer;
     padding: 8px 0.56vw 16px 0.56vw;
@@ -199,6 +203,100 @@ section.main-page.notBurger div.header div.menu.visible {
     display: none;
 }
 
+div.blurBackground {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(54, 54, 54, 0.3);
+    backdrop-filter: blur(10px);
+    z-index: 3;
+}
+
+div.blurBackground div.loader {
+    position: absolute;
+    left: 47.57vw;
+    top: 33.13vw;
+    animation: loader 1.5s infinite linear;
+}
+
+div.mainBooks div.navigationList.loader {
+    display: none;
+}
+
+div.blurBackground.loading {
+    display: block;
+}
+
+div.blurBackground.error {
+    display: none;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {  
+        transform: rotate(360deg);
+    }
+}
+
+div.errorMessage {
+    width: 1110px;
+    height: 80px;
+    padding-left: 32px;
+    padding-right: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    left: calc(50% - 1110px/2);
+    top: 64px;
+    background: #FEEBEA;
+    border: 1.5px solid #F42C4F;
+    border-radius: 5px;
+    z-index: 11;
+}
+
+div.errorMessage div.errorText {
+    padding-right: 366px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+div.errorMessage div.closeError {
+    cursor: pointer;
+}
+
+div.errorMessage div.closeError button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+div.errorMessage.closeMessage {
+    display: none;
+}
+
+div.errorMessage.closeMessage {
+    display: none;
+}
+
+div.errorMessage {
+    display: none;
+}
+
+section.main-page div.errorMessage.error {
+    display: flex;
+}
+
+div.mainBooks div.navigationList.error {
+    display: none;
+}
+
 @media (min-width: 769px) and (max-width: 1160px) {
     div.container div.menu {
         display: none;
@@ -240,6 +338,52 @@ section.main-page.notBurger div.header div.menu.visible {
         font-size: 12px;
         line-height: 18px;
     }
+    div.blurBackground div.loader {
+        top: 52.96vw;
+        left: 47.14vw;
+    }
+    div.blurBackground div.loader img {
+        width: 44px;
+        height: 44px;
+    }
+    div.errorMessage {
+        width: 83.33vw;
+        left: 8.33vw;
+        padding-left: 2.08vw;
+        padding-right: 2.08vw;
+    }
+    div.errorMessage div.errorText {
+        padding-right: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    div.errorMessage div.icon img {
+        width: 24px;
+        height: 24px;
+        max-width: none;
+    }
+    div.errorMessage div.closeError img {
+        width: 16px;
+        height: 16px;
+        max-width: none;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1160px) {
+    div.errorMessage {
+        width: 83.33vw;
+        height: 72px;
+        left: 8.33vw;
+        padding-left: 2.08vw;
+        padding-right: 2.08vw;
+    }
+    div.errorMessage div.errorText {
+        padding-right: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
@@ -275,6 +419,36 @@ section.main-page.notBurger div.header div.menu.visible {
         font-weight: 600;
         font-size: 12px;
         line-height: 18px;
+    }
+    div.blurBackground div.loader {
+        top: 52.96vw;
+        left: 47.14vw;
+    }
+    div.blurBackground div.loader img {
+        width: 44px;
+        height: 44px;
+    }
+    div.errorMessage {
+        width: 83.33vw;
+        left: 8.33vw;
+        padding-left: 2.08vw;
+        padding-right: 2.08vw;
+    }
+    div.errorMessage div.errorText {
+        padding-right: 0;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
+    div.errorMessage div.icon img {
+        width: 24px;
+        height: 24px;
+        max-width: none;
+    }
+    div.errorMessage div.closeError img {
+        width: 16px;
+        height: 16px;
+        max-width: none;
     }
 }
 
@@ -357,6 +531,29 @@ section.main-page.notBurger div.header div.menu.visible {
     div.container div.bookIcons div.bookIcon div.stars {
         gap: 3.13vw;
     }
+    div.blurBackground div.loader {
+        top: 85.31vw;
+        left: 46.56vw;
+    }
+    div.blurBackground div.loader img {
+        width: 22px;
+        height: 22px;
+    }
+    div.errorMessage {
+        align-items: flex-start;
+        width: 87.5vw;
+        height: 78px;
+        left: 6.25vw;
+        padding-top: 12px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    div.errorMessage div.errorText {
+        padding-left: 3.75vw;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+    }
 }
 
 @media (min-width: 321px) and (max-width: 767px) {
@@ -435,6 +632,29 @@ section.main-page.notBurger div.header div.menu.visible {
     div.container div.mainBooks div.navigationList {
         margin-left: 5vw;
         width: 90vw;
+    }
+    div.blurBackground div.loader {
+        top: 85.31vw;
+        left: 46.56vw;
+    }
+    div.blurBackground div.loader img {
+        width: 22px;
+        height: 22px;
+    }
+    div.errorMessage {
+        align-items: flex-start;
+        width: 87.5vw;
+        height: 78px;
+        left: 6.25vw;
+        padding-top: 12px;
+        padding-left: 5vw;
+        padding-right: 5vw;
+    }
+    div.errorMessage div.errorText {
+        padding-left: 3.75vw;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
     }
 }
 

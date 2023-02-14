@@ -1,1 +1,0 @@
-export { LoadingMainPage } from "./loading-main-page";

@@ -1,22 +1,20 @@
-import { useState } from 'react';
-import classNames from 'classnames';
+import classNames from "classnames";
+import { useParams } from "react-router-dom";
+import { useState } from "react";
+import { useGetBooksQuery, useGetIdBookQuery } from "../../redux";
 
-import { Header } from '../../components/header';
-import { Menu } from '../../components/menu';
-import './error-main-page.css';
+import './error-message.css';
 import error from './assets/icon-error.png';
 import close from './assets/icon-close.png';
 
-export function ErrorMainPage() {
+export function ErrorMessage() {
+    const { id } = useParams();
+    const {isError: isBooksError} = useGetBooksQuery();
+    const {isError: isIdBookError} = useGetIdBookQuery(id);
     const [isClose, toggleClose] = useState(false);
 
     return (
-        <section className="error-main-page" data-test-id='error'>
-            <Header />
-            <div className="container">
-                <Menu />
-            </div>
-            <div className={classNames('errorMessage', {closeMessage: isClose})}>
+            <div className={classNames('errorMessage', {closeMessage: isClose}, {error: isBooksError}, {bookError: isIdBookError})} data-test-id='error'>
                 <div className="icon"><img src={error} alt="" /></div>
                 <div className="errorText">Что-то пошло не так. Обновите страницу через некоторое время.</div>
                 <div className="closeError">
@@ -25,6 +23,5 @@ export function ErrorMainPage() {
                     </button>
                 </div>
             </div>
-        </section>
     );
 }
