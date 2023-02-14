@@ -38,6 +38,10 @@ div.menu div.tab1 div.categories.dropdown {
     display: block;
 }
 
+div.menu div.tab1 div.categories.error {
+    display: none;
+}
+
 section.main-page div.container {
     display: flex;
     justify-content: center;

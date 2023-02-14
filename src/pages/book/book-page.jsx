@@ -28,7 +28,7 @@ export function BookPage () {
             <Loader />
             <ErrorMessage />
         <Header />
-        <div className="bookMiniList">{data?.categories}  /  {data?.title}</div>
+        <div className="bookMiniList">{data?.categories || 'Бизнес книги'}  /  {data?.title}</div>
         <div className={classNames('main', {loader: isLoading}, {error: isError})}>
             <Slider />
             <div className="mainContent">

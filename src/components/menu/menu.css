@@ -34,6 +34,10 @@ div.menu div.tab1 div.active div.linkAndArrow button {
     cursor: pointer;
 }
 
+div.menu div.tab1 div.active div.linkAndArrow button.error {
+    display: none;
+}
+
 div.menu div.tab1 div.categories {
     display: none;
 }
