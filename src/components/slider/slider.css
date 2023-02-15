@@ -40,6 +40,10 @@ div.miniSlider div.swiper-wrapper div.swiper-slide-thumb-active img {
     height: 86px;
 }
 
+div.miniSlider div.swiper-wrapper div.swiper-slide-visible img {
+    height: 86px;
+}
+
 div.mainSlider div.swiper-wrapper div.swiper-slide img {
     width: 445px;
 }

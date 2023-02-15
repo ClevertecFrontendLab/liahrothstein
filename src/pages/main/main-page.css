@@ -93,11 +93,20 @@ div.mainBooks div.navigationList div.buttonIcons {
     display: flex;
 }
 
+div.mainBooks div.navigationList div.buttonIcons button {
+    background: none;
+    border: none;
+}
+
 div.mainBooks div.navigationList div.buttonIcons div.buttonIcon {
     cursor: pointer;
 }
 
 div.mainBooks div.bookIcons {
+    display: none;
+}
+
+div.mainBooks div.bookIcons.blocksActive {
     margin-top: 32px;
     display: grid;
     grid-template-columns: repeat(4, 190px);
@@ -105,11 +114,66 @@ div.mainBooks div.bookIcons {
     gap: 21.5px;
 }
 
+div.mainBooks div.bookIcons.linesActive {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 32px;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon {
+    box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
+    border-radius: 12px;
+    padding: 24px 24px 24px 16px;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a div.imageOfBook img {
+    height: 170px;
+    max-width: none;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all {
+    width: 100%;
+    padding-left: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.nameOfBook {
+    padding-top: 0;
+    padding-bottom: 0;
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 32px;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.stars {
+    padding-top: 0;
+}
+
+div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.button button {
+    width: 174px;
+}
+
 div.mainBooks div.bookIcons.loader {
     display: none;
 }
 
-div.mainBooks div.bookIcons div.bookIcon {
+div.mainBooks div.bookIcons.blocksActive div.bookIcon {
     cursor: pointer;
     padding: 8px 0.56vw 16px 0.56vw;
     box-shadow: 0px 2px 4px rgba(191, 196, 201, 0.2), 0px 3px 4px rgba(191, 196, 201, 0.18), 0px 1px 5px rgba(191, 196, 201, 0.24);
@@ -203,6 +267,17 @@ div.mainBooks div.bookIcons div.bookIcon a {
     height: 100%;
 }
 
+div.noStars {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18px;
+    color: #A7A7A7;
+}
+
+div.mainBooks div.bookIcons div.bookIcon a div.imageOfBook img {
+    height: 242px;
+}
+
 section.main-page.notBurger div.header div.menu.visible {
     display: none;
 }
@@ -236,6 +311,14 @@ div.blurBackground.loading {
 
 div.blurBackground.error {
     display: none;
+}
+
+div.buttonIcon.blocksActive img {
+    content: url('./assets/blocks-on.png');
+}
+
+div.buttonIcon.linesActive img {
+    content: url('./assets/lines-on.png');
 }
 
 @keyframes loader {
@@ -312,11 +395,11 @@ div.mainBooks div.navigationList.error {
     div.container div.menu {
         display: none;
     }
-    div.container div.mainBooks div.bookIcons {
+    div.container div.mainBooks div.bookIcons.blocksActive {
         display: flex;
         flex-wrap: wrap;
     }
-    div.container div.mainBooks div.bookIcons {
+    div.container div.mainBooks div.bookIcons.blocksActive {
         width: 83.33vw;
     }
     div.container div.mainBooks {
@@ -327,7 +410,7 @@ div.mainBooks div.navigationList.error {
         width: 83.33vw;
     }
 
-    div.container div.bookIcons {
+    div.container div.bookIcons.blocksActive {
         margin-top: 24px;
         margin-left: 8.33vw;
         gap: 4.43vw;
@@ -372,6 +455,14 @@ div.mainBooks div.navigationList.error {
         height: 16px;
         max-width: none;
     }
+    div.mainBooks div.bookIcons.linesActive {
+        width: 83.33vw;
+        margin: 0 auto;
+        margin-top: 24px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon {
+        width: 83.33vw;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1160px) {
@@ -388,13 +479,21 @@ div.mainBooks div.navigationList.error {
         font-size: 14px;
         line-height: 18px;
     }
+    div.mainBooks div.bookIcons.linesActive {
+        width: 83.33vw;
+        margin: 0 auto;
+        margin-top: 24px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon {
+        width: 83.33vw;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
     div.menu {
         display: none;
     }
-    div.container div.mainBooks div.bookIcons {
+    div.container div.mainBooks div.bookIcons.blocksActive {
         display: flex;
         flex-wrap: wrap;
     }
@@ -516,11 +615,11 @@ div.mainBooks div.navigationList.error {
     div.container div.mainBooks div.navigationList div.buttonIcons div.buttonIcon img {
         height: 32px;
     }
-    div.container div.bookIcons {
+    div.container div.bookIcons.blocksActive {
         margin-top: 19px;
         margin-left: 5vw;
     }
-    div.container div.bookIcons div.bookIcon {
+    div.container div.bookIcons.blocksActive div.bookIcon {
         padding: 5vw;
         width: 90vw;
         height: 470px;
@@ -558,6 +657,46 @@ div.mainBooks div.navigationList.error {
         font-size: 14px;
         line-height: 18px;
     }
+    div.mainBooks div.bookIcons.linesActive {
+        margin-left: 5vw;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon {
+        padding: 16px 16px 16px 8px;
+        width: 90vw;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.imageOfBook img {
+        height: 100px;
+        max-width: 70px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all {
+        padding-left: 8px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.nameOfBook {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        padding-left: 0;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.author {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton {
+        flex-direction: column;
+        padding: 0;
+        align-items: flex-start;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.stars {
+        padding-top: 4.33px;
+        padding-bottom: 4.33px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.stars div.star img {
+        height: 12.67px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.button button {
+        width: 186px;
+    }
 }
 
 @media (min-width: 321px) and (max-width: 767px) {
@@ -580,7 +719,7 @@ div.mainBooks div.navigationList.error {
         margin-top: 19px;
         margin-left: 5vw;
     }
-    div.container div.bookIcons div.bookIcon {
+    div.container div.bookIcons.blocksActive div.bookIcon {
         padding: 5vw;
         width: 90vw;
         height: 470px;
@@ -659,6 +798,46 @@ div.mainBooks div.navigationList.error {
         font-weight: 600;
         font-size: 14px;
         line-height: 18px;
+    }
+    div.mainBooks div.bookIcons.linesActive {
+        margin-left: 5vw;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon {
+        padding: 16px 16px 16px 8px;
+        width: 90vw;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.imageOfBook img {
+        height: 100px;
+        max-width: 70px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all {
+        padding-left: 8px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.nameOfBook {
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 18px;
+        padding-left: 0;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.author {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 18px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton {
+        flex-direction: column;
+        padding: 0;
+        align-items: flex-start;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.stars {
+        padding-top: 4.33px;
+        padding-bottom: 4.33px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.stars div.star img {
+        height: 12.67px;
+    }
+    div.mainBooks div.bookIcons.linesActive div.bookIcon a div.all div.starsWithButton div.button button {
+        width: 186px;
     }
 }
 
