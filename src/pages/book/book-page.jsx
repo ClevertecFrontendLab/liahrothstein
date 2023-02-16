@@ -17,6 +17,9 @@ import { Slider } from '../../components/slider';
 import { useGetIdBookQuery } from '../../redux';
 import { Loader } from '../../components/loader';
 import { ErrorMessage } from '../../components/error-message';
+import { FiveStars } from '../../components/stars/five-stars';
+import { TwoStars } from '../../components/stars/two-stars';
+import { OneStar } from '../../components/stars/one-star';
 
 export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
@@ -43,8 +46,14 @@ export function BookPage () {
             <div className="header">Рейтинг</div>
             <hr />
             <div className="starsWithNumbers">
-                <FourStars />
-                <div className="number">4.3</div>
+                    {(Math.round(data?.rating) === 5) ? <FiveStars /> :
+                     (Math.round(data?.rating) === 4) ? <FourStars /> :
+                     (Math.round(data?.rating) === 3) ? <ThreeStars /> :
+                     (Math.round(data?.rating) === 2) ? <TwoStars /> :
+                     (Math.round(data?.rating) === 1) ? <OneStar /> :
+                     <div className='noStars'>ещё нет оценок</div>
+                    }
+                <div className="number">{data?.rating}</div>
             </div>
         </div>
         <div className={classNames('detailedInformation', {loader: isLoading}, {error: isError})}>
@@ -86,39 +95,44 @@ export function BookPage () {
         <div className={classNames('reviews', {loader: isLoading}, {error: isError})}>
             <div className="headerAndNumber">
                 <div className="header">Отзывы</div>
-                <div className="number">2</div>
+                <div className="number">{data?.comments?.length}</div>
                 <div className="dropdownReviewes">
                     <button type="button" className={classNames('arrowBtn', {dropdown: isArrowOpen})} onClick={() => {toggleArrow(!isArrowOpen)}} data-test-id='button-hide-reviews'><img src={arrow} alt="arrow" /></button>
                 </div>
             </div>
             <hr className={classNames({dropdown: isArrowOpen})} />
-            <div className={classNames('review', {dropdown: isArrowOpen})}>
+            {data?.comments?.map((val) => (
+                <div key={val?.id} className={classNames('review', 'secondReview', {dropdown: isArrowOpen})}>
                 <div className="container">
-                    <div className="commentator"><img src={commentator} alt="commentator" /></div>
-                    <div className="nameOfPerson">Иван Иванов</div>
-                    <div className="date">5 января 2019</div>
+                    <div className="commentator"><img src={(typeof val?.user?.avatarUrl === 'string') ? `https://strapi.cleverland.by${val?.user?.avatarUrl}` : commentator} alt="commentator" /></div>
+                    <div className="nameOfPerson">{val?.user?.firstName} {val?.user?.lastName}</div>
+                    <div className="date">
+                        {val?.createdAt?.slice(8, 10)}
+                        {(val?.createdAt?.slice(5, 7)) === '01' ? ' января ' :
+                        (val?.createdAt?.slice(5, 7)) === '02' ? ' февраля ' :
+                        (val?.createdAt?.slice(5, 7)) === '03' ? ' марта ' :
+                        (val?.createdAt?.slice(5, 7)) === '04' ? ' апреля ' :
+                        (val?.createdAt?.slice(5, 7)) === '05' ? ' мая ' :
+                        (val?.createdAt?.slice(5, 7)) === '06' ? ' июня ' :
+                        (val?.createdAt?.slice(5, 7)) === '07' ? ' июля ' :
+                        (val?.createdAt?.slice(5, 7)) === '08' ? ' августа ' :
+                        (val?.createdAt?.slice(5, 7)) === '09' ? ' сентября ' :
+                        (val?.createdAt?.slice(5, 7)) === '10' ? ' октября ' :
+                        (val?.createdAt?.slice(5, 7)) === '11' ? ' ноября ' :
+                        'декабря' 
+                        }
+                        {val?.createdAt?.slice(0, 4)}</div>
                 </div>
-                <FourStars />
+                    {(Math.round(val?.rating) === 5) ? <FiveStars /> :
+                     (Math.round(val?.rating) === 4) ? <FourStars /> :
+                     (Math.round(val?.rating) === 3) ? <ThreeStars /> :
+                     (Math.round(val?.rating) === 2) ? <TwoStars /> :
+                     (Math.round(val?.rating) === 1) ? <OneStar /> :
+                     <div className='noStars'>ещё нет оценок</div>
+                    }
+                <div className="comment">{val?.text}</div>
             </div>
-            <div className={classNames('review', 'secondReview', {dropdown: isArrowOpen})}>
-                <div className="container">
-                    <div className="commentator"><img src={commentator} alt="commentator" /></div>
-                    <div className="nameOfPerson">Николай Качков</div>
-                    <div className="date">20 июня 2018</div>
-                </div>
-                <FourStars />
-                <div className="comment">
-                Учитывая ключевые сценарии поведения, курс на социально-ориентированный национальный проект не оставляет шанса для анализа существующих паттернов поведения. Для современного мира внедрение современных методик предоставляет широкие возможности для позиций, занимаемых участниками в отношении поставленных задач. Как уже неоднократно упомянуто, сделанные на базе интернет-аналитики выводы будут в равной степени предоставлены сами себе. Вот вам яркий пример современных тенденций — глубокий уровень погружения создаёт предпосылки для своевременного выполнения сверхзадачи. И нет сомнений, что акционеры крупнейших компаний, инициированные исключительно синтетически, превращены в посмешище, хотя само их существование приносит несомненную пользу обществу.
-                </div>
-            </div>
-            <div className={classNames('review', {dropdown: isArrowOpen})}>
-                <div className="container">
-                    <div className="commentator"><img src={commentator} alt="commentator" /></div>
-                    <div className="nameOfPerson">Екатерина Беляева</div>
-                    <div className="date">18 февраля 2018</div>
-                </div>
-                <ThreeStars />
-            </div>
+            ))}
         </div>
         <div className={classNames('rateTheBook', {loader: isLoading}, {error: isError})}><button type="button" data-test-id='button-rating'>оценить книгу</button></div>
         <Footer />

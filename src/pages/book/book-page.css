@@ -12,7 +12,6 @@ div.header div.person div.hiName {
 
 div.bookMiniList {
     background: #F9F9FA;
-    height: 64px;
     padding: 20px 0 20px 11.46vw;
     margin-top: 27px;
     font-weight: 400;
@@ -315,7 +314,6 @@ section.book-page div.errorMessage.bookError {
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        height: 88px;
     }
     div.main div.image img {
         width: 136px;
@@ -352,6 +350,7 @@ section.book-page div.errorMessage.bookError {
     }
     div.rateTheBook button {
         width: 83.33vw;
+        max-width: 100%;
     }
 }
 
@@ -448,7 +447,6 @@ section.book-page div.errorMessage.bookError {
         font-weight: 500;
         font-size: 12px;
         line-height: 16px;
-        height: 92px;
     }
     div.main div.mainContent div.header {
         font-weight: 700;
