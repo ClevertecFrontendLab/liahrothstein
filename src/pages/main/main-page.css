@@ -284,7 +284,7 @@ section.main-page.notBurger div.header div.menu.visible {
 
 div.blurBackground {
     display: none;
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;

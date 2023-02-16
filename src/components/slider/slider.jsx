@@ -16,6 +16,8 @@ export function Slider () {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const { id } = useParams();
     const {data} = useGetIdBookQuery(id);
+    
+    const check = (data?.images === null) ? true : false;
 
     return (
             <div className="image">
@@ -27,8 +29,8 @@ export function Slider () {
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
                 className='mainSlider mobileSlider'
                 >
-                    {data?.images?.map((image) => (
-                        <SwiperSlide key={data.id}><img src={image ? `https://strapi.cleverland.by${image?.url}` : emptyImage} alt="img of book" /></SwiperSlide>
+                    {check ? <img src={emptyImage} alt="img of book" /> : data?.images?.map((image) => (
+                        <SwiperSlide key={data.id}><img src={`https://strapi.cleverland.by${image?.url}`} alt="img of book" /></SwiperSlide>
                     ))}
                 </Swiper>
                 <Swiper
