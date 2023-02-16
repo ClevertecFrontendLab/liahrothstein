@@ -43,15 +43,30 @@ div.menu div.tab1 div.categories {
 }
 
 div.menu div.tab1 div.categories div.allBooks {
-    padding-left: 20px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    -webkit-background-clip: text;
+    color: #363636;
+    background-clip: text;
+    cursor: pointer;
+}
+
+div.menu div.tab1 div.categories div.books button {
+    background: none;
+    border: none;
+}
+
+div.menu div.tab1 div.categories div.books button div.allBooks {
+    text-align: start;
+}
+
+div.menu div.tab1 div.categories div.books button.active div.allBooks {
+    color: #F83600;
     font-weight: 700;
     font-size: 18px;
     line-height: 28px;
-    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
-    -webkit-background-clip: text;
-    color: #F83600;
-    background-clip: text;
-    cursor: pointer;
 }
 
 div.menu div.tab2,

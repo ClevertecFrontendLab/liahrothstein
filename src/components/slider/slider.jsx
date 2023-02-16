@@ -10,6 +10,8 @@ import './slider.css';
 
 import { useGetIdBookQuery } from '../../redux';
 
+import emptyImage from './assets/empty-image.png';
+
 export function Slider () {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const { id } = useParams();
@@ -26,7 +28,7 @@ export function Slider () {
                 className='mainSlider mobileSlider'
                 >
                     {data?.images?.map((image) => (
-                        <SwiperSlide key={data.id}><img src={`https://strapi.cleverland.by${image?.url}`} alt="img of book" /></SwiperSlide>
+                        <SwiperSlide key={data.id}><img src={image ? `https://strapi.cleverland.by${image?.url}` : emptyImage} alt="img of book" /></SwiperSlide>
                     ))}
                 </Swiper>
                 <Swiper
@@ -39,7 +41,7 @@ export function Slider () {
                     className='miniSlider'
                     >
                     {data?.images?.map((image) => (
-                        <SwiperSlide data-test-id='slide-mini' key={data.id}><img src={`https://strapi.cleverland.by${image?.url}`} alt="img of book" /></SwiperSlide>
+                        <SwiperSlide data-test-id='slide-mini' key={data.id}><img src={image ? `https://strapi.cleverland.by${image?.url}` : emptyImage} alt="img of book" /></SwiperSlide>
                     ))}
                 </Swiper>
             </div>

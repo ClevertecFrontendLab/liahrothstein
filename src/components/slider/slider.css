@@ -1,11 +1,3 @@
-div.main div.image img.firstImage {
-    content: url('./assets/fullImage1.png');
-}
-
-div.main div.image img.secondImage {
-    content: url('assets/fullImage2.png');
-}
-
 div.swiper {
     width: 445px;
     margin-top: 17px;

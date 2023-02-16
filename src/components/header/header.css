@@ -67,7 +67,7 @@ div.header div.menu div.linkAndArrow + hr {
     height: 1px;
     background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
     transform: rotate(180deg);
-    margin: 8px 0 42px 0;
+    margin: 8px 0 16px 0;
 }
 
 div.header div.menu div.terms {
@@ -130,15 +130,22 @@ div.header div.menu div.categories.dropdown {
 
 div.header div.menu div.categories div.allBooks {
     padding-left: 1.39vw;
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 28px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
     background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
     -webkit-background-clip: text;
-    color: #F83600;
+    color: #363636;
     background-clip: text;
     cursor: pointer;
     margin-bottom: 16px;
+}
+
+div.header div.menu div.categories button.active div.allBooks {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    color: #F83600;
 }
 
 div.header div.menu div.categories div.books {
@@ -154,11 +161,35 @@ div.header div.menu div.categories div.books div.book {
     display: flex;
 }
 
+div.header div.menu div.categories div.books div.book button {
+    border: none;
+    background: none;
+}
+
+div.header div.menu div.categories div.books div.book button.active div.nameOfBook {
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 28px;
+    color: #F83600;
+}
+
+div.header div.menu div.categories div.books button {
+    border: none;
+    background: none;
+}
+
+div.header div.menu div.categories div.books button div.allBooks {
+    text-align: start;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
 div.header div.menu div.categories div.books div.book div.nameOfBook {
     font-weight: 400;
     font-size: 16px;
     line-height: 24px;
     padding-right: 0.42vw;
+    text-align: start;
 }
 
 div.header div.menu div.categories div.books div.book div.amount {

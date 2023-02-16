@@ -41,7 +41,6 @@ export const Header = () => {
                 </div>
                 <hr />
                 <div className={classNames('categories', {dropdown: isArrowOpen})}>
-                    <div className="allBooks" data-test-id='burger-books'>Все книги</div>
                     <AllBooks />
                 </div>
                 <Link to='/terms' className="links">

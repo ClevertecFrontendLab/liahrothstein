@@ -23,7 +23,6 @@ export function Menu () {
                 </div>
                 <hr />
                 <div className={classNames('categories', {dropdown: isArrowOpen}, {error: isError})}>
-                    <div className="allBooks" data-test-id='navigation-books'>Все книги</div>
                     <AllBooks />
                 </div>
             </div>

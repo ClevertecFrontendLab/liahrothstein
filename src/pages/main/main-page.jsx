@@ -11,6 +11,7 @@ import linesButton from './assets/lines-button.png';
 import miniFilter from './assets/mini-filter.png';
 import miniSearch from './assets/mini-search.png';
 import miniCloseSearch from './assets/mini-close-search.png';
+import emptyImage from './assets/empty-image.png';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { Menu } from '../../components/menu';
@@ -79,7 +80,7 @@ export function MainPage () {
                     <div key={icon.id} className='bookIcon'>
                         <Link to={`/books/all/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
-                        <img src={`https://strapi.cleverland.by${icon?.image?.url}`} alt="book" />
+                        <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
                     </div>
                     {(Math.round(icon.rating) === 5) ? <FiveStars /> :
                      (Math.round(icon.rating) === 4) ? <FourStars /> :
@@ -102,7 +103,7 @@ export function MainPage () {
                     <div key={icon.id} className='bookIcon'>
                         <Link to={`/books/all/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
-                        <img src={`https://strapi.cleverland.by${icon?.image?.url}`} alt="book" />
+                        <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
                     </div>
                     <div className="all">
                         <div className="nameOfBook">{icon.title}</div>
