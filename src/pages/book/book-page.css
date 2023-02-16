@@ -375,7 +375,6 @@ section.book-page div.errorMessage.bookError {
         font-weight: 400;
         font-size: 14px;
         line-height: 18px;
-        height: 88px;
     }
     div.main div.image img {
         width: 136px;
@@ -539,7 +538,6 @@ section.book-page div.errorMessage.bookError {
         font-weight: 500;
         font-size: 12px;
         line-height: 16px;
-        height: 92px;
     }
     div.main div.mainContent div.header {
         font-weight: 700;
@@ -654,5 +652,20 @@ section.book-page div.errorMessage.bookError {
 @media (min-width: 2506px) {
     section.book-page div.bookMiniList {
         padding-left: 28.2vw;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    div.rating {
+        padding-left: 72px;
+    }
+    div.detailedInformation {
+        padding-left: 72px;
+    }
+    div.reviews {
+        padding-left: 72px;
+    }
+    div.rateTheBook {
+        padding-left: 72px;
     }
 }

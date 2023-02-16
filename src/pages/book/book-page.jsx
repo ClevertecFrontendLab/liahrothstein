@@ -119,7 +119,7 @@ export function BookPage () {
                         (val?.createdAt?.slice(5, 7)) === '09' ? ' сентября ' :
                         (val?.createdAt?.slice(5, 7)) === '10' ? ' октября ' :
                         (val?.createdAt?.slice(5, 7)) === '11' ? ' ноября ' :
-                        'декабря' 
+                        ' декабря ' 
                         }
                         {val?.createdAt?.slice(0, 4)}</div>
                 </div>
