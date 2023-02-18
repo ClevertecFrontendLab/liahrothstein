@@ -1,1 +1,0 @@
-export { FourStars } from './four-stars';

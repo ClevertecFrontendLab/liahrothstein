@@ -16,13 +16,9 @@ import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { Menu } from '../../components/menu';
 import { useGetBooksQuery } from '../../redux';
-import { FourStars } from '../../components/stars/four-stars';
 import { Loader } from '../../components/loader';
 import { ErrorMessage } from '../../components/error-message';
-import { FiveStars } from '../../components/stars/five-stars';
-import { ThreeStars } from '../../components/stars/three-stars';
-import { TwoStars } from '../../components/stars/two-stars';
-import { OneStar } from '../../components/stars/one-star';
+import { Stars } from '../../components/stars';
 
 export function MainPage () {
     const [isActive, setActive] = useState(true);
@@ -82,11 +78,11 @@ export function MainPage () {
                     <div className="imageOfBook">
                         <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
                     </div>
-                    {(Math.round(icon.rating) === 5) ? <FiveStars /> :
-                     (Math.round(icon.rating) === 4) ? <FourStars /> :
-                     (Math.round(icon.rating) === 3) ? <ThreeStars /> :
-                     (Math.round(icon.rating) === 2) ? <TwoStars /> :
-                     (Math.round(icon.rating) === 1) ? <OneStar /> :
+                    {(Math.round(icon.rating) === 5) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 4) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 3) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 2) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 1) ? <Stars count={icon.rating} /> :
                      <div className='noStars'>ещё нет оценок</div>
                     }
                         <div className="nameOfBook">{icon.title}</div>
@@ -109,11 +105,11 @@ export function MainPage () {
                         <div className="nameOfBook">{icon.title}</div>
                     <div className="author">{icon.authors}, {icon.issueYear}</div>
                     <div className="starsWithButton">
-                    {(Math.round(icon.rating) === 5) ? <FiveStars /> :
-                     (Math.round(icon.rating) === 4) ? <FourStars /> :
-                     (Math.round(icon.rating) === 3) ? <ThreeStars /> :
-                     (Math.round(icon.rating) === 2) ? <TwoStars /> :
-                     (Math.round(icon.rating) === 1) ? <OneStar /> :
+                    {(Math.round(icon.rating) === 5) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 4) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 3) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 2) ? <Stars count={icon.rating} /> :
+                     (Math.round(icon.rating) === 1) ? <Stars count={icon.rating} /> :
                      <div className='noStars'>ещё нет оценок</div>
                     }
                         <div className="button">

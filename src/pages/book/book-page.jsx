@@ -11,15 +11,11 @@ import commentator from './assets/commentator.png';
 import arrow from './assets/arrow-off.png';
 import { Header } from "../../components/header";
 import { Footer } from "../../components/footer";
-import { FourStars } from '../../components/stars/four-stars';
-import { ThreeStars } from '../../components/stars/three-stars';
 import { Slider } from '../../components/slider';
 import { useGetIdBookQuery } from '../../redux';
 import { Loader } from '../../components/loader';
 import { ErrorMessage } from '../../components/error-message';
-import { FiveStars } from '../../components/stars/five-stars';
-import { TwoStars } from '../../components/stars/two-stars';
-import { OneStar } from '../../components/stars/one-star';
+import { Stars } from '../../components/stars';
 
 export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
@@ -46,11 +42,11 @@ export function BookPage () {
             <div className="header">Рейтинг</div>
             <hr />
             <div className="starsWithNumbers">
-                    {(Math.round(data?.rating) === 5) ? <FiveStars /> :
-                     (Math.round(data?.rating) === 4) ? <FourStars /> :
-                     (Math.round(data?.rating) === 3) ? <ThreeStars /> :
-                     (Math.round(data?.rating) === 2) ? <TwoStars /> :
-                     (Math.round(data?.rating) === 1) ? <OneStar /> :
+                    {(Math.round(data?.rating) === 5) ? <Stars count={data?.rating} /> :
+                     (Math.round(data?.rating) === 4) ? <Stars count={data?.rating} /> :
+                     (Math.round(data?.rating) === 3) ? <Stars count={data?.rating} /> :
+                     (Math.round(data?.rating) === 2) ? <Stars count={data?.rating} /> :
+                     (Math.round(data?.rating) === 1) ? <Stars count={data?.rating} /> :
                      <div className='noStars'>ещё нет оценок</div>
                     }
                 <div className="number">{data?.rating}</div>
@@ -123,11 +119,11 @@ export function BookPage () {
                         }
                         {val?.createdAt?.slice(0, 4)}</div>
                 </div>
-                    {(Math.round(val?.rating) === 5) ? <FiveStars /> :
-                     (Math.round(val?.rating) === 4) ? <FourStars /> :
-                     (Math.round(val?.rating) === 3) ? <ThreeStars /> :
-                     (Math.round(val?.rating) === 2) ? <TwoStars /> :
-                     (Math.round(val?.rating) === 1) ? <OneStar /> :
+                    {(Math.round(val?.rating) === 5) ? <Stars count={val?.rating} /> :
+                     (Math.round(val?.rating) === 4) ? <Stars count={val?.rating} /> :
+                     (Math.round(val?.rating) === 3) ? <Stars count={val?.rating} /> :
+                     (Math.round(val?.rating) === 2) ? <Stars count={val?.rating} /> :
+                     (Math.round(val?.rating) === 1) ? <Stars count={val?.rating} /> :
                      <div className='noStars'>ещё нет оценок</div>
                     }
                 <div className="comment">{val?.text}</div>

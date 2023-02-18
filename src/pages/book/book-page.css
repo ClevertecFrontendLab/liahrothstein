@@ -605,7 +605,7 @@ section.book-page div.errorMessage.bookError {
         margin-top: 32px;
     }
     section.book-page div.bookMiniList {
-        padding-left: 400px;
+        padding-left: 21.2vw;
     }
     section.book-page div.main div.mainContent {
         width: 635px;
@@ -649,7 +649,44 @@ section.book-page div.errorMessage.bookError {
     }
 }
 
-@media (min-width: 2506px) {
+
+@media (min-width: 1940px) and (max-width: 2560px) {
+    section.book-page div.bookMiniList {
+        padding-left: 22.2vw;
+    }
+}
+
+@media (min-width: 2000px) and (max-width: 2560px) {
+    section.book-page div.bookMiniList {
+        padding-left: 23.2vw;
+    }
+}
+
+@media (min-width: 2100px) and (max-width: 2560px) {
+    section.book-page div.bookMiniList {
+        padding-left: 24.2vw;
+    }
+}
+
+@media (min-width: 2200px) and (max-width: 2560px) {
+    section.book-page div.bookMiniList {
+        padding-left: 25.2vw;
+    }
+}
+
+@media (min-width: 2200px) and (max-width: 2559px) {
+    section.book-page div.bookMiniList {
+        padding-left: 26.2vw;
+    }
+}
+
+@media (min-width: 2200px) and (max-width: 2560px) {
+    section.book-page div.bookMiniList {
+        padding-left: 27.2vw;
+    }
+}
+
+@media (min-width: 2560px) {
     section.book-page div.bookMiniList {
         padding-left: 28.2vw;
     }
