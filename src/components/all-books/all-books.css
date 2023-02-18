@@ -1,0 +1,38 @@
+div.menu div.tab1 div.categories div.books {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+div.menu div.tab1 div.categories div.book {
+    display: flex;
+    margin: 8px 0;
+    cursor: pointer;
+}
+
+div.menu div.tab1 div.categories div.book button {
+    background: none;
+    border: none;
+}
+
+div.menu div.tab1 div.categories div.books div.book div.nameOfBook {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    padding-right: 6px;
+    text-align: start;
+    cursor: pointer;
+}
+
+div.menu div.tab1 div.categories div.books div.book div.amount {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+    color: #A7A7A7;
+}
+
+div.menu div.tab1 div.categories div.books div.book button.active div.nameOfBook {
+    color: #F83600;
+    font-size: 18px;
+    font-weight: 700;
+}
