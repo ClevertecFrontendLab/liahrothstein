@@ -78,12 +78,8 @@ export function MainPage () {
                     <div className="imageOfBook">
                         <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
                     </div>
-                    {(Math.round(icon.rating) === 5) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 4) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 3) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 2) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 1) ? <Stars count={icon.rating} /> :
-                     <div className='noStars'>ещё нет оценок</div>
+                    {(icon.rating) === null ? <div className='noStars'>ещё нет оценок</div> :
+                     <Stars count={Math.round(icon.rating)} />
                     }
                         <div className="nameOfBook">{icon.title}</div>
                     <div className="author">{icon.authors}, {icon.issueYear}</div>
@@ -105,12 +101,8 @@ export function MainPage () {
                         <div className="nameOfBook">{icon.title}</div>
                     <div className="author">{icon.authors}, {icon.issueYear}</div>
                     <div className="starsWithButton">
-                    {(Math.round(icon.rating) === 5) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 4) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 3) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 2) ? <Stars count={icon.rating} /> :
-                     (Math.round(icon.rating) === 1) ? <Stars count={icon.rating} /> :
-                     <div className='noStars'>ещё нет оценок</div>
+                    {(icon.rating) === null ? <div className='noStars'>ещё нет оценок</div> :
+                     <Stars count={Math.round(icon.rating)} />
                     }
                         <div className="button">
                             <button type='button' data-test-id='card'>Забронировать</button>

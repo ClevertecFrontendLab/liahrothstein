@@ -42,12 +42,8 @@ export function BookPage () {
             <div className="header">Рейтинг</div>
             <hr />
             <div className="starsWithNumbers">
-                    {(Math.round(data?.rating) === 5) ? <Stars count={data?.rating} /> :
-                     (Math.round(data?.rating) === 4) ? <Stars count={data?.rating} /> :
-                     (Math.round(data?.rating) === 3) ? <Stars count={data?.rating} /> :
-                     (Math.round(data?.rating) === 2) ? <Stars count={data?.rating} /> :
-                     (Math.round(data?.rating) === 1) ? <Stars count={data?.rating} /> :
-                     <div className='noStars'>ещё нет оценок</div>
+                {(data?.rating) === null ? <div className='noStars'>ещё нет оценок</div> :
+                     <Stars count={Math.round(data?.rating)} />
                     }
                 <div className="number">{data?.rating}</div>
             </div>
@@ -119,12 +115,8 @@ export function BookPage () {
                         }
                         {val?.createdAt?.slice(0, 4)}</div>
                 </div>
-                    {(Math.round(val?.rating) === 5) ? <Stars count={val?.rating} /> :
-                     (Math.round(val?.rating) === 4) ? <Stars count={val?.rating} /> :
-                     (Math.round(val?.rating) === 3) ? <Stars count={val?.rating} /> :
-                     (Math.round(val?.rating) === 2) ? <Stars count={val?.rating} /> :
-                     (Math.round(val?.rating) === 1) ? <Stars count={val?.rating} /> :
-                     <div className='noStars'>ещё нет оценок</div>
+                {(val?.rating) === null ? <div className='noStars'>ещё нет оценок</div> :
+                     <Stars count={Math.round(val?.rating)} />
                     }
                 <div className="comment">{val?.text}</div>
             </div>
