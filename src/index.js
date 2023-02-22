@@ -18,9 +18,11 @@ root.render(
     <HashRouter>
       <Routes>
         <Route path='/' element={<MainPage />} />
+        <Route path='/books/all' element={<MainPage />} />
         <Route path='/terms' element={<TermsOfUse />} />
         <Route path='/offer' element={<OfferAgreement />} />
-        <Route path='/books/all/:id' element={<BookPage />} />
+        <Route path='/books/all/:category' element={<MainPage />} />
+        <Route path='/books/:category/:id' element={<BookPage />} />
       </Routes>
     </HashRouter>
   </React.StrictMode>

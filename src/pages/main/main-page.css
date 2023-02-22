@@ -89,6 +89,18 @@ div.mainBooks div.navigationList div.searchWithFilterButton div.filterButton {
     cursor: pointer;
 }
 
+div.mainBooks div.navigationList div.searchWithFilterButton div.filterButton button {
+    display: flex;
+    align-items: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+div.mainBooks div.navigationList div.searchWithFilterButton div.filterButton button.rating img {
+    content: url('./assets/filter-button-on.png');
+}
+
 div.mainBooks div.navigationList div.buttonIcons {
     display: flex;
 }
@@ -639,6 +651,13 @@ div.mainBooks div.navigationList.error {
     div.container div.mainBooks div.navigationList div.buttonIcons div.buttonIcon img {
         height: 32px;
     }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter button {
+        background: none;
+        border: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter button.rating img {
+        content: url('./assets/mini-filter-on.png');
+    }
     div.container div.bookIcons.blocksActive {
         margin-top: 19px;
         margin-left: 5vw;
@@ -751,6 +770,13 @@ div.mainBooks div.navigationList.error {
     div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter img,
     div.container div.mainBooks div.navigationList div.buttonIcons div.buttonIcon img {
         height: 32px;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter button {
+        background: none;
+        border: none;
+    }
+    div.container div.mainBooks div.navigationList div.miniSearchWithFilterButton div.miniFilter button.rating img {
+        content: url('./assets/mini-filter-on.png');
     }
     div.container div.bookIcons {
         margin-top: 19px;

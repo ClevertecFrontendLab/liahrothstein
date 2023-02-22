@@ -21,7 +21,7 @@ export const Header = () => {
 
     return (
         <div className="header">
-            <Link to='/' className="cleverland">
+            <Link to='/books/all' className="cleverland">
                 <div className="logo">
                     <div className="logoClevertec"><img src={logo} alt="logo" /></div>
                     <div className="logoName">Cleverland</div>
@@ -32,7 +32,7 @@ export const Header = () => {
             </button>
             <div className={classNames('menu', {visible: isBurgerOpen})} data-test-id='burger-navigation'>
                 <div className="linkAndArrow">
-                    <Link to='/' className="links">
+                    <Link to='/books/all' className="links">
                         <div className="books">Витрина книг</div>
                     </Link>
                     <button type="button" className={classNames('arrowBtn', {dropdown: isArrowOpen})} onClick={() => {toggleArrow(!isArrowOpen)}} data-test-id='burger-showcase'>

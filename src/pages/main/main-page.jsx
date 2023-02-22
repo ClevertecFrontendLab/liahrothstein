@@ -1,7 +1,7 @@
 import './main-page.css';
 
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import classNames from "classnames";
 
 import search from './assets/search.png';
@@ -15,16 +15,76 @@ import emptyImage from './assets/empty-image.png';
 import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
 import { Menu } from '../../components/menu';
-import { useGetBooksQuery } from '../../redux';
+import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux';
 import { Loader } from '../../components/loader';
 import { ErrorMessage } from '../../components/error-message';
 import { Stars } from '../../components/stars';
 
 export function MainPage () {
     const [isActive, setActive] = useState(true);
+    const [isRating, setRating] = useState(false);
 
     const [isSearchOpen, toggleSearch] = useState(false);
     const {data = [], isError, isLoading} = useGetBooksQuery();
+    const { category } = useParams();
+
+    const allBooks = [...data];
+
+    function filterBooks(bookCategory) {
+        let nameOfCategory;
+        
+        if (bookCategory === 'business') {
+            nameOfCategory = 'Бизнес'
+        } else if (bookCategory === 'psychology') {
+            nameOfCategory = 'Психология'
+        } else if (bookCategory === 'parents') {
+            nameOfCategory = 'Родителям'
+        } else if (bookCategory === 'non-fiction') {
+            nameOfCategory = 'Нон-фикшн'
+        } else if (bookCategory === 'fiction') {
+            nameOfCategory = 'Художественная литература'
+        } else if (bookCategory === 'programming') {
+            nameOfCategory = 'Программирование'
+        } else if (bookCategory === 'hobby') {
+            nameOfCategory = 'Хобби'
+        } else if (bookCategory === 'design') {
+            nameOfCategory = 'Дизайн'
+        } else if (bookCategory === 'childish') {
+            nameOfCategory = 'Детские'
+        } else {
+            nameOfCategory = 'Другое'
+        }
+        
+        return (
+            (category === undefined) ? allBooks : data.filter((book) => (book.categories[0] === nameOfCategory))
+            )
+        }
+        
+    const books1 = filterBooks(category);
+    const books2 = filterBooks(category);
+
+    const ratingOff = books1.sort((a, b) => ((a.rating > b.rating) ? 1 : 
+    (a.rating < b.rating) ? -1 : 
+    (a.rating === b.rating) ? 0 : 1));
+
+    const ratingOn = books2.sort((a, b) => ((a.rating > b.rating) ? -1 : 
+    (a.rating < b.rating) ? 1 : 
+    (a.rating === b.rating) ? 0 : 1));
+
+    function categoryInTheSearchBar(category) {
+        return (
+            (category === 'Бизнес') ? 'business' :
+            (category === 'Психология') ? 'psychology' :
+            (category === 'Родителям') ? 'parents' :
+            (category === 'Нон-фикшн') ? 'non-fiction' :
+            (category === 'Художественная литература') ? 'fiction' :
+            (category === 'Программирование') ? 'programming' :
+            (category === 'Хобби') ? 'hobby' :
+            (category === 'Дизайн') ? 'design' :
+            (category === 'Детские') ? 'childish' :
+            'other' 
+        );
+    }
 
     return (
         <section className='main-page'>
@@ -40,7 +100,11 @@ export function MainPage () {
                         <input type="text" placeholder='Поиск книги или автора…' />
                         <img src={search} alt="search" />
                     </div>
-                    <div className="filterButton"><img src={filterButton} alt="" /></div>
+                    <div className="filterButton">
+                        <button type='button' onClick={() => (setRating(!isRating))} className={classNames({rating: isRating})}>
+                            <img src={filterButton} alt="" />
+                        </button>
+                    </div>
                 </div>
                 <div className={classNames('miniSearchWithFilterButton', {searchOpen: isSearchOpen})}>
                     <div className="miniSearch">
@@ -48,7 +112,11 @@ export function MainPage () {
                             <img src={miniSearch} alt="search" />
                         </button>
                     </div>
-                    <div className="miniFilter"><img src={miniFilter} alt="filter" /></div>
+                    <div className="miniFilter">
+                        <button type='button' onClick={() => (setRating(!isRating))} className={classNames({rating: isRating})}>
+                            <img src={miniFilter} alt="filter" />
+                        </button>
+                    </div>
                 </div>
                 <div className={classNames('buttonIcons', {searchOpen: isSearchOpen})}>
                     <button type='button' onClick={() => {setActive(true)}}>
@@ -72,9 +140,9 @@ export function MainPage () {
                 </div>
             </div>
             <div className={classNames('bookIcons', {loader: isLoading}, {blocksActive: (isActive === true) ? 'active' : ''})}>
-                {data.map(icon => (
+                {((isRating) ? ratingOff : ratingOn).map(icon => (
                     <div key={icon.id} className='bookIcon'>
-                        <Link to={`/books/all/${icon.id}`} id={icon.id}>
+                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
                         <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
                     </div>
@@ -91,9 +159,9 @@ export function MainPage () {
                 ))}
             </div>
             <div className={classNames('bookIcons', {loader: isLoading}, {linesActive: (isActive === false) ? 'active' : ''})}>
-                {data.map(icon => (
+                {((isRating) ? ratingOff : ratingOn).map(icon => (
                     <div key={icon.id} className='bookIcon'>
-                        <Link to={`/books/all/${icon.id}`} id={icon.id}>
+                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
                         <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
                     </div>

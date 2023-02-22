@@ -1,5 +1,3 @@
-import {Link} from 'react-router-dom';
-
 import './terms-of-use.css';
 
 import { Header } from '../../components/header';
