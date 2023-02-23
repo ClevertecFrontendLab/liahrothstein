@@ -6,12 +6,12 @@ import './all-books.css';
 export function AllBooks () {
     const {data: categoriesData} = useGetCategoriesQuery();
     const {data: booksData} = useGetBooksQuery();
-    const [activeCategory, setActiveCategory] = useState('all');
+    const [activeCategory, setActiveCategory] = useState(undefined);
     const { category } = useParams();
 
     return (
                     <div className="books">
-                        <button type='button' onClick={() => setActiveCategory('all')} className={activeCategory === 'all' ? 'active' : ''}>
+                        <button type='button' onClick={() => setActiveCategory(undefined)} className={category === undefined ? 'active' : ''}>
                             <Link to='/books/all'>
                                 <div className="allBooks" data-test-id='navigation-books'>Все книги</div>
                             </Link>
