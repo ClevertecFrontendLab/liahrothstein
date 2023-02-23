@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux';
 import './all-books.css';
 
 export function AllBooks () {
     const {data: categoriesData} = useGetCategoriesQuery();
     const {data: booksData} = useGetBooksQuery();
-    const [activeCategory, setActiveCategory] = useState(0);
+    const [activeCategory, setActiveCategory] = useState('all');
+    const { category } = useParams();
 
     return (
                     <div className="books">
-                        <button type='button' onClick={() => setActiveCategory(0)} className={activeCategory === 0 ? 'active' : ''}>
+                        <button type='button' onClick={() => setActiveCategory('all')} className={activeCategory === 'all' ? 'active' : ''}>
                             <Link to='/books/all'>
                                 <div className="allBooks" data-test-id='navigation-books'>Все книги</div>
                             </Link>
@@ -18,11 +19,11 @@ export function AllBooks () {
                         {categoriesData?.map(book => (
                             <div key={book.id} className="book">
                                 <Link to={`/books/all/${book.path}`}>
-                                    <button type='button' className={activeCategory === book.id ? 'active' : ''} onClick={() => setActiveCategory(book.id)}>
+                                    <button type='button' className={book.path === category ? 'active' : ''} onClick={() => setActiveCategory(category)}>
                                         <div className="nameOfBook">{book?.name}</div>
                                     </button>
                                 </Link>
-                                <div className="amount">{booksData?.filter((amountBooks) => (amountBooks?.categories[0] === book?.name)).length}</div>
+                                <div className="amount">{booksData?.filter((amountBooks) => (amountBooks?.categories.some((amount) => (amount === book?.name)))).length}</div>
                             </div>
                         ))}
                     </div>

@@ -159,6 +159,7 @@ div.header div.menu div.categories div.books div.book {
     padding-right: 12.24vw;
     color: #363636;
     display: flex;
+    align-items: center;
 }
 
 div.header div.menu div.categories div.books div.book button {

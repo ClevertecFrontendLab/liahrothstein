@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classNames from "classnames";
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 
 import './book-page.css';
 import 'swiper/css/scrollbar';
@@ -21,13 +21,14 @@ export function BookPage () {
     const [isArrowOpen, toggleArrow] = useState(false);
     const { id } = useParams();
     const {data = [], isError, isLoading} = useGetIdBookQuery(id);
+    const { category } = useParams();
 
     return (
         <section className='book-page'>
             <Loader />
             <ErrorMessage />
         <Header />
-        <div className="bookMiniList">{data?.categories || 'Бизнес книги'}  /  {data?.title}</div>
+        <div className="bookMiniList"><Link to={`/books/all/${category}`}>{data?.categories || 'Бизнес книги'}</ Link>  /  {data?.title}</div>
         <div className={classNames('main', {loader: isLoading}, {error: isError})}>
             <Slider />
             <div className="mainContent">

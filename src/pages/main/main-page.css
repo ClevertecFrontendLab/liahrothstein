@@ -120,10 +120,9 @@ div.mainBooks div.bookIcons {
 
 div.mainBooks div.bookIcons.blocksActive {
     margin-top: 32px;
-    display: grid;
-    grid-template-columns: repeat(4, 190px);
-    grid-template-rows: repeat(35, 1fr);
-    gap: 21.5px;
+    display: flex;
+    gap: 21.3px;
+    flex-wrap: wrap;
 }
 
 div.mainBooks div.bookIcons.linesActive {
@@ -193,6 +192,8 @@ div.mainBooks div.bookIcons.blocksActive div.bookIcon {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 190px;
+    min-height: 559px;
 }
 
 div.mainBooks div.bookIcons div.bookIcon div.stars {

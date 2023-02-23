@@ -56,7 +56,7 @@ export function MainPage () {
         }
         
         return (
-            (category === undefined) ? allBooks : data.filter((book) => (book.categories[0] === nameOfCategory))
+            (category === undefined) ? allBooks : data.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
             )
         }
         
@@ -144,7 +144,7 @@ export function MainPage () {
                     <div key={icon.id} className='bookIcon'>
                         <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
-                        <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
+                        <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                     </div>
                     {(icon.rating) === null ? <div className='noStars'>ещё нет оценок</div> :
                      <Stars count={Math.round(icon.rating)} />
@@ -163,7 +163,7 @@ export function MainPage () {
                     <div key={icon.id} className='bookIcon'>
                         <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
                     <div className="imageOfBook">
-                        <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="book" />
+                        <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                     </div>
                     <div className="all">
                         <div className="nameOfBook">{icon.title}</div>
