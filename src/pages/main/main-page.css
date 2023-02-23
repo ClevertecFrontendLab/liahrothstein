@@ -409,6 +409,17 @@ div.mainBooks div.navigationList.error {
     display: none;
 }
 
+div.container div.mainBooks div.bookIcons div.noBooks {
+    margin: 0 auto;
+    margin-top: 168px;
+    margin-bottom: 476px;
+    color: #A7A7A7;
+    text-align: center;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+}
+
 @media (min-width: 769px) and (max-width: 1160px) {
     div.container div.menu {
         display: none;
@@ -493,6 +504,9 @@ div.mainBooks div.navigationList.error {
     div.mainBooks div.bookIcons.linesActive div.bookIcon {
         width: 83.33vw;
     }
+    div.container div.mainBooks div.bookIcons div.noBooks {
+        margin-top: 202px;
+    }
 }
 
 @media (min-width: 769px) and (max-width: 1160px) {
@@ -516,6 +530,9 @@ div.mainBooks div.navigationList.error {
     }
     div.mainBooks div.bookIcons.linesActive div.bookIcon {
         width: 83.33vw;
+    }
+    div.container div.mainBooks div.bookIcons div.noBooks {
+        margin-top: 202px;
     }
 }
 
@@ -754,6 +771,12 @@ div.mainBooks div.navigationList.error {
     div.container div.bookIcons.blocksActive {
         margin-left: 5vw;
     }
+    div.container div.mainBooks div.bookIcons div.noBooks {
+        margin-top: 118px;
+        margin-bottom: 90px;
+        font-size: 18px;
+        line-height: 28px;
+    }
 }
 
 @media (min-width: 321px) and (max-width: 767px) {
@@ -915,6 +938,12 @@ div.mainBooks div.navigationList.error {
     }
     div.container div.bookIcons.blocksActive {
         margin-left: 5vw;
+    }
+    div.container div.mainBooks div.bookIcons div.noBooks {
+        margin-top: 118px;
+        margin-bottom: 90px;
+        font-size: 18px;
+        line-height: 28px;
     }
 }
 
