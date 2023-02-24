@@ -1,9 +1,11 @@
 import { useState } from 'react';
-import { Link } from "react-router-dom";
-import classNames from "classnames";
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+
 import { useGetBooksQuery } from '../../redux';
 import { AllBooks } from '../all-books';
 import arrow from '../header/assets/arrow-off.png';
+
 import './menu.css';
 
 export function Menu(props) {

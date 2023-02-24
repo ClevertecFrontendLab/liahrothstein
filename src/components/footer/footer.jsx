@@ -1,8 +1,9 @@
-import './footer.css'
 import facebook from './assets/social1.png';
 import instagram from './assets/social2.png';
 import vk from './assets/social3.png';
 import linkedin from './assets/social4.png';
+
+import './footer.css'
 
 export const Footer = () => (
     <div className="footer">

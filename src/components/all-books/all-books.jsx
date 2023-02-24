@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
+
 import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux';
+
 import './all-books.css';
 
 export function AllBooks() {

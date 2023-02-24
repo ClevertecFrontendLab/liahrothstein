@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Scrollbar, Pagination, Thumbs } from 'swiper';
 import { useParams } from 'react-router-dom';
-
-import 'swiper/css/scrollbar';
-import 'swiper/css/pagination';
-import "swiper/css/thumbs";
-import './slider.css';
+import { Pagination, Scrollbar, Thumbs } from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { useGetIdBookQuery } from '../../redux';
 
 import emptyImage from './assets/empty-image.png';
+
+import './slider.css';
+
+import 'swiper/css/scrollbar';
+import 'swiper/css/pagination';
+import 'swiper/css/thumbs';
 
 export function Slider() {
     const [thumbsSwiper, setThumbsSwiper] = useState(null);

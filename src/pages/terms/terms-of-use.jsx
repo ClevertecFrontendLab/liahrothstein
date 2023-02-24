@@ -1,8 +1,8 @@
-import './terms-of-use.css';
-
-import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
 import { Menu } from '../../components/menu';
+
+import './terms-of-use.css';
 
 export const TermsOfUse = () => (
     <section className='terms-of-use'>

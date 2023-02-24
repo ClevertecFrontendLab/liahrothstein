@@ -1,21 +1,24 @@
 import { useState } from 'react';
-import classNames from "classnames";
 import { Link, useParams } from 'react-router-dom';
+import classNames from 'classnames';
+
+import { ErrorMessage } from '../../components/error-message';
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
+import { Loader } from '../../components/loader';
+import { Slider } from '../../components/slider';
+import { Stars } from '../../components/stars';
+import { useGetIdBookQuery } from '../../redux';
+
+import arrow from './assets/arrow-off.png';
+import commentator from './assets/commentator.png';
 
 import './book-page.css';
+
 import 'swiper/css/scrollbar';
 import 'swiper/css/pagination';
-import "swiper/css/thumbs";
-import "swiper/css/free-mode";
-import commentator from './assets/commentator.png';
-import arrow from './assets/arrow-off.png';
-import { Header } from "../../components/header";
-import { Footer } from "../../components/footer";
-import { Slider } from '../../components/slider';
-import { useGetIdBookQuery } from '../../redux';
-import { Loader } from '../../components/loader';
-import { ErrorMessage } from '../../components/error-message';
-import { Stars } from '../../components/stars';
+import 'swiper/css/thumbs';
+import 'swiper/css/free-mode';
 
 export function BookPage() {
     const [isArrowOpen, toggleArrow] = useState(false);

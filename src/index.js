@@ -3,15 +3,16 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
-import { MainPage } from './pages/main';
-import { TermsOfUse } from './pages/terms';
-import { OfferAgreement } from './pages/offer';
 import { BookPage } from './pages/book';
-
-import './index.css';
+import { MainPage } from './pages/main';
+import { OfferAgreement } from './pages/offer';
+import { TermsOfUse } from './pages/terms';
 import { store } from './redux';
 
+import './index.css';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
   <Provider store={store}>
     <React.StrictMode>

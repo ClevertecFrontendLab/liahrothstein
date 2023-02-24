@@ -1,5 +1,5 @@
-import star from './assets/star.png';
 import notStar from './assets/notStar.png';
+import star from './assets/star.png';
 
 export function Stars(props) {
     const array = [];

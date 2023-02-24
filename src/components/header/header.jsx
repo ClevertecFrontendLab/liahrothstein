@@ -1,13 +1,15 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
-import classNames from "classnames";
-import './header.css';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import classNames from 'classnames';
 
-import logo from './assets/logo-clevertec.png';
+import { AllBooks } from '../all-books';
+
+import arrow from './assets/arrow-off.png';
 import avatar from './assets/avatar.png';
 import burger from './assets/burger.png';
-import arrow from './assets/arrow-off.png';
-import { AllBooks } from "../all-books";
+import logo from './assets/logo-clevertec.png';
+
+import './header.css';
 
 export const Header = () => {
     const [isBurgerOpen, toggleBurger] = useState(false);

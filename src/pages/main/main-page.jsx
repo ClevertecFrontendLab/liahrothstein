@@ -1,24 +1,26 @@
-import './main-page.css';
-
-import { useState, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import classNames from "classnames";
+import classNames from 'classnames';
 
-import search from './assets/search.png';
-import filterButton from './assets/filter-button.png';
+import { ErrorMessage } from '../../components/error-message';
+import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
+import { Illumination } from '../../components/illumination';
+import { Loader } from '../../components/loader';
+import { Menu } from '../../components/menu';
+import { Stars } from '../../components/stars';
+import { useGetBooksQuery } from '../../redux';
+
 import blocksButton from './assets/blocks-button.png';
+import emptyImage from './assets/empty-image.png';
+import filterButton from './assets/filter-button.png';
 import linesButton from './assets/lines-button.png';
+import miniCloseSearch from './assets/mini-close-search.png';
 import miniFilter from './assets/mini-filter.png';
 import miniSearch from './assets/mini-search.png';
-import miniCloseSearch from './assets/mini-close-search.png';
-import emptyImage from './assets/empty-image.png';
-import { Header } from '../../components/header';
-import { Footer } from '../../components/footer';
-import { Menu } from '../../components/menu';
-import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux';
-import { Loader } from '../../components/loader';
-import { ErrorMessage } from '../../components/error-message';
-import { Stars } from '../../components/stars';
+import search from './assets/search.png';
+
+import './main-page.css';
 
 export function MainPage() {
     const [isActive, setActive] = useState(true);
@@ -29,6 +31,7 @@ export function MainPage() {
     const [searchTerm, setSearchTerm] = useState('');
     const [bookList, setBookList] = useState(data);
     const { category } = useParams();
+    const textIllumination = useCallback((string) => <Illumination filter={searchTerm} string={string} />, [searchTerm])
 
     const allBooks = [...bookList];
 
@@ -39,6 +42,7 @@ export function MainPage() {
             array?.filter(({ title }) => (title.toLowerCase().includes(searchText.toLowerCase())))
         )
     }
+
 
     useEffect(() => {
         const debounce = setTimeout(() => {
@@ -182,7 +186,7 @@ export function MainPage() {
                                             {(icon.rating) === null ? <div className='noStars'>ещё нет оценок</div> :
                                                 <Stars count={Math.round(icon.rating)} />
                                             }
-                                            <div className="nameOfBook">{icon.title}</div>
+                                            <div className="nameOfBook">{textIllumination(icon.title)}</div>
                                             <div className="author">{icon.authors}, {icon.issueYear}</div>
                                             <div className="button">
                                                 <button type='button' data-test-id='card'>Забронировать</button>
@@ -201,7 +205,7 @@ export function MainPage() {
                                                 <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                                             </div>
                                             <div className="all">
-                                                <div className="nameOfBook">{icon.title}</div>
+                                                <div className="nameOfBook">{textIllumination(icon.title)}</div>
                                                 <div className="author">{icon.authors}, {icon.issueYear}</div>
                                                 <div className="starsWithButton">
                                                     {(icon.rating) === null ? <div className='noStars'>ещё нет оценок</div> :

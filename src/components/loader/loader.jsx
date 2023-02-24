@@ -1,9 +1,11 @@
-import classNames from "classnames";
-import { useParams } from "react-router-dom";
-import { useGetBooksQuery, useGetCategoriesQuery, useGetIdBookQuery } from "../../redux";
+import { useParams } from 'react-router-dom';
+import classNames from 'classnames';
+
+import { useGetBooksQuery, useGetCategoriesQuery, useGetIdBookQuery } from '../../redux';
+
+import loader from './loader.png';
 
 import './loader.css';
-import loader from './loader.png';
 
 export function Loader() {
     const { id } = useParams();

@@ -1,7 +1,8 @@
-import './offer-agreement.css';
-import { Header } from '../../components/header';
 import { Footer } from '../../components/footer';
+import { Header } from '../../components/header';
 import { Menu } from '../../components/menu';
+
+import './offer-agreement.css';
 
 export function OfferAgreement() {
 

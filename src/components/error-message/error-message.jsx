@@ -1,11 +1,13 @@
-import classNames from "classnames";
-import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { useGetBooksQuery, useGetCategoriesQuery, useGetIdBookQuery } from "../../redux";
+import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import classNames from 'classnames';
+
+import { useGetBooksQuery, useGetCategoriesQuery, useGetIdBookQuery } from '../../redux';
+
+import close from './assets/icon-close.png';
+import error from './assets/icon-error.png';
 
 import './error-message.css';
-import error from './assets/icon-error.png';
-import close from './assets/icon-close.png';
 
 export function ErrorMessage() {
     const { id } = useParams();
