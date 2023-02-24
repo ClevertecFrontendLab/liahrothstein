@@ -850,6 +850,11 @@ div.container div.mainBooks div.bookIcons div.noBooks {
         font-size: 18px;
         line-height: 28px;
     }
+
+    div.container div.mainBooks div.navigationList {
+        margin-left: 5vw;
+        width: 90vw;
+    }
 }
 
 @media (min-width: 321px) and (max-width: 767px) {
@@ -1055,6 +1060,11 @@ div.container div.mainBooks div.bookIcons div.noBooks {
         margin-bottom: 90px;
         font-size: 18px;
         line-height: 28px;
+    }
+
+    div.container div.mainBooks div.navigationList {
+        margin-left: 5vw;
+        width: 90vw;
     }
 }
 

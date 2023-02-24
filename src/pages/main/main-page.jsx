@@ -43,7 +43,6 @@ export function MainPage() {
         )
     }
 
-
     useEffect(() => {
         const debounce = setTimeout(() => {
             const filteredBooks = filterSearch(searchTerm, data);

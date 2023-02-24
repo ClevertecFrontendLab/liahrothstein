@@ -53,11 +53,6 @@ div.footer div.socials img:first-child+img+img+img {
     div.footer div.copyrights {
         text-align: center;
     }
-
-    div.container div.mainBooks div.navigationList {
-        margin-left: 5vw;
-        width: 90vw;
-    }
 }
 
 @media (min-width: 321px) and (max-width: 767px) {
