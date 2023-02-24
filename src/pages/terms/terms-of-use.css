@@ -14,11 +14,11 @@ section.terms-of-use div.menu div.tab3 {
     color: #363636;
 }
 
-section.terms-of-use div.header div.menu.visible div.linkAndArrow a.links div.books {  
+section.terms-of-use div.header div.menu.visible div.linkAndArrow a.links div.books {
     color: #363636;
 }
 
-section.terms-of-use div.header div.menu.visible div.linkAndArrow + hr {  
+section.terms-of-use div.header div.menu.visible div.linkAndArrow+hr {
     background: #363636;
 }
 
@@ -101,6 +101,7 @@ div.terms div.third {
         margin: 0 auto;
         margin-top: 32px;
     }
+
     section.terms-of-use div.container div.terms {
         width: 825px;
     }

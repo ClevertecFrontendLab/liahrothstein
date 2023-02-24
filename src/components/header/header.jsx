@@ -14,7 +14,7 @@ export const Header = () => {
     const [isArrowOpen, toggleArrow] = useState(true);
 
     const btnCls = 'burgerMenu';
-    
+
     function toggleBurgerMode() {
         toggleBurger(!isBurgerOpen);
     };
@@ -27,20 +27,20 @@ export const Header = () => {
                     <div className="logoName">Cleverland</div>
                 </div>
             </Link>
-            <button type="button" className={classNames(btnCls, {visible: isBurgerOpen})} onClick={toggleBurgerMode} data-test-id='button-burger'>
+            <button type="button" className={classNames(btnCls, { visible: isBurgerOpen })} onClick={toggleBurgerMode} data-test-id='button-burger'>
                 <div className={btnCls}><img src={burger} alt='burger' /></div>
             </button>
-            <div className={classNames('menu', {visible: isBurgerOpen})} data-test-id='burger-navigation'>
+            <div className={classNames('menu', { visible: isBurgerOpen })} data-test-id='burger-navigation'>
                 <div className="linkAndArrow">
                     <Link to='/books/all' className="links">
                         <div className="books">Витрина книг</div>
                     </Link>
-                    <button type="button" className={classNames('arrowBtn', {dropdown: isArrowOpen})} onClick={() => {toggleArrow(!isArrowOpen)}} data-test-id='burger-showcase'>
+                    <button type="button" className={classNames('arrowBtn', { dropdown: isArrowOpen })} onClick={() => { toggleArrow(!isArrowOpen) }} data-test-id='burger-showcase'>
                         <div className="arrowBtn"><img src={arrow} alt="arrow" /></div>
                     </button>
                 </div>
                 <hr />
-                <div className={classNames('categories', {dropdown: isArrowOpen})}>
+                <div className={classNames('categories', { dropdown: isArrowOpen })}>
                     <AllBooks />
                 </div>
                 <Link to='/terms' className="links">
@@ -53,7 +53,7 @@ export const Header = () => {
                 <div className="profile">Профиль</div>
                 <div className="exit">Выход</div>
             </div>
-            <div className={classNames('backgroundOfMenu', {backgroundOn: isBurgerOpen})} onClick={toggleBurgerMode} aria-hidden="true"> </div>
+            <div className={classNames('backgroundOfMenu', { backgroundOn: isBurgerOpen })} onClick={toggleBurgerMode} aria-hidden="true"> </div>
             <div className="nameOfPage">Библиотека</div>
             <div className="person">
                 <div className="hiName">
