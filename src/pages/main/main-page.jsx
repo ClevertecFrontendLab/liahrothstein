@@ -125,11 +125,12 @@ export function MainPage() {
                                     placeholder='Поиск книги или автора…'
                                     value={searchTerm}
                                     onChange={(e) => (setSearchTerm(e.target.value))}
+                                    data-test-id='input-search'
                                 />
                                 <img src={search} alt="search" />
                             </div>
                             <div className="filterButton">
-                                <button type='button' onClick={() => (setRating(!isRating))} className={classNames({ rating: isRating })}>
+                                <button type='button' onClick={() => (setRating(!isRating))} className={classNames({ rating: isRating })} data-test-id='sort-rating-button'>
                                     <img src={filterButton} alt="" />
                                 </button>
                             </div>
@@ -174,8 +175,8 @@ export function MainPage() {
                         </div>
                     </div>
                     <div className={classNames('bookIcons', { loader: isLoading }, { blocksActive: (isActive === true) ? 'active' : '' })}>
-                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks'>В этой категории книг ещё нет</div> :
-                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks'>По запросу ничего не найдено</div> :
+                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
+                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon'>
                                         <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
@@ -195,8 +196,8 @@ export function MainPage() {
                                 ))}
                     </div>
                     <div className={classNames('bookIcons', { loader: isLoading }, { linesActive: (isActive === false) ? 'active' : '' })}>
-                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks'>В этой категории книг ещё нет</div> :
-                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks'>По запросу ничего не найдено</div> :
+                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
+                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon'>
                                         <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>

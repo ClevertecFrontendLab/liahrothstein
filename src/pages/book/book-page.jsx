@@ -31,11 +31,11 @@ export function BookPage() {
             <Loader />
             <ErrorMessage />
             <Header />
-            <div className="bookMiniList"><Link to={`/books/all/${category}`}>{data?.categories || 'Бизнес книги'}</ Link>  /  {data?.title}</div>
+            <div className="bookMiniList" data-test-id='book-name'><Link to={`/books/all/${category}`} data-test-id='breadcrumbs-link'>{data?.categories || 'Бизнес книги'}</ Link>  /  {data?.title}</div>
             <div className={classNames('main', { loader: isLoading }, { error: isError })}>
                 <Slider />
                 <div className="mainContent">
-                    <div className="header">{data?.title}</div>
+                    <div className="header" data-test-id='book-title'>{data?.title}</div>
                     <div className="author">{data?.authors}, {data?.issueYear}</div>
                     <div className="button"><button type="button">Забронировать</button></div>
                     <div className="aboutBook">О книге</div>
