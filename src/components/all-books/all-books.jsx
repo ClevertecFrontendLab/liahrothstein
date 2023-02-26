@@ -13,14 +13,14 @@ export function AllBooks() {
 
     return (
         <div className="books">
-            <button type='button' onClick={() => setActiveCategory(undefined)} className={category === undefined ? 'active' : ''}>
+            <button type='button' onClick={() => setActiveCategory(undefined)} className={(category === 'all' || category === undefined) ? 'active' : ''}>
                 <Link to='/books/all' data-test-id='navigation-books'>
                     <div className="allBooks">Все книги</div>
                 </Link>
             </button>
             {categoriesData?.map(book => (
                 <div key={book.id} className="book">
-                    <Link to={`/books/all/${book.path}`}>
+                    <Link to={`/books/${book.path}`}>
                         <button type='button' className={book.path === category ? 'active' : ''} onClick={() => setActiveCategory(category)}>
                             <div className="nameOfBook" data-test-id={`navigation-${book.path}`}>{book?.name}</div>
                         </button>

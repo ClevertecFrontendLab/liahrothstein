@@ -14,7 +14,7 @@ export function BurgerBooks(props) {
 
     return (
         <div className="books">
-            <button type='button' onClick={() => setBurger(!isBurger)} className={category === undefined ? 'active' : ''}>
+            <button type='button' onClick={() => setBurger(!isBurger)} className={(category === 'all' || category === undefined) ? 'active' : ''}>
                 <Link to='/books/all' data-test-id='burger-books'>
                     <div className="allBooks">Все книги</div>
                 </Link>

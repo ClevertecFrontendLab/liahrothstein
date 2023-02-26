@@ -84,7 +84,7 @@ export function MainPage() {
         }
 
         return (
-            (category === undefined) ? allBooks1 : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
+            (category === 'all' || category === undefined) ? allBooks1 : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
         )
     }
 
@@ -114,7 +114,7 @@ export function MainPage() {
         }
 
         return (
-            (category === undefined) ? allBooks2 : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
+            (category === 'all' || category === undefined) ? allBooks2 : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
         )
     }
 
@@ -129,21 +129,6 @@ export function MainPage() {
         (a.rating < b.rating) ? 1 :
             (a.rating === b.rating) ? 0 : 1));
 
-    function categoryInTheSearchBar(category) {
-        return (
-            (category === 'Бизнес') ? 'business' :
-                (category === 'Психология') ? 'psychology' :
-                    (category === 'Родителям') ? 'parents' :
-                        (category === 'Нон-фикшн') ? 'non-fiction' :
-                            (category === 'Художественная литература') ? 'fiction' :
-                                (category === 'Программирование') ? 'programming' :
-                                    (category === 'Хобби') ? 'hobby' :
-                                        (category === 'Дизайн') ? 'design' :
-                                            (category === 'Детские') ? 'childish' :
-                                                'other'
-        );
-    }
-
     return (
         <section className='main-page'>
             <Loader />
@@ -153,8 +138,8 @@ export function MainPage() {
                 <Menu />
                 <div className="mainBooks">
                     <div className={classNames('navigationList', { loader: isLoading }, { error: isError })}>
-                        <div className="searchWithFilterButton">
-                            <div className="search">
+                        <div className={classNames('searchWithFilterButton', { searchOpen: isSearchOpen })}>
+                            <div className={classNames('search', { searchOpen: isSearchOpen })}>
                                 <input
                                     type="text"
                                     placeholder='Поиск книги или автора…'
@@ -163,6 +148,11 @@ export function MainPage() {
                                     data-test-id='input-search'
                                 />
                                 <img src={search} alt="search" />
+                                <div className={classNames('closeSearch', { searchOpen: isSearchOpen })}>
+                                    <button type='button' className={classNames({ searchOpen: isSearchOpen })} onClick={() => { toggleSearch(!isSearchOpen) }} data-test-id='button-search-close'>
+                                        <img src={miniCloseSearch} alt="close" />
+                                    </button>
+                                </div>
                             </div>
                             <div className="filterButton">
                                 <button type='button' onClick={() => (setRating(!isRating))} className={classNames({ rating: isRating })} data-test-id='sort-rating-button'>
@@ -195,26 +185,13 @@ export function MainPage() {
                                 </div>
                             </button>
                         </div>
-                        <div className={classNames('searchAfterClick', { searchOpen: isSearchOpen })}>
-                            <input
-                                type="text"
-                                placeholder='Поиск книги или автора…'
-                                value={searchTerm}
-                                onChange={(e) => (setSearchTerm(e.target.value))}
-                            />
-                            <div className="closeSearch">
-                                <button type='button' className={classNames({ searchOpen: isSearchOpen })} onClick={() => { toggleSearch(!isSearchOpen) }} data-test-id='button-search-close'>
-                                    <img src={miniCloseSearch} alt="close" />
-                                </button>
-                            </div>
-                        </div>
                     </div>
                     <div className={classNames('bookIcons', { loader: isLoading }, { blocksActive: (isActive === true) ? 'active' : '' })}>
                         {(searchTerm === '' && filterBooks1(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
                             (searchTerm !== '' && filterBooks1(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon' data-test-id='card'>
-                                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id} state={{ crumbs: breadCrumbs }}>
+                                        <Link to={`/books/${(breadCrumbs === 'all' || breadCrumbs === undefined) ? 'all' : breadCrumbs}/${icon.id}`} id={icon.id} state={{ crumbs: breadCrumbs }}>
                                             <div className="imageOfBook">
                                                 <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                                             </div>
@@ -235,12 +212,12 @@ export function MainPage() {
                             (searchTerm !== '' && filterBooks1(category).length === 0) ? <div className='noBooks'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon'>
-                                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id} state={{ crumbs: breadCrumbs }}>
+                                        <Link to={`/books/${(breadCrumbs === 'all' || breadCrumbs === undefined) ? 'all' : breadCrumbs}/${icon.id}`} id={icon.id} state={{ crumbs: breadCrumbs }}>
                                             <div className="imageOfBook">
                                                 <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                                             </div>
                                             <div className="all">
-                                                <div className="nameOfBook">{textIllumination(icon.title)}</div>
+                                                <div className="nameOfBook">{icon.title}</div>
                                                 <div className="author">{icon.authors}, {icon.issueYear}</div>
                                                 <div className="starsWithButton">
                                                     {(icon.rating) === null ? <div className='noStars'>ещё нет оценок</div> :

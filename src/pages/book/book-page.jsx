@@ -48,7 +48,7 @@ export function BookPage() {
             <Loader />
             <ErrorMessage />
             <Header />
-            <div className="bookMiniList"><Link to={`/books/all/${state.crumbs === undefined ? '' : state.crumbs}`} data-test-id='breadcrumbs-link'>{filterBooks(state.crumbs) || 'Бизнес книги'}</ Link>  /  <span data-test-id='book-name'>{data?.title}</span></div>
+            <div className="bookMiniList"><Link to={`/books/${(state.crumbs === 'all' || state.crumbs === undefined) ? 'all' : state.crumbs}`} data-test-id='breadcrumbs-link'>{filterBooks(state.crumbs) || 'Бизнес книги'}</ Link>  /  <span data-test-id='book-name'>{data?.title}</span></div>
             <div className={classNames('main', { loader: isLoading }, { error: isError })}>
                 <Slider />
                 <div className="mainContent">
