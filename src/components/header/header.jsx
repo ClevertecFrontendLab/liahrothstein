@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { AllBooks } from '../all-books';
+import { BurgerBooks } from '../burger-books';
 
 import arrow from './assets/arrow-off.png';
 import avatar from './assets/avatar.png';
@@ -43,7 +44,7 @@ export const Header = () => {
                 </div>
                 <hr />
                 <div className={classNames('categories', { dropdown: isArrowOpen })}>
-                    <AllBooks />
+                    <BurgerBooks setBurger={toggleBurger} isBurger={isBurgerOpen} />
                 </div>
                 <Link to='/terms' className="links">
                     <div className="terms" data-test-id='burger-terms'>Правила пользования</div>

@@ -14,18 +14,18 @@ export function AllBooks() {
     return (
         <div className="books">
             <button type='button' onClick={() => setActiveCategory(undefined)} className={category === undefined ? 'active' : ''}>
-                <Link to='/books/all' data-test-id='burger-books'>
-                    <div className="allBooks" data-test-id='navigation-books'>Все книги</div>
+                <Link to='/books/all' data-test-id='navigation-books'>
+                    <div className="allBooks">Все книги</div>
                 </Link>
             </button>
             {categoriesData?.map(book => (
                 <div key={book.id} className="book">
                     <Link to={`/books/all/${book.path}`}>
-                        <button type='button' className={book.path === category ? 'active' : ''} onClick={() => setActiveCategory(category)} data-test-id={`navigation-${book.path}`}>
-                            <div className="nameOfBook" data-test-id={`burger-${book.path}`}>{book?.name}</div>
+                        <button type='button' className={book.path === category ? 'active' : ''} onClick={() => setActiveCategory(category)}>
+                            <div className="nameOfBook" data-test-id={`navigation-${book.path}`}>{book?.name}</div>
                         </button>
                     </Link>
-                    <div className="amount" data-test-id={`navigation-book-count-for-${book.path} burger-book-count-for-${book.path}`}>{booksData?.filter((amountBooks) => (amountBooks?.categories.some((amount) => (amount === book?.name)))).length}</div>
+                    <div className="amount" data-test-id={`navigation-book-count-for-${book.path}`}>{booksData?.filter((amountBooks) => (amountBooks?.categories.some((amount) => (amount === book?.name)))).length}</div>
                 </div>
             ))}
         </div>

@@ -31,7 +31,7 @@ export function BookPage() {
             <Loader />
             <ErrorMessage />
             <Header />
-            <div className="bookMiniList" data-test-id='book-name'><Link to={`/books/all/${category}`} data-test-id='breadcrumbs-link'>{data?.categories || 'Бизнес книги'}</ Link>  /  {data?.title}</div>
+            <div className="bookMiniList"><Link to={`/books/all/${category}`} data-test-id='breadcrumbs-link'>{data?.categories || 'Бизнес книги'}</ Link>  /  <span data-test-id='book-name'>{data?.title}</span></div>
             <div className={classNames('main', { loader: isLoading }, { error: isError })}>
                 <Slider />
                 <div className="mainContent">

@@ -132,6 +132,7 @@ export function MainPage() {
                             <div className="filterButton">
                                 <button type='button' onClick={() => (setRating(!isRating))} className={classNames({ rating: isRating })} data-test-id='sort-rating-button'>
                                     <img src={filterButton} alt="" />
+                                    <span>По рейтингу</span>
                                 </button>
                             </div>
                         </div>
@@ -165,7 +166,6 @@ export function MainPage() {
                                 placeholder='Поиск книги или автора…'
                                 value={searchTerm}
                                 onChange={(e) => (setSearchTerm(e.target.value))}
-                                data-test-id='input-search'
                             />
                             <div className="closeSearch">
                                 <button type='button' className={classNames({ searchOpen: isSearchOpen })} onClick={() => { toggleSearch(!isSearchOpen) }} data-test-id='button-search-close'>
@@ -178,7 +178,7 @@ export function MainPage() {
                         {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
                             (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
-                                    <div key={icon.id} className='bookIcon'>
+                                    <div key={icon.id} className='bookIcon' data-test-id='card'>
                                         <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
                                             <div className="imageOfBook">
                                                 <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
@@ -189,15 +189,15 @@ export function MainPage() {
                                             <div className="nameOfBook">{textIllumination(icon.title)}</div>
                                             <div className="author">{icon.authors}, {icon.issueYear}</div>
                                             <div className="button">
-                                                <button type='button' data-test-id='card'>Забронировать</button>
+                                                <button type='button'>Забронировать</button>
                                             </div>
                                         </Link>
                                     </div>
                                 ))}
                     </div>
                     <div className={classNames('bookIcons', { loader: isLoading }, { linesActive: (isActive === false) ? 'active' : '' })}>
-                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
-                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
+                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks'>В этой категории книг ещё нет</div> :
+                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon'>
                                         <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
@@ -212,7 +212,7 @@ export function MainPage() {
                                                         <Stars count={Math.round(icon.rating)} />
                                                     }
                                                     <div className="button">
-                                                        <button type='button' data-test-id='card'>Забронировать</button>
+                                                        <button type='button'>Забронировать</button>
                                                     </div>
                                                 </div>
                                             </div>

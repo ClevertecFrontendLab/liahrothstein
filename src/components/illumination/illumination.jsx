@@ -12,7 +12,7 @@ export function Illumination(props) {
             if (i < arr.length - 1) {
                 const c = matchValue.shift()
 
-                return <React.Fragment key={Math.random(1, 10)}>{e}<span style={{ color: '#FF5253' }}>{c}</span></React.Fragment>
+                return <React.Fragment key={Math.random(1, 10)}>{e}<span style={{ color: '#FF5253' }} data-test-id='highlight-matches'>{c}</span></React.Fragment>
             }
 
             return e
