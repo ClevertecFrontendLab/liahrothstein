@@ -33,7 +33,12 @@ export function MainPage() {
     const { category } = useParams();
     const textIllumination = useCallback((string) => <Illumination filter={searchTerm} string={string} />, [searchTerm])
 
-    const allBooks = [...bookList];
+    const allBooks1 = [...bookList];
+    const allBooks2 = [...bookList];
+
+    const [breadCrumbs, setBreadCrumbs] = useState(category);
+
+    useEffect(() => (setBreadCrumbs(category)), [category]);
 
     function filterSearch(searchText, array) {
         if (!searchText) return array;
@@ -53,7 +58,7 @@ export function MainPage() {
         return () => (clearTimeout(debounce));
     }, [searchTerm, data]);
 
-    function filterBooks(bookCategory) {
+    function filterBooks1(bookCategory) {
         let nameOfCategory;
 
         if (bookCategory === 'business') {
@@ -79,12 +84,42 @@ export function MainPage() {
         }
 
         return (
-            (category === undefined) ? allBooks : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
+            (category === undefined) ? allBooks1 : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
         )
     }
 
-    const books1 = filterBooks(category);
-    const books2 = filterBooks(category);
+    function filterBooks2(bookCategory) {
+        let nameOfCategory;
+
+        if (bookCategory === 'business') {
+            nameOfCategory = 'Бизнес'
+        } else if (bookCategory === 'psychology') {
+            nameOfCategory = 'Психология'
+        } else if (bookCategory === 'parents') {
+            nameOfCategory = 'Родителям'
+        } else if (bookCategory === 'non-fiction') {
+            nameOfCategory = 'Нон-фикшн'
+        } else if (bookCategory === 'fiction') {
+            nameOfCategory = 'Художественная литература'
+        } else if (bookCategory === 'programming') {
+            nameOfCategory = 'Программирование'
+        } else if (bookCategory === 'hobby') {
+            nameOfCategory = 'Хобби'
+        } else if (bookCategory === 'design') {
+            nameOfCategory = 'Дизайн'
+        } else if (bookCategory === 'childish') {
+            nameOfCategory = 'Детские'
+        } else {
+            nameOfCategory = 'Другое'
+        }
+
+        return (
+            (category === undefined) ? allBooks2 : bookList.filter((book) => (book.categories.some((category) => (category === nameOfCategory))))
+        )
+    }
+
+    const books1 = filterBooks1(category);
+    const books2 = filterBooks2(category);
 
     const ratingOff = books1.sort((a, b) => ((a.rating > b.rating) ? 1 :
         (a.rating < b.rating) ? -1 :
@@ -175,11 +210,11 @@ export function MainPage() {
                         </div>
                     </div>
                     <div className={classNames('bookIcons', { loader: isLoading }, { blocksActive: (isActive === true) ? 'active' : '' })}>
-                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
-                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
+                        {(searchTerm === '' && filterBooks1(category).length === 0) ? <div className='noBooks' data-test-id='empty-category'>В этой категории книг ещё нет</div> :
+                            (searchTerm !== '' && filterBooks1(category).length === 0) ? <div className='noBooks' data-test-id='search-result-not-found'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon' data-test-id='card'>
-                                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
+                                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id} state={{ crumbs: breadCrumbs }}>
                                             <div className="imageOfBook">
                                                 <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                                             </div>
@@ -196,11 +231,11 @@ export function MainPage() {
                                 ))}
                     </div>
                     <div className={classNames('bookIcons', { loader: isLoading }, { linesActive: (isActive === false) ? 'active' : '' })}>
-                        {(searchTerm === '' && filterBooks(category).length === 0) ? <div className='noBooks'>В этой категории книг ещё нет</div> :
-                            (searchTerm !== '' && filterBooks(category).length === 0) ? <div className='noBooks'>По запросу ничего не найдено</div> :
+                        {(searchTerm === '' && filterBooks1(category).length === 0) ? <div className='noBooks'>В этой категории книг ещё нет</div> :
+                            (searchTerm !== '' && filterBooks1(category).length === 0) ? <div className='noBooks'>По запросу ничего не найдено</div> :
                                 ((isRating) ? ratingOff : ratingOn).map(icon => (
                                     <div key={icon.id} className='bookIcon'>
-                                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id}>
+                                        <Link to={`/books/${categoryInTheSearchBar(icon.categories[0])}/${icon.id}`} id={icon.id} state={{ crumbs: breadCrumbs }}>
                                             <div className="imageOfBook">
                                                 <img src={(typeof icon?.image?.url === 'string') ? `https://strapi.cleverland.by${icon?.image?.url}` : emptyImage} alt="bookImage" />
                                             </div>

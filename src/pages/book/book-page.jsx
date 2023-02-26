@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import classNames from 'classnames';
 
 import { ErrorMessage } from '../../components/error-message';
@@ -24,14 +24,31 @@ export function BookPage() {
     const [isArrowOpen, toggleArrow] = useState(false);
     const { id } = useParams();
     const { data = [], isError, isLoading } = useGetIdBookQuery(id);
-    const { category } = useParams();
+    const { state } = useLocation();
+
+    function filterBooks(bookCategory) {
+
+        return (
+            (bookCategory === 'business') ? 'Бизнес' :
+                (bookCategory === 'psychology') ? 'Психология' :
+                    (bookCategory === 'parents') ? 'Родителям' :
+                        (bookCategory === 'non-fiction') ? 'Нон-фикшн' :
+                            (bookCategory === 'fiction') ? 'Художественная литература' :
+                                (bookCategory === 'programming') ? 'Программирование' :
+                                    (bookCategory === 'hobby') ? 'Хобби' :
+                                        (bookCategory === 'design') ? 'Дизайн' :
+                                            (bookCategory === 'childish') ? 'Детские' :
+                                                (bookCategory === 'other') ? 'Другое' :
+                                                    'Все книги'
+        )
+    }
 
     return (
         <section className='book-page'>
             <Loader />
             <ErrorMessage />
             <Header />
-            <div className="bookMiniList"><Link to={`/books/all/${category}`} data-test-id='breadcrumbs-link'>{data?.categories || 'Бизнес книги'}</ Link>  /  <span data-test-id='book-name'>{data?.title}</span></div>
+            <div className="bookMiniList"><Link to={`/books/all/${state.crumbs === undefined ? '' : state.crumbs}`} data-test-id='breadcrumbs-link'>{filterBooks(state.crumbs) || 'Бизнес книги'}</ Link>  /  <span data-test-id='book-name'>{data?.title}</span></div>
             <div className={classNames('main', { loader: isLoading }, { error: isError })}>
                 <Slider />
                 <div className="mainContent">

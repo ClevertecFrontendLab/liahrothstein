@@ -25,7 +25,7 @@ export function Menu(props) {
                 </div>
                 <hr />
                 <div className={classNames('categories', { dropdown: isArrowOpen }, { error: isError })}>
-                    <AllBooks category={props.category} />
+                    <AllBooks />
                 </div>
             </div>
             <div className="tab2">
