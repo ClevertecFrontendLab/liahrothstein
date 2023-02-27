@@ -36,3 +36,7 @@ div.menu div.tab1 div.categories div.books div.book button.active div.nameOfBook
     font-size: 18px;
     font-weight: 700;
 }
+
+div.header div.menu div.categories.dropdown div.books div.book a {
+    display: inline;
+}
