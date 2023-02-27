@@ -61,7 +61,7 @@ div.header div.menu div.books {
     color: #F83600;
 }
 
-div.header div.menu div.linkAndArrow + hr {
+div.header div.menu div.linkAndArrow+hr {
     border: none;
     width: 33.2vw;
     height: 1px;
@@ -83,7 +83,7 @@ div.header div.menu div.offer {
     margin: 42px 0 52px 0;
 }
 
-div.header div.menu a.links + hr + a.links + a.links + hr {
+div.header div.menu a.links+hr+a.links+a.links+hr {
     border: 1px solid #BFC4C9;
     width: 100%;
 }
@@ -159,6 +159,7 @@ div.header div.menu div.categories div.books div.book {
     padding-right: 12.24vw;
     color: #363636;
     display: flex;
+    align-items: center;
 }
 
 div.header div.menu div.categories div.books div.book button {
@@ -226,6 +227,7 @@ div.header div.backgroundOfMenu.backgroundOn {
     div.header div.burgerMenu {
         display: none;
     }
+
     div.header div.backgroundOfMenu {
         display: none;
     }
@@ -255,27 +257,33 @@ div.header div.backgroundOfMenu.backgroundOn {
     section.main-page div.header div.person {
         display: none;
     }
+
     section.offer-agreement div.header div.person {
         display: none;
     }
+
     section.terms-of-use div.header div.person {
         display: none;
     }
+
     div.header a div.logo {
         display: none;
     }
+
     section.main-page div.header {
         justify-content: flex-start;
         gap: 3.47vw;
         align-items: center;
         margin: 32px 0 0 8.68vw;
     }
+
     section.offer-agreement div.header {
         justify-content: flex-start;
         gap: 3.47vw;
         align-items: center;
         margin: 32px 0 0 8.68vw;
     }
+
     section.terms-of-use div.header {
         justify-content: flex-start;
         gap: 3.47vw;
@@ -288,30 +296,37 @@ div.header div.backgroundOfMenu.backgroundOn {
     section.main-page div.header div.person {
         display: none;
     }
+
     section.offer-agreement div.header div.person {
         display: none;
     }
+
     section.terms-of-use div.header div.person {
         display: none;
     }
+
     div.header a div.logo {
         display: none;
     }
+
     div.header a {
         display: none;
     }
+
     section.main-page div.header {
         justify-content: flex-start;
         gap: 3.47vw;
         align-items: center;
         margin: 32px 0 0 8.68vw;
     }
+
     section.offer-agreement div.header {
         justify-content: flex-start;
         gap: 3.47vw;
         align-items: center;
         margin: 32px 0 0 8.68vw;
     }
+
     section.terms-of-use div.header {
         justify-content: flex-start;
         gap: 3.47vw;
@@ -320,47 +335,54 @@ div.header div.backgroundOfMenu.backgroundOn {
     }
 }
 
-@media (min-width: 321px) and (max-width: 2560px) {
-
-}
+@media (min-width: 321px) and (max-width: 2560px) {}
 
 @media (max-width: 320px) {
     section.main-page div.header {
         margin-left: 5.63vw;
     }
+
     section.terms-of-use div.header {
         margin-left: 5.63vw;
     }
+
     section.offer-agreement div.header {
         margin-left: 5.63vw;
     }
+
     section.main-page div.header div.nameOfPage {
         font-weight: 700;
         font-size: 18px;
         line-height: 28px;
     }
+
     section.offer-agreement div.header div.nameOfPage {
         font-weight: 700;
         font-size: 18px;
         line-height: 28px;
     }
+
     section.terms-of-use div.header div.nameOfPage {
         font-weight: 700;
         font-size: 18px;
         line-height: 28px;
     }
+
     section.main-page div.header div.burgerMenu img {
         width: 24px;
         height: 24px;
     }
+
     section.offer-agreement div.header div.burgerMenu img {
         width: 24px;
         height: 24px;
     }
+
     section.terms-of-use div.header div.burgerMenu img {
         width: 24px;
         height: 24px;
     }
+
     div.header div.menu.visible {
         position: absolute;
         width: 90vw;
@@ -368,21 +390,27 @@ div.header div.backgroundOfMenu.backgroundOn {
         top: 76px;
         padding: 5vw;
     }
+
     div.header div.menu.visible a.links div.books {
         padding-top: 16px;
     }
-    div.header div.menu.visible div.linkAndArrow + hr {
+
+    div.header div.menu.visible div.linkAndArrow+hr {
         width: 79.69vw;
     }
+
     div.header div.menu.visible a.links div.terms {
         margin-top: 42px;
     }
+
     div.header div.menu.visible div.exit {
         margin-bottom: 36px;
     }
+
     div.header div.menu div.linkAndArrow {
         width: 75.94vw;
     }
+
     div.header div.backgroundOfMenu {
         height: 450%;
     }
@@ -392,39 +420,48 @@ div.header div.backgroundOfMenu.backgroundOn {
     section.main-page div.header {
         margin-left: 5.63vw;
     }
+
     section.terms-of-use div.header {
         margin-left: 5.63vw;
     }
+
     section.offer-agreement div.header {
         margin-left: 5.63vw;
     }
+
     section.main-page div.header div.nameOfPage {
         font-weight: 700;
         font-size: 18px;
         line-height: 28px;
     }
+
     section.offer-agreement div.header div.nameOfPage {
         font-weight: 700;
         font-size: 18px;
         line-height: 28px;
     }
+
     section.terms-of-use div.header div.nameOfPage {
         font-weight: 700;
         font-size: 18px;
         line-height: 28px;
     }
+
     section.main-page div.header div.burgerMenu img {
         width: 24px;
         height: 24px;
     }
+
     section.offer-agreement div.header div.burgerMenu img {
         width: 24px;
         height: 24px;
     }
+
     section.terms-of-use div.header div.burgerMenu img {
         width: 24px;
         height: 24px;
     }
+
     div.header div.menu.visible {
         position: absolute;
         width: 90vw;
@@ -432,21 +469,27 @@ div.header div.backgroundOfMenu.backgroundOn {
         top: 76px;
         padding: 5vw;
     }
+
     div.header div.menu.visible a.links div.books {
         padding-top: 16px;
     }
-    div.header div.menu.visible div.linkAndArrow + hr {
+
+    div.header div.menu.visible div.linkAndArrow+hr {
         width: 79.69vw;
     }
+
     div.header div.menu.visible a.links div.terms {
         margin-top: 42px;
     }
+
     div.header div.menu.visible div.exit {
         margin-bottom: 36px;
     }
+
     div.header div.menu div.linkAndArrow {
         width: 75.94vw;
     }
+
     div.header div.backgroundOfMenu {
         height: 450%;
     }

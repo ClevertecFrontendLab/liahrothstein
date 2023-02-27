@@ -1,28 +1,33 @@
 import { useState } from 'react';
-import { useGetCategoriesQuery } from '../../redux';
+import { Link, useParams } from 'react-router-dom';
+
+import { useGetBooksQuery, useGetCategoriesQuery } from '../../redux';
+
 import './all-books.css';
 
-export function AllBooks () {
-    const {data = []} = useGetCategoriesQuery();
-    const [activeCategory, setActiveCategory] = useState(0);
-
-    function random (min, max)  {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
+export function AllBooks() {
+    const { data: categoriesData } = useGetCategoriesQuery();
+    const { data: booksData } = useGetBooksQuery();
+    const [activeCategory, setActiveCategory] = useState(undefined);
+    const { category } = useParams();
 
     return (
-                    <div className="books">
-                        <button type='button' onClick={() => setActiveCategory(0)} className={activeCategory === 0 ? 'active' : ''}>
-                            <div className="allBooks" data-test-id='navigation-books'>Все книги</div>
+        <div className="books">
+            <button type='button' onClick={() => setActiveCategory(undefined)} className={(category === 'all' || category === undefined) ? 'active' : ''}>
+                <Link to='/books/all' data-test-id='navigation-books'>
+                    <div className="allBooks">Все книги</div>
+                </Link>
+            </button>
+            {categoriesData?.map(book => (
+                <div key={book.id} className="book">
+                    <Link to={`/books/${book.path}`}>
+                        <button type='button' className={book.path === category ? 'active' : ''} onClick={() => setActiveCategory(category)}>
+                            <div className="nameOfBook" data-test-id={`navigation-${book.path}`}>{book?.name}</div>
                         </button>
-                        {data.map(book => (
-                            <div key={book.id} className="book">
-                                    <button type='button' className={activeCategory === book.id ? 'active' : ''} onClick={() => setActiveCategory(book.id)}>
-                                <div className="nameOfBook">{book.name}</div>
-                                    </button>
-                                <div className="amount">{random(1, 60)}</div>
-                            </div>
-                        ))}
-                    </div>
+                    </Link>
+                    <div className="amount" data-test-id={`navigation-book-count-for-${book.path}`}>{booksData?.filter((amountBooks) => (amountBooks?.categories.some((amount) => (amount === book?.name)))).length}</div>
+                </div>
+            ))}
+        </div>
     );
 };
