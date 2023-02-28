@@ -1,0 +1,188 @@
+section.register {
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+section.register div.logo {
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 40px;
+    color: #FFFFFF;
+    margin-bottom: 46px;
+}
+
+section.register div.modalWindow {
+    width: 528px;
+    height: 466px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 48px 56px;
+    display: flex;
+    flex-direction: column;
+}
+
+section.register div.modalWindow div.header {
+    margin: 0;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    margin-bottom: 8px;
+}
+
+section.register div.modalWindow div.process {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 32px;
+}
+
+section.register div.modalWindow form {
+    display: flex;
+    flex-direction: column;
+}
+
+section.register div.modalWindow form input {
+    height: 56px;
+    padding: 19px 12px;
+    background: #F9F9FA;
+    border-radius: 4px;
+    border: none;
+}
+
+section.register div.modalWindow form div.warning {
+    border-top: #BFC4C9 solid 1px;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #A7A7A7;
+    padding-left: 12px;
+}
+
+section.register div.modalWindow form div.warning.loginWarning {
+    margin-bottom: 18px;
+}
+
+section.register div.modalWindow form div.warning.passwordWarning {
+    margin-bottom: 50px;
+}
+
+section.register div.modalWindow form input::placeholder {
+    color: #363636;
+}
+
+section.register div.modalWindow form button {
+    height: 52px;
+    background: linear-gradient(231.58deg, #F83600 -53.35%, #F9D423 297.76%);
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 150%;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+}
+
+section.register div.modalWindow div.auth {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    margin-top: 16px;
+}
+
+section.register div.modalWindow div.auth div.text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #727272;
+}
+
+section.register div.modalWindow div.auth a {
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+@media (max-width: 320px) {
+    section.register div.logo {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+
+    section.register div.modalWindow {
+        width: 90vw;
+        padding: 24px 16px;
+    }
+
+    section.register div.modalWindow form a {
+        margin-left: 0;
+    }
+
+    section.register div.modalWindow div.auth {
+        flex-direction: column;
+        gap: 7px;
+        align-items: flex-start;
+    }
+
+    section.register div.modalWindow form button {
+        height: 40px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    section.register div.modalWindow form div.warning.passwordWarning {
+        margin-bottom: 34px;
+    }
+
+    section.register div.modalWindow form div.warning.loginWarning {
+        margin-bottom: 10px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 767px) {
+    section.register div.logo {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+
+    section.register div.modalWindow {
+        width: 90vw;
+        padding: 24px 16px;
+    }
+
+    section.register div.modalWindow form a {
+        margin-left: 0;
+    }
+
+    section.register div.modalWindow div.auth {
+        flex-direction: column;
+        gap: 7px;
+        align-items: flex-start;
+    }
+
+    section.register div.modalWindow form button {
+        height: 40px;
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+    section.register div.modalWindow form div.warning.passwordWarning {
+        margin-bottom: 34px;
+    }
+
+    section.register div.modalWindow form div.warning.loginWarning {
+        margin-bottom: 10px;
+    }
+}

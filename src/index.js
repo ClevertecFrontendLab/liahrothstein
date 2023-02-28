@@ -7,6 +7,7 @@ import { Auth } from './pages/auth';
 import { BookPage } from './pages/book';
 import { MainPage } from './pages/main';
 import { OfferAgreement } from './pages/offer';
+import { Register } from './pages/register';
 import { TermsOfUse } from './pages/terms';
 import { store } from './redux';
 
@@ -20,6 +21,8 @@ root.render(
       <HashRouter>
         <Routes>
           <Route path='/' element={<Auth />} />
+          <Route path='/auth' element={<Auth />} />
+          <Route path='/reg' element={<Register />} />
           <Route path='/terms' element={<TermsOfUse />} />
           <Route path='/offer' element={<OfferAgreement />} />
           <Route path='/books/all' element={<MainPage />} />

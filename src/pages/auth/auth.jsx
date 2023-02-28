@@ -19,7 +19,7 @@ export function Auth() {
                 </form>
                 <div className="register">
                     <div className="text">Нет учётной записи?</div>
-                    <Link>
+                    <Link to='/reg'>
                         <span>Регистрация</span>
                         <img src={arrow} alt="" />
                     </Link>
