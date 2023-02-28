@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { HashRouter, Route, Routes } from 'react-router-dom';
 
+import { Auth } from './pages/auth';
 import { BookPage } from './pages/book';
 import { MainPage } from './pages/main';
 import { OfferAgreement } from './pages/offer';
@@ -18,7 +19,7 @@ root.render(
     <React.StrictMode>
       <HashRouter>
         <Routes>
-          <Route path='/' element={<MainPage />} />
+          <Route path='/' element={<Auth />} />
           <Route path='/terms' element={<TermsOfUse />} />
           <Route path='/offer' element={<OfferAgreement />} />
           <Route path='/books/all' element={<MainPage />} />
