@@ -46,6 +46,7 @@ section.register div.modalWindow form {
 }
 
 section.register div.modalWindow form input {
+    display: none;
     height: 56px;
     padding: 19px 12px;
     background: #F9F9FA;
@@ -54,6 +55,7 @@ section.register div.modalWindow form input {
 }
 
 section.register div.modalWindow form div.warning {
+    display: none;
     border-top: #BFC4C9 solid 1px;
     font-weight: 500;
     font-size: 12px;
@@ -62,11 +64,15 @@ section.register div.modalWindow form div.warning {
     padding-left: 12px;
 }
 
-section.register div.modalWindow form div.warning.loginWarning {
+section.register div.modalWindow form div.warning.loginWarning,
+section.register div.modalWindow form div.warning.firstNameWarning,
+section.register div.modalWindow form div.warning.telWarning {
     margin-bottom: 18px;
 }
 
-section.register div.modalWindow form div.warning.passwordWarning {
+section.register div.modalWindow form div.warning.passwordWarning,
+section.register div.modalWindow form div.warning.lastNameWarning,
+section.register div.modalWindow form div.warning.emailWarning {
     margin-bottom: 50px;
 }
 
@@ -109,6 +115,41 @@ section.register div.modalWindow div.auth a {
     display: flex;
     align-items: center;
     gap: 15px;
+}
+
+section.register div.modalWindow form input.login,
+section.register div.modalWindow form input.password,
+section.register div.modalWindow form input.firstName,
+section.register div.modalWindow form input.lastName,
+section.register div.modalWindow form input.tel,
+section.register div.modalWindow form input.email {
+    display: inline-block;
+}
+
+section.register div.modalWindow form div.loginWarning,
+section.register div.modalWindow form div.passwordWarning,
+section.register div.modalWindow form div.firstNameWarning,
+section.register div.modalWindow form div.lastNameWarning,
+section.register div.modalWindow form div.telWarning,
+section.register div.modalWindow form div.emailWarning {
+    display: block;
+}
+
+section.register div.modalWindow form div.passwordWarning button {
+    border: none;
+    background: none;
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: -51px;
+}
+
+section.register div.modalWindow form input.password {
+    padding-right: 43px;
+}
+
+section.register div.modalWindow form div.passwordWarning {
+    position: relative;
 }
 
 @media (max-width: 320px) {
