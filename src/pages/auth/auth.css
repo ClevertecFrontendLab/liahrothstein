@@ -38,12 +38,16 @@ section.auth div.modalWindow form {
     flex-direction: column;
 }
 
-section.auth div.modalWindow form input.login {
-    margin-bottom: 36px;
+section.auth div.modalWindow form div.warning {
+    border-top: #BFC4C9 solid 1px;
 }
 
-section.auth div.modalWindow form input.password {
-    margin-bottom: 20px;
+section.auth div.modalWindow form div.loginWarning {
+    margin-bottom: 18px;
+}
+
+section.auth div.modalWindow form div.passwordWarning {
+    margin-bottom: 2px;
 }
 
 section.auth div.modalWindow form input {
@@ -52,7 +56,6 @@ section.auth div.modalWindow form input {
     background: #F9F9FA;
     border-radius: 4px;
     border: none;
-    border-bottom: #BFC4C9 solid 1px;
 }
 
 section.auth div.modalWindow form input::placeholder {
@@ -109,6 +112,23 @@ section.auth div.modalWindow div.register a img {
     display: inline;
 }
 
+section.auth div.modalWindow form div.passwordWarning {
+    position: relative;
+}
+
+section.auth div.modalWindow form div.passwordWarning button {
+    border: none;
+    background: none;
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: -51px;
+}
+
+section.auth div.modalWindow form input.password {
+    padding-right: 43px;
+}
+
 @media (max-width: 320px) {
     section.auth div.logo {
         font-weight: 700;
@@ -126,8 +146,12 @@ section.auth div.modalWindow div.register a img {
         margin-left: 0;
     }
 
-    section.auth div.modalWindow form input.login {
-        margin-bottom: 32px;
+    section.auth div.modalWindow form div.loginWarning {
+        margin-bottom: 14px;
+    }
+
+    section.auth div.modalWindow form div.passwordWarning {
+        margin-bottom: 0px;
     }
 
     section.auth div.modalWindow div.register {
@@ -160,8 +184,12 @@ section.auth div.modalWindow div.register a img {
         margin-left: 0;
     }
 
-    section.auth div.modalWindow form input.login {
-        margin-bottom: 32px;
+    section.auth div.modalWindow form div.loginWarning {
+        margin-bottom: 14px;
+    }
+
+    section.auth div.modalWindow form div.passwordWarning {
+        margin-bottom: 0px;
     }
 
     section.auth div.modalWindow div.register {

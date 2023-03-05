@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import arrow from './arrow.png';
+import arrow from './assets/arrow.png';
+import eyeOpened from './assets/eye.png';
+import eyeClosed from './assets/eye-closed.png';
 
 import './auth.css';
 
 export function Auth() {
+    const [eye, setEye] = useState(false);
 
     return (
         <section className="auth">
@@ -13,8 +17,15 @@ export function Auth() {
                 <div className="header">Вход в личный кабинет</div>
                 <form action="">
                     <input type="text" className="login" placeholder='Логин' />
-                    <input type="password" className="password" placeholder='Пароль' />
-                    <Link>Забыли логин или пароль?</Link>
+                    <div className="warning loginWarning"><br /></div>
+                    <input type={(eye) ? 'text' : 'password'} className="password" placeholder='Пароль' />
+                    <div className="warning passwordWarning">
+                        <br />
+                        <button type='button' onClick={() => (setEye(!eye))}>
+                            <img src={(eye) ? eyeOpened : eyeClosed} alt="" />
+                        </button>
+                    </div>
+                    <Link to='/rec'>Забыли логин или пароль?</Link>
                     <button type="submit">вход</button>
                 </form>
                 <div className="register">
