@@ -209,7 +209,15 @@ export function Register() {
                         {(emailDirty && emailError) ? emailError : <br />}
                     </div>
 
-                    <button type={(stage < 3) ? 'button' : 'submit'} onClick={() => (setStage((stage < 3) ? stage + 1 : stage))}>
+                    <button
+                        type={(stage < 3) ? 'button' : 'submit'}
+                        onClick={() => (setStage((stage < 3) ? stage + 1 : stage))}
+                        disabled={((stage === 1 && login === '') ? true : (loginDirty && loginError)) ||
+                            ((stage === 1 && password === '') ? true : (passwordDirty && passwordError)) ||
+                            ((stage === 2 && firstName === '') ? true : (firstNameDirty && firstNameError)) ||
+                            ((stage === 2 && lastName === '') ? true : (lastNameDirty && lastNameError)) ||
+                            ((stage === 3 && tel === '') ? true : (telDirty && telError)) ||
+                            ((stage === 3 && email === '') ? true : (emailDirty && emailError)) ? true : false}>
                         {(stage === 1) ? 'следующий шаг' :
                             (stage === 2) ? 'последний шаг' : 'зарегистрироваться'}
                     </button>
