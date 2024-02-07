@@ -19,13 +19,16 @@
         "baseUrl": ".",
         "paths": {
             "@public/*": ["./public/*"],
-            "@components/*": ["./src/components/*"],
-            "@constants/*": ["./src/constants/*"],
-            "@hooks/*": ["./src/hooks/*"],
+            "@components/*": ["./src/shared/ui/*"],
+            "@constants/*": ["./src/shared/consts/*"],
+            "@hooks/*": ["./src/shared/hooks/*"],
             "@pages/*": ["./src/pages/*"],
-            "@redux/*": ["./src/redux/*"],
-            "@types/*": ["./src/types/*"],
-            "@utils/*": ["./src/utils/*"]
+            "@redux/*": ["./src/shared/store/*"],
+            "@types/*": ["./src/shared/types/*"],
+            "@utils/*": ["./src/shared/utils/*"],
+            "@entities/*": ["./src/entities/*"],
+            "@features/*": ["./src/features/*"],
+            "@widgets/*": ["./src/widgets/*"]
         },
         "plugins": [
             {
