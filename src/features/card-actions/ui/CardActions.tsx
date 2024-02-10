@@ -1,6 +1,8 @@
-import { CardAction } from '@entities/index'
+import { CardAction } from '@entities/index';
 
-import { cardActions } from '@constants/index'
+import { cardActions } from '@constants/index';
+
+import './CardActions.scss';
 
 export default function CardActions() {
 

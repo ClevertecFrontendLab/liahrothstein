@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 article.card:first-child {
-    max-width: 752px;
+    margin-bottom: 8px;
     padding: 24px;
     border-radius: 2px;
     box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
@@ -16,7 +16,6 @@ article.card:first-child {
 }
 
 article.card:first-child+article {
-    max-width: 752px;
     padding: 24px;
     border-radius: 2px;
     box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);

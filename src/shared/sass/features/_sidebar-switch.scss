@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+
+button.sidebarSwitch {
+    width: 20px;
+    height: 66px;
+    clip-path: polygon(0.00% 0.00%, 100.00% 15%, 100.00% 85%, 0.00% 100%, 0% 50%);
+    position: absolute;
+    right: -19px;
+    top: 479px;
+    justify-content: center;
+    background-color: $sidebarSwitchButtonColor;
+}

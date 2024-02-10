@@ -9,8 +9,8 @@ export default function Button({ image, title }: ButtonProps) {
 
     return (
         <button type="button">
-            <img src={image} alt="" />
-            <p>{title}</p>
+            {(image) && (<img src={image} alt="" />)}
+            {(title) && (<p>{title}</p>)}
         </button>
     )
 }

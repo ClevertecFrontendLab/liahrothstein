@@ -1,0 +1,17 @@
+@use '../abstracts' as *;
+
+div.sidebarMenu {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    button {
+        gap: 10px;
+        height: 42px;
+        padding: 0 16px;
+        color: $sidebarMenuButtonColor;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+    }
+}

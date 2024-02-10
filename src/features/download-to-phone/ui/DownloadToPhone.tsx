@@ -3,6 +3,8 @@ import { Button } from "@components/index";
 import androidIcon from '../../../shared/assets/images/android-icon.svg';
 import appleIcon from '../../../shared/assets/images/apple-icon.svg';
 
+import './DownloadToPhone.scss';
+
 export default function DownloadToPhone() {
 
     return (

@@ -1,6 +1,8 @@
 import { Button } from "@components/index";
 
-import signOut from '../../../shared/assets/images/sign-out-icon.svg'
+import signOut from '../../../shared/assets/images/sign-out-icon.svg';
+
+import './SignOut.scss';
 
 interface SignOutProps {
     isOpen: boolean
@@ -9,6 +11,10 @@ interface SignOutProps {
 export default function SignOut({ isOpen }: SignOutProps) {
 
     return (
-        <Button title={(isOpen) ? 'Выход' : ''} image={signOut} />
+        <button
+            className="signOut"
+            type="button">
+            <Button title={(isOpen) ? 'Выход' : ''} image={signOut} />
+        </button>
     )
 }

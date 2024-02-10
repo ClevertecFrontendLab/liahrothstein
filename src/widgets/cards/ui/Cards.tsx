@@ -3,6 +3,8 @@ import { CardActions } from "@features/index";
 
 import { cards } from "@constants/index";
 
+import './Cards.scss';
+
 export default function Cards() {
 
     return (

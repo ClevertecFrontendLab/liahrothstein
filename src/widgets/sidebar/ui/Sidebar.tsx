@@ -5,11 +5,13 @@ import { SidebarMenu, SignOut, SidebarSwitch } from '@features/index';
 import clever from '../../../shared/assets/images/clever-logo.svg';
 import fit from '../../../shared/assets/images/fit-logo.svg';
 
+import './Sidebar.scss';
+
 export default function Sidebar() {
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
     return (
-        <aside className={(isOpen) ? 'sidebarOpened' : 'sidebarClosed'}>
+        <aside className={(isOpen) ? 'sidebar opened' : 'sidebar closed'}>
             <div className="logo">
                 {(isOpen) ?
                     <>

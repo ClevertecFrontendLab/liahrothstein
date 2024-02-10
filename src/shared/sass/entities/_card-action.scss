@@ -1,7 +1,7 @@
 @use '../abstracts' as *;
 
 article.cardAction {
-    max-width: 240px;
+    width: 240px;
     border-radius: 2px;
 
     h2.title {
@@ -21,7 +21,6 @@ article.cardAction {
         width: 100%;
         padding: 12px 0;
         gap: 8px;
-        align-items: center;
         justify-content: center;
         color: $cardActionButtonTitleColor;
     }

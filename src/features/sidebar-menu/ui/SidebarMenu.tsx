@@ -1,6 +1,8 @@
 import { Button } from '@components/index';
 import { sidebarMenu } from '@constants/index';
 
+import './SidebarMenu.scss';
+
 interface SidebarMenuProps {
     isOpen: boolean
 }

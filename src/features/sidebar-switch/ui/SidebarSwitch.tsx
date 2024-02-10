@@ -4,6 +4,8 @@ import switcher from "../model/switcher";
 import sidebarSwitchOn from '../../../shared/assets/images/sidebar-switch-on-icon.svg';
 import sidebarSwitchOff from '../../../shared/assets/images/sidebar-switch-off-icon.svg';
 
+import './SidebarSwitch.scss';
+
 interface SidebarSwitchProps {
     isOpen: boolean,
     setIsOpen: (isOpen: boolean) => void

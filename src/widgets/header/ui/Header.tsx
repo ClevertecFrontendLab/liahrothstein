@@ -1,5 +1,7 @@
 import { Settings } from "@features/index";
 
+import './Header.scss';
+
 export default function Header() {
 
     return (
