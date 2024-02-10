@@ -1,5 +1,7 @@
 import { Button } from "@components/index";
 
+import './CardAction.scss';
+
 interface CardActionProps {
     buttonImage: string,
     buttonTitle: string,

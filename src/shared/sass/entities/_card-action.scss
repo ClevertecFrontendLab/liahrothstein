@@ -1,0 +1,28 @@
+@use '../abstracts' as *;
+
+article.cardAction {
+    max-width: 240px;
+    border-radius: 2px;
+
+    h2.title {
+        color: $cardActionTitleColor;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20.8px;
+        padding: 12px 0;
+        text-align: center;
+    }
+
+    hr {
+        border: 1px solid $cardActionHrColor;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px 0;
+        gap: 8px;
+        align-items: center;
+        justify-content: center;
+        color: $cardActionButtonTitleColor;
+    }
+}
