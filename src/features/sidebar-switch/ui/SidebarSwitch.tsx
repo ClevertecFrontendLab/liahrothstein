@@ -15,6 +15,7 @@ export default function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps)
         <button
             className="sidebarSwitch"
             type="button"
+            data-test-id={(document.body.clientWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}
             onClick={() => switcher(setIsOpen, isOpen)}>
             <Button image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff} title="" />
         </button>
