@@ -3,6 +3,7 @@
 article.cardAction {
     width: 240px;
     border-radius: 2px;
+    background-color: $cardBackgroundColor;
 
     h2.title {
         color: $cardActionTitleColor;
