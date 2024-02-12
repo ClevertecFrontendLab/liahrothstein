@@ -15,4 +15,15 @@ button.signOut {
         font-size: 14px;
         line-height: 18.2px;
     }
+
+    img {
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }
+
+    @media (max-width: $tablet) {
+        justify-content: center;
+    }
+
 }

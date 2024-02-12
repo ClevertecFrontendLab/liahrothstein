@@ -1,8 +1,19 @@
+@use '../abstracts' as *;
+
 section.cards {
     width: 752px;
-    margin-top: 24px;
-    margin-left: 24px;
+    margin: 24px 24px 0 24px;
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    @media (max-width: $laptop) {
+        max-width: 722px;
+        width: 100%;
+    }
+
+    @media (max-width: $tablet) {
+        max-width: fit-content;
+        margin: 24px 16px;
+    }
 }

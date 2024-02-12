@@ -5,12 +5,22 @@ article.cardAction {
     border-radius: 2px;
     background-color: $cardBackgroundColor;
 
+    @media (max-width: $laptop) {
+        max-width: 230px;
+        width: 100%;
+    }
+
+    @media (max-width: $tablet) {
+        max-width: none;
+        height: 101px;
+    }
+
     h2.title {
         color: $cardActionTitleColor;
         font-weight: 400;
         font-size: 16px;
         line-height: 20.8px;
-        padding: 12px 0;
+        padding: 12px 24px;
         text-align: center;
     }
 

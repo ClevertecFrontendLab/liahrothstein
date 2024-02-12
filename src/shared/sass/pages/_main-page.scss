@@ -11,11 +11,23 @@ div.mainPage {
         display: flex;
         flex-direction: column;
 
+        @media (max-width: $tablet) {
+            position: absolute;
+            z-index: 1;
+            background-image: url('./src/shared/assets/images/main-page-background.svg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
         main {
             height: 100%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
+            @media (max-width: $tablet) {
+                align-items: center;
+            }
 
             div.reviewsAndDownload {
                 padding: 0 24px;
@@ -24,9 +36,28 @@ div.mainPage {
                 justify-content: space-between;
                 align-items: flex-end;
 
+                @media (max-width: $tablet) {
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    gap: 33.5px;
+                }
+
                 button:first-child:not(article.downloadToPhoneCard div.downloadButtons button:first-child) {
                     color: $reviewsButtonColor;
                 }
+            }
+        }
+    }
+
+    aside.sidebar.opened+div.headerAndMain {
+        section.cards {
+            @media (max-width: $laptop) {
+                max-width: 578px;
+                width: 100%;
+            }
+
+            @media (max-width: $tablet) {
+                max-width: fit-content;
             }
         }
     }

@@ -5,6 +5,10 @@ div.sidebarMenu {
     flex-direction: column;
     gap: 16px;
 
+    @media (max-width: $tablet) {
+        margin-top: 32px;
+    }
+
     button {
         gap: 10px;
         height: 42px;
@@ -13,5 +17,15 @@ div.sidebarMenu {
         font-weight: 400;
         font-size: 14px;
         line-height: 18.2px;
+
+        img {
+            @media (max-width: $tablet) {
+                display: none;
+            }
+        }
+
+        @media (max-width: $tablet) {
+            padding: 0 8px;
+        }
     }
 }
