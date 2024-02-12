@@ -22,5 +22,16 @@ div.settings {
         font-size: 14px;
         line-height: 18.2px;
 
+        p {
+            @media (max-width: $tablet) {
+                display: none;
+            }
+        }
+
+        img {
+            @media (min-width: 831px) and (max-width: $laptop) {
+                display: none;
+            }
+        }
     }
 }
