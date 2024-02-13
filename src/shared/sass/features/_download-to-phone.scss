@@ -1,0 +1,46 @@
+@use '../abstracts' as *;
+
+article.downloadToPhoneCard {
+    max-width: 240px;
+    padding: 12px 0;
+    border-radius: 2px;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    background-color: $cardBackgroundColor;
+
+    h2.title {
+        color: $downloadToPhoneTitleColor;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20.8px;
+        padding-left: 24px;
+        padding-bottom: 8px;
+    }
+    
+    h2.description {
+        color: $downloadToPhoneDescriptionColor;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+        padding-left: 24px;
+        padding-bottom: 12px;
+    }
+
+    hr {
+        border: 1px solid $downloadToPhoneHrColor;
+    }
+
+    div.downloadButtons {
+        padding-top: 12px;
+        display: flex;
+
+        button {
+            width: 120px;
+            height: 32px;
+            gap: 8px;
+            justify-content: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18.2px;
+        }
+    }
+}

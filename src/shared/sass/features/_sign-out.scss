@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+button.signOut {
+    width: 100%;
+    padding: 7px 16px;
+    border-top: 1px solid $signOutBorderColor;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    button {
+        gap: 25px;
+        color: $signOutButtonColor;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+    }
+
+    img {
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }
+
+    @media (max-width: $tablet) {
+        justify-content: center;
+    }
+
+}

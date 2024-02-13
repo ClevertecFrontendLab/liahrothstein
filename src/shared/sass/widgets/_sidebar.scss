@@ -1,0 +1,71 @@
+@use '../abstracts' as *;
+
+aside.sidebar {
+    position: relative;
+    height: 100vh;
+    box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.15);
+    background-color: $sidebarBackgroundColor;
+
+    @media (max-width: $tablet) {
+        position: fixed;
+        max-width: 106px;
+        z-index: 2;
+    }
+
+    &.opened {
+        max-width: 208px;
+        width: 100%;
+
+        @media (max-width: $tablet) {
+            max-width: 106px;
+        }
+
+        div.logo {
+            display: flex;
+            margin-bottom: 67px;
+            margin-top: 44px;
+            margin-left: 29px;
+
+            @media (max-width: $tablet) {
+                margin: 16px 17px;
+            }
+
+            img {
+                &:first-child {
+                    position: relative;
+                    top: 2px;
+
+                    @media (max-width: $tablet) {
+                        height: 13.02px;
+                    }
+                }
+
+                @media (max-width: $tablet) {
+                    height: 16.11px;
+                }
+            }
+        }
+    }
+
+    &.closed {
+        width: 64px;
+
+        @media (max-width: $tablet) {
+            width: 0px;
+        }
+
+        div.logo {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 68px;
+            margin-top: 49px;
+        }
+
+        div.sidebarMenu {
+            button {
+                justify-content: center;
+            }
+        }
+    }
+
+}

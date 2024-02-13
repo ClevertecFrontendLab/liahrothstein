@@ -1,0 +1,39 @@
+@use '../abstracts' as *;
+
+header.header {
+    padding: 16px 24px;
+    background-color: $backgroundHeaderColor;
+
+    h6.breadCrumbs {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+        color: $headerBreadCrumbsColor;
+    }
+
+    div.welcomeAndSettings {
+        display: flex;
+        justify-content: space-between;
+
+        h1.welcome {
+            padding: 6px 0;
+            font-weight: 700;
+            font-size: 38px;
+            line-height: 49.4px;
+            color: $headerWelcomeColor;
+
+            @media (max-width: $laptop) {
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 31.2px;
+            }
+
+            @media (max-width: $tablet) {
+                font-size: 20px;
+                line-height: 26px;
+                padding: 0;
+                width: 100%;
+            }
+        }
+    }
+}

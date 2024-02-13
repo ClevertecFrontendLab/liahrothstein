@@ -1,0 +1,29 @@
+@use '../abstracts' as *;
+
+article.card {
+    padding: 24px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    background-color: $sidebarBackgroundColor;
+
+    &:first-child {
+        margin-bottom: 8px;
+
+        h2.title {
+            color: $firstCardTitleColor;
+            white-space: pre-line;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20.8px;
+        }
+
+        &+article {
+            h2.title {
+                color: $SecondCardTitleColor;
+                font-weight: 500;
+                font-size: 20px;
+                line-height: 26px;
+            }
+        }
+    }
+}
