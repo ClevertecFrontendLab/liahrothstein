@@ -1,0 +1,1 @@
+export { registrationAPI } from './api/registration-api';

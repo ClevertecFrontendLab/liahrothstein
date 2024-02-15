@@ -1,0 +1,1 @@
+export { confirmEmailAPI } from './api/confirm-email-api';

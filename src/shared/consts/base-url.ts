@@ -1,0 +1,1 @@
+export const baseURL: string = 'https://marathon-api.clevertec.ru';
