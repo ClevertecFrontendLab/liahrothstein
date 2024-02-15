@@ -13,8 +13,14 @@ export default function DownloadToPhone() {
             <h2 className="description">Доступно в PRO-тарифе</h2>
             <hr />
             <div className="downloadButtons">
-                <Button image={androidIcon} title={'Android OS'} />
-                <Button image={appleIcon} title={'Apple iOS'} />
+                <Button
+                    image={androidIcon}
+                    title={'Android OS'}
+                    onClickHandler={undefined} />
+                <Button
+                    image={appleIcon}
+                    title={'Apple iOS'}
+                    onClickHandler={undefined} />
             </div>
         </article>
     )

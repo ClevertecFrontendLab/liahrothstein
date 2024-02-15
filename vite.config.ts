@@ -16,7 +16,6 @@ export default defineConfig({
             '@constants': path.resolve(__dirname, 'src/shared/consts'),
             '@hooks': path.resolve(__dirname, 'src/shared/hooks'),
             '@pages': path.resolve(__dirname, 'src/pages'),
-            '@redux': path.resolve(__dirname, 'src/shared/store'),
             '@types': path.resolve(__dirname, 'src/shared/types'),
             '@utils': path.resolve(__dirname, 'src/shared/utils'),
             '@entities': path.resolve(__dirname, 'src/entities'),

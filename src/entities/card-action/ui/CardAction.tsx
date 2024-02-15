@@ -14,7 +14,10 @@ export default function CardAction({ buttonImage, buttonTitle, cardTitle }: Card
         <article className="cardAction">
             <h2 className="title">{cardTitle}</h2>
             <hr />
-            <Button image={buttonImage} title={buttonTitle} />
+            <Button
+                image={buttonImage}
+                title={buttonTitle}
+                onClickHandler={undefined} />
         </article>
     )
 }

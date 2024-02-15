@@ -11,10 +11,11 @@ interface SignOutProps {
 export default function SignOut({ isOpen }: SignOutProps) {
 
     return (
-        <button
-            className="signOut"
-            type="button">
-            <Button title={(isOpen) ? 'Выход' : ''} image={signOut} />
-        </button>
+        <div className="signOut">
+            <Button
+                title={(isOpen) ? 'Выход' : ''}
+                image={signOut}
+                onClickHandler={undefined} />
+        </div>
     )
 }

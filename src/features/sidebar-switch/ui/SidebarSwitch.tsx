@@ -14,12 +14,13 @@ interface SidebarSwitchProps {
 export default function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps) {
 
     return (
-        <button
+        <div
             className="sidebarSwitch"
-            type="button"
-            data-test-id={(document.body.clientWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}
-            onClick={() => switcher(setIsOpen, isOpen)}>
-            <Button image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff} title="" />
-        </button>
+            data-test-id={(document.body.clientWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}>
+            <Button
+                image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff}
+                title=""
+                onClickHandler={() => (switcher(setIsOpen, isOpen))} />
+        </div>
     )
 }

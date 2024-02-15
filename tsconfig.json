@@ -23,7 +23,6 @@
             "@constants/*": ["./src/shared/consts/*"],
             "@hooks/*": ["./src/shared/hooks/*"],
             "@pages/*": ["./src/pages/*"],
-            "@redux/*": ["./src/shared/store/*"],
             "@types/*": ["./src/shared/types/*"],
             "@utils/*": ["./src/shared/utils/*"],
             "@entities/*": ["./src/entities/*"],

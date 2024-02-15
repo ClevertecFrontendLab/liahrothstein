@@ -15,7 +15,8 @@ export default function SidebarMenu({ isOpen }: SidebarMenuProps) {
                 <Button
                     key={e.buttonTitle}
                     title={(isOpen) ? e.buttonTitle : ''}
-                    image={e.buttonImage} />
+                    image={e.buttonImage}
+                    onClickHandler={undefined} />
             ))}
         </div>
     )
