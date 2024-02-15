@@ -1,1 +1,1 @@
-export { setupStore } from './store';
+export { setupStore, history } from './store';
