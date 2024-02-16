@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import { HistoryRouter } from 'redux-first-history/rr6';
 
-import Routing from './routing/Routing';
+import Routing from './routes/Routing';
 
 import { setupStore, history } from './store';
 
