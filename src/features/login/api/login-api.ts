@@ -25,3 +25,5 @@ export const loginAPI = createApi({
         })
     })
 })
+
+export const {useUserLoginMutation, useLazyUserGoogleLoginQuery} = loginAPI;
