@@ -1,23 +1,29 @@
 import { useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 
-import { Button, Input } from "@components/index";
+import { Button, Input, Loader } from "@components/index";
 
 import { switcher } from "@utils/index";
+import { loginAPI } from "..";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
 import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
-import { loginAPI } from "..";
 
 export default function Login() {
     const [email, setEmail] = useState<string>('');
     const [password, setPassword] = useState<string>('');
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
-    const [signUp, { }] = loginAPI.useUserLoginMutation();
+    const [signUp, { isLoading, isError }] = loginAPI.useUserLoginMutation();
+
+    if (isError) {
+        return (<Navigate to={'/result/error-login'} />)
+    }
 
     return (
         <form className="login">
+            <Loader />
             <div className="email">
                 <label htmlFor="email">e-mail:</label>
                 <Input
@@ -48,10 +54,9 @@ export default function Login() {
                         name="rememberMe" />
                     <label htmlFor="rememberMe">Запомнить меня</label>
                 </div>
-                <Button
-                    image=""
-                    title="Забыли пароль?"
-                    onClickHandler={undefined} />
+                <button type="button">
+                    <Link to={'/auth/confirm-email'}>Забыли пароль?</Link>
+                </button>
             </div>
             <Button
                 image=""
