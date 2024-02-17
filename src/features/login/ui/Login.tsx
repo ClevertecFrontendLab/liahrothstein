@@ -23,7 +23,7 @@ export default function Login() {
 
     return (
         <form className="login">
-            <Loader />
+            {isLoading && <Loader />}
             <div className="email">
                 <label htmlFor="email">e-mail:</label>
                 <Input
