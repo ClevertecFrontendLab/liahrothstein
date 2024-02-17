@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { baseURL } from "@constants/index";
 import type { UserDTO } from "../../../shared/types";
 
@@ -15,6 +15,12 @@ export const loginAPI = createApi({
                 url: '/auth/login',
                 method: 'POST',
                 body: user
+            })
+        }),
+        userGoogleLogin: build.query({
+            query: () => ({
+                url: '/auth/google',
+                method: 'GET'
             })
         })
     })

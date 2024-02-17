@@ -1,15 +1,19 @@
 interface InputProps {
     inputType: string,
     inputValue: string,
-    onChangeHandler: (value: string) => void
+    inputName: string,
+    inputPlaceholder: string,
+    onChangeHandler: (inputValue: string) => void
 }
 
-export default function Input({ inputType, inputValue, onChangeHandler }: InputProps) {
+export default function Input({ inputType, inputValue, inputName, inputPlaceholder, onChangeHandler }: InputProps) {
 
     return (
         <input
             type={inputType}
             value={inputValue}
-            onChange={() => (onChangeHandler)} />
+            name={inputName}
+            placeholder={inputPlaceholder}
+            onChange={(e) => (onChangeHandler(e.target.value))} />
     )
 }

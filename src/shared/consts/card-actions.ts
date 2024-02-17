@@ -1,8 +1,8 @@
 import type { CardAction } from "../types";
 
-import heart from '../assets/images/heart-icon-card-action.svg';
-import calendar from '../assets/images/calendar-icon-card-action.svg';
-import profile from '../assets/images/profile-icon-card-action.svg';
+import heart from '../assets/icons/heart-icon-card-action.svg';
+import calendar from '../assets/icons/calendar-icon-card-action.svg';
+import profile from '../assets/icons/profile-icon-card-action.svg';
 
 export const cardActions: CardAction[] = [
     {

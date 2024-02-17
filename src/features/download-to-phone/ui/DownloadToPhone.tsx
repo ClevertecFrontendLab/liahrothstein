@@ -1,7 +1,7 @@
 import { Button } from "@components/index";
 
-import androidIcon from '../../../shared/assets/images/android-icon.svg';
-import appleIcon from '../../../shared/assets/images/apple-icon.svg';
+import androidIcon from '../../../shared/assets/icons/android-icon.svg';
+import appleIcon from '../../../shared/assets/icons/apple-icon.svg';
 
 import './DownloadToPhone.scss';
 

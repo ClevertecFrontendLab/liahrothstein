@@ -4,13 +4,12 @@ import { HistoryRouter } from 'redux-first-history/rr6';
 
 import Routing from './routes/Routing';
 
-import { setupStore, history } from './store';
+import { store, history } from './store';
 
 import './App.scss';
 
 export default function App() {
-    const store = setupStore();
-    const [isAuth, setIsAuth] = useState(true);
+    const [isAuth, setIsAuth] = useState(false);
 
     return (
         <Provider store={store}>

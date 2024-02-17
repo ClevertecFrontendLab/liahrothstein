@@ -1,6 +1,6 @@
 import { Button } from "@components/index";
 
-import signOut from '../../../shared/assets/images/sign-out-icon.svg';
+import signOut from '../../../shared/assets/icons/sign-out-icon.svg';
 
 import './SignOut.scss';
 

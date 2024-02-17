@@ -1,8 +1,8 @@
 import { Button } from "@components/index";
-import switcher from "../model/switcher";
+import { switcher } from "@utils/index";
 
-import sidebarSwitchOn from '../../../shared/assets/images/sidebar-switch-on-icon.svg';
-import sidebarSwitchOff from '../../../shared/assets/images/sidebar-switch-off-icon.svg';
+import sidebarSwitchOn from '../../../shared/assets/icons/sidebar-switch-on-icon.svg';
+import sidebarSwitchOff from '../../../shared/assets/icons/sidebar-switch-off-icon.svg';
 
 import './SidebarSwitch.scss';
 
@@ -20,7 +20,7 @@ export default function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps)
             <Button
                 image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff}
                 title=""
-                onClickHandler={() => (switcher(setIsOpen, isOpen))} />
+                onClickHandler={() => (switcher(isOpen, setIsOpen))} />
         </div>
     )
 }

@@ -5,7 +5,7 @@ export { default as SignOut } from './sign-out/ui/SignOut';
 export { default as Settings } from './settings/ui/Settings';
 export { default as SidebarSwitch } from './sidebar-switch/ui/SidebarSwitch';
 
-export { loginAPI } from './login';
+export { loginAPI, Login } from './login';
 export { registrationAPI } from './registration';
 export { checkEmailAPI } from './check-email';
 export { confirmEmailAPI } from './confirm-email';

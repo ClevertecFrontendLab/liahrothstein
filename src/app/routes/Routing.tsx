@@ -12,8 +12,8 @@ export default function Routing({ isAuth }: RoutingProps) {
             <Route path="/" element={(isAuth) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
             <Route path="/main" element={(isAuth) ? <MainPage /> : <Navigate to='/auth' />} />
             <Route path="/auth" element={(isAuth) ? <Navigate to='/main' /> : <AuthPage />} />
-            <Route path="/auth/registration" element={<RegisterPage />} />
-            <Route path="/auth/change-password" element={<PasswordRecoveryPage />} />
+            <Route path="/auth/registration" element={(isAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
+            <Route path="/auth/change-password" element={(isAuth) ? <Navigate to='/main' /> : <PasswordRecoveryPage />} />
         </Routes>
     )
 }

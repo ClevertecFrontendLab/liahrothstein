@@ -1,6 +1,6 @@
 import { Button } from "@components/index";
 
-import settings from '../../../shared/assets/images/settings-icon.svg';
+import settings from '../../../shared/assets/icons/settings-icon.svg';
 
 import './Settings.scss';
 
