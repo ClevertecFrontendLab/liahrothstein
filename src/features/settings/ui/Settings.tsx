@@ -11,6 +11,7 @@ export default function Settings() {
             <Button
                 title={'Настройки'}
                 image={settings}
+                disabled={false}
                 onClickHandler={undefined} />
         </div>
     )

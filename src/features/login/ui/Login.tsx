@@ -12,9 +12,9 @@ import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
 export default function Login() {
     const [email, setEmail] = useState<string>('');
-    const [emailError, setEmailError] = useState<boolean>(false);
+    const [emailError, setEmailError] = useState<boolean>(true);
     const [password, setPassword] = useState<string>('');
-    const [passwordError, setPasswordError] = useState<boolean>(false);
+    const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
     const [signUp, { isLoading: isSignUpLoading, isError: isSignUpError }] = useUserLoginMutation();
@@ -41,7 +41,7 @@ export default function Login() {
             </div>
             <div className="password">
                 <FormInput
-                    inputType={'password'}
+                    inputType={(isEyeOpen) ? 'text' : 'password'}
                     inputValue={password}
                     inputName={'password'}
                     inputPlaceholder={"Пароль"}
@@ -51,6 +51,7 @@ export default function Login() {
                 <Button
                     image={(isEyeOpen) ? eyeOpened : eyeClosed}
                     title=""
+                    disabled={false}
                     onClickHandler={() => (switcher(isEyeOpen, setIsEyeOpen))} />
             </div>
             <div className="rememberMeAndPasswordForgot">
@@ -69,10 +70,12 @@ export default function Login() {
             <Button
                 image=""
                 title="Войти"
+                disabled={(emailError || passwordError) ? true : false}
                 onClickHandler={async () => (await signUp({ email: email, password: password }))} />
             <Button
                 image={googlePlus}
                 title="Войти через Google"
+                disabled={false}
                 onClickHandler={() => (signUpGoogle(undefined))} />
         </form>
     )

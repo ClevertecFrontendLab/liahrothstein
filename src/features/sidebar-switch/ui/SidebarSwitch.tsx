@@ -20,6 +20,7 @@ export default function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps)
             <Button
                 image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff}
                 title=""
+                disabled={false}
                 onClickHandler={() => (switcher(isOpen, setIsOpen))} />
         </div>
     )
