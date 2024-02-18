@@ -6,7 +6,7 @@ export { default as Settings } from './settings/ui/Settings';
 export { default as SidebarSwitch } from './sidebar-switch/ui/SidebarSwitch';
 
 export { loginAPI, Login } from './login';
-export { registrationAPI } from './registration';
+export { registrationAPI, Registration } from './registration';
 export { checkEmailAPI } from './check-email';
 export { confirmEmailAPI } from './confirm-email';
 export { changePasswordAPI } from './change-password';

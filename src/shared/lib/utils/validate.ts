@@ -21,3 +21,11 @@ export function validatePassword(event: React.ChangeEvent<HTMLInputElement>, dis
         errorDispatch(false)
     }
 }
+
+export function comparePasswords(firstPassword: string, secondPassword: string): boolean {
+    if (firstPassword === secondPassword) {
+        return (false)
+    } else {
+        return (true)
+    }
+}

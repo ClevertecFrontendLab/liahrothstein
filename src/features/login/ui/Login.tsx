@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 
 import { Button, FormInput, Loader } from "@components/index";
@@ -17,12 +17,18 @@ export default function Login() {
     const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
-    const [signUp, { isLoading: isSignUpLoading, isError: isSignUpError }] = useUserLoginMutation();
+    const [signUp, { data, isLoading: isSignUpLoading, isError: isSignUpError }] = useUserLoginMutation();
     const [signUpGoogle, { isLoading: isSignUpGoogleLoading, isError: isSignUpGoogleError }] = useLazyUserGoogleLoginQuery();
 
     if (isSignUpError || isSignUpGoogleError) {
         return (<Navigate to={'/result/error-login'} />)
-    }
+    };
+
+    useEffect(() => {
+        if (data !== undefined) {
+            localStorage.setItem('accessToken', data?.accessToken)
+        }
+    }, [data]);
 
     return (
         <form className="login">
@@ -63,7 +69,7 @@ export default function Login() {
                         name="rememberMe" />
                     <label htmlFor="rememberMe">Запомнить меня</label>
                 </div>
-                <button type="button">
+                <button type="button" disabled={(!emailError)}>
                     <Link to={'/auth/confirm-email'}>Забыли пароль?</Link>
                 </button>
             </div>

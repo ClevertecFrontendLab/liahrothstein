@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { baseURL } from "@constants/index";
 import type { UserDTO } from "../../../shared/types";
 
@@ -14,6 +14,14 @@ export const registrationAPI = createApi({
                 method: 'POST',
                 body: user
             })
+        }),
+        userGoogleRegistration: build.query({
+            query: () => ({
+                url: '/auth/google',
+                method: 'GET'
+            })
         })
     })
-})
+});
+
+export const { useUserRegistrationMutation, useLazyUserGoogleRegistrationQuery } = registrationAPI
