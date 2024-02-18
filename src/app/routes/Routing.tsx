@@ -1,11 +1,9 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthPage, MainPage, PasswordRecoveryPage, RegisterPage } from "@pages/index";
+import { useAppSelector } from "../store";
 
-interface RoutingProps {
-    isAuth: boolean
-}
-
-export default function Routing({ isAuth }: RoutingProps) {
+export default function Routing() {
+    const isAuth = useAppSelector((state) => (state.isAuth));
 
     return (
         <Routes>

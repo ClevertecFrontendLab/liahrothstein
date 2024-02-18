@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 
 import { Button, FormInput, Loader } from "@components/index";
 
-import { switcher, validateEmail, validatePassword } from "@utils/index";
+import { logIn, switcher, validateEmail, validatePassword } from "@utils/index";
 import { useUserLoginMutation, useLazyUserGoogleLoginQuery } from "../api/login-api";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
@@ -17,18 +18,19 @@ export default function Login() {
     const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
-    const [signUp, { data, isLoading: isSignUpLoading, isError: isSignUpError }] = useUserLoginMutation();
+    const [signUp, { data, isSuccess, isLoading: isSignUpLoading, isError: isSignUpError }] = useUserLoginMutation();
     const [signUpGoogle, { isLoading: isSignUpGoogleLoading, isError: isSignUpGoogleError }] = useLazyUserGoogleLoginQuery();
+    const dispatch = useDispatch();
 
     if (isSignUpError || isSignUpGoogleError) {
         return (<Navigate to={'/result/error-login'} />)
     };
 
     useEffect(() => {
-        if (data !== undefined) {
-            localStorage.setItem('accessToken', data?.accessToken)
+        if (isSuccess && data !== undefined) {
+            dispatch(logIn(data.accessToken));
         }
-    }, [data]);
+    }, [isSuccess]);
 
     return (
         <form className="login">

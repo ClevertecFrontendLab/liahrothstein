@@ -21,13 +21,14 @@
             "@public/*": ["./public/*"],
             "@components/*": ["./src/shared/ui/*"],
             "@constants/*": ["./src/shared/consts/*"],
-            "@hooks/*": ["./src/shared/hooks/*"],
+            "@hooks/*": ["./src/shared/lib/hooks/*"],
             "@pages/*": ["./src/pages/*"],
             "@types/*": ["./src/shared/types/*"],
             "@utils/*": ["./src/shared/lib/utils/*"],
             "@entities/*": ["./src/entities/*"],
             "@features/*": ["./src/features/*"],
-            "@widgets/*": ["./src/widgets/*"]
+            "@widgets/*": ["./src/widgets/*"],
+            "@store/*": ["./src/app/store/*"],
         },
         "plugins": [
             {

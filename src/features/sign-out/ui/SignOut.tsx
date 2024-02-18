@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+
 import { Button } from "@components/index";
+
+import { logOut } from "@utils/index";
 
 import signOut from '../../../shared/assets/icons/sign-out-icon.svg';
 
@@ -9,6 +13,7 @@ interface SignOutProps {
 }
 
 export default function SignOut({ isOpen }: SignOutProps) {
+    const dispatch = useDispatch();
 
     return (
         <div className="signOut">
@@ -16,7 +21,7 @@ export default function SignOut({ isOpen }: SignOutProps) {
                 title={(isOpen) ? 'Выход' : ''}
                 image={signOut}
                 disabled={false}
-                onClickHandler={undefined} />
+                onClickHandler={() => (dispatch(logOut()))} />
         </div>
     )
 }
