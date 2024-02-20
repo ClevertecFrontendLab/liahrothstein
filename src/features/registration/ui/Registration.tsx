@@ -19,12 +19,8 @@ export default function Registration() {
     const [secondPasswordError, setSecondPasswordError] = useState<boolean>(true);
     const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
-    const [register, { isLoading: isRegisterLoading, isError: isRegisterError }] = useUserRegistrationMutation();
+    const [register, { isLoading: isRegisterLoading, isError: isRegisterError, error }] = useUserRegistrationMutation();
     const [registerGoogle, { isLoading: isRegisterGoogleLoading, isError: isRegisterGoogleError }] = useLazyUserGoogleRegistrationQuery();
-
-    if (isRegisterError || isRegisterGoogleError) {
-        return (<Navigate to={'/result/error'} />)
-    };
 
     useEffect(() => {
         setSecondPasswordError(comparePasswords(firstPassword, secondPassword))
@@ -36,8 +32,9 @@ export default function Registration() {
 
     return (
         <form className="registration">
-            {isRegisterLoading && <Loader />}
-            {isRegisterGoogleLoading && <Loader />}
+            {(isRegisterLoading || isRegisterGoogleLoading) && <Loader />}
+            {(isRegisterError && error?.status === 409) && <Navigate to={'/result/error-user-exist'} />}
+            {((isRegisterError && error?.status !== 409) || isRegisterGoogleError) && <Navigate to={'/result/error'} />}
             <div className="email">
                 <label htmlFor="email">e-mail:</label>
                 <FormInput

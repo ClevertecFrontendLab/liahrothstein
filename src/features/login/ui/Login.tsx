@@ -18,13 +18,9 @@ export default function Login() {
     const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
-    const [signUp, { data, isSuccess, isLoading: isSignUpLoading, isError: isSignUpError }] = useUserLoginMutation();
-    const [signUpGoogle, { isLoading: isSignUpGoogleLoading, isError: isSignUpGoogleError }] = useLazyUserGoogleLoginQuery();
+    const [signIn, { data, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
+    const [signInGoogle, { isLoading: isSignInGoogleLoading, isError: isSignInGoogleError }] = useLazyUserGoogleLoginQuery();
     const dispatch = useDispatch();
-
-    if (isSignUpError || isSignUpGoogleError) {
-        return (<Navigate to={'/result/error-login'} />)
-    };
 
     useEffect(() => {
         if (isSuccess && data !== undefined) {
@@ -34,8 +30,8 @@ export default function Login() {
 
     return (
         <form className="login">
-            {isSignUpLoading && <Loader />}
-            {isSignUpGoogleLoading && <Loader />}
+            {(isSignInLoading || isSignInGoogleLoading) && <Loader />}
+            {(isSignInError || isSignInGoogleError) && <Navigate to={'/result/error-login'} />}
             <div className="email">
                 <label htmlFor="email">e-mail:</label>
                 <FormInput
@@ -71,20 +67,21 @@ export default function Login() {
                         name="rememberMe" />
                     <label htmlFor="rememberMe">Запомнить меня</label>
                 </div>
-                <button type="button" disabled={(!emailError)}>
-                    <Link to={'/auth/confirm-email'}>Забыли пароль?</Link>
+                <button type="button" disabled={(emailError)}>
+                    {(!emailError) && <Link to={'/auth/confirm-email'} state={email}>Забыли пароль?</Link>}
+                    {(emailError) && <p>Забыли пароль?</p>}
                 </button>
             </div>
             <Button
                 image=""
                 title="Войти"
                 disabled={(emailError || passwordError) ? true : false}
-                onClickHandler={async () => (await signUp({ email: email, password: password }))} />
+                onClickHandler={async () => (await signIn({ email: email, password: password }))} />
             <Button
                 image={googlePlus}
                 title="Войти через Google"
                 disabled={false}
-                onClickHandler={() => (signUpGoogle(undefined))} />
+                onClickHandler={() => (signInGoogle(undefined))} />
         </form>
     )
 }
