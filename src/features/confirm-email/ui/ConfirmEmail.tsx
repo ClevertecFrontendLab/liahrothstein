@@ -8,13 +8,19 @@ import { useUserCheckEmailMutation, useUserConfirmEmailMutation } from "../api/c
 
 export default function ConfirmEmail() {
     const { state: email } = useLocation();
-    const [checkEmail, { isLoading: isCheckEmailLoading, isError: isCheckEmailError, isSuccess: isCheckEmailSuccess, error }] = useUserCheckEmailMutation();
+    const [checkEmail, { isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
     const [confirmEmail, { isLoading: isConfirmEmailLoading, isError: isConfirmEmailError }] = useUserConfirmEmailMutation();
     const [code, setCode] = useState<string[]>(['', '', '', '', '', '']);
 
-    // useEffect(() => {
-    //     checkEmail({ email: email });
-    // }, [])
+    useEffect(() => {
+        checkEmail({ email: email });
+    }, []);
+
+    useEffect(() => {
+        if (code[5]) {
+            confirmEmail({ email: email, code: code.reduce((prv, crrnt) => (prv + crrnt)) })
+        }
+    }, [code]);
 
     return (
         <>
