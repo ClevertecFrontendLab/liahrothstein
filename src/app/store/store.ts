@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from "history";
 
-import { loginAPI, registrationAPI, checkEmailAPI, confirmEmailAPI, changePasswordAPI } from '../../features';
+import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI } from '../../features';
 import { isAuthSlice } from "@utils/index";
 
 const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory() });
@@ -12,7 +12,6 @@ const rootReducer = combineReducers({
     isAuth: isAuthSlice.reducer,
     [loginAPI.reducerPath]: loginAPI.reducer,
     [registrationAPI.reducerPath]: registrationAPI.reducer,
-    [checkEmailAPI.reducerPath]: checkEmailAPI.reducer,
     [confirmEmailAPI.reducerPath]: confirmEmailAPI.reducer,
     [changePasswordAPI.reducerPath]: changePasswordAPI.reducer
 });
@@ -25,7 +24,6 @@ export function setupStore() {
                 .concat(routerMiddleware)
                 .concat(loginAPI.middleware)
                 .concat(registrationAPI.middleware)
-                .concat(checkEmailAPI.middleware)
                 .concat(confirmEmailAPI.middleware)
                 .concat(changePasswordAPI.middleware)
             )
