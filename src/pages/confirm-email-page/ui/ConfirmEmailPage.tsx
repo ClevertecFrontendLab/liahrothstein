@@ -1,10 +1,13 @@
-import { ConfirmEmail } from "@features/index";
+import { useLocation } from "react-router-dom";
+
+import { ConfirmEmailWindow } from "@widgets/index";
 
 export default function ConfirmEmailPage() {
+    const { state: email } = useLocation();
 
     return (
         <div className="confirmEmailPage">
-            <ConfirmEmail />
+            <ConfirmEmailWindow email={email} />
         </div>
     )
 }

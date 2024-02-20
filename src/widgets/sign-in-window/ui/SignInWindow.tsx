@@ -8,7 +8,7 @@ import fit from '../../../shared/assets/images/fit-logo.svg';
 export default function SignUpWindow() {
 
     return (
-        <div className="signUpWindow">
+        <div className="signInWindow">
             <div className="logo">
                 <img src={clever} alt="" />
                 <img src={fit} alt="" />

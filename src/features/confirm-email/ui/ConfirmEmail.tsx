@@ -28,23 +28,10 @@ export default function ConfirmEmail() {
             {(isCheckEmailError && error?.status === 404) && <Navigate to={'/result/error-check-email-no-exist'} />}
             {(isCheckEmailError && error?.status !== 404) && <Navigate to={'/result/error-check-email'} />}
             {<form className="confirmEmail">
-                <img src="" alt="" className="warn" />
-                <div className="description">
-                    <p className="title">
-                        Введите код<br /> для восстановления аккауанта
-                    </p>
-                    <p className="subtitle">
-                        Мы отправили вам на e-mail {email}<br />
-                        шестизначный код. Введите его в поле ниже.
-                    </p>
-                </div>
                 <CodeSection
                     length={6}
                     values={code}
                     setValues={setCode} />
-                <p className="subtitle">
-                    Не пришло письмо? Проверьте папку Спам.
-                </p>
             </form>}
         </>
     )
