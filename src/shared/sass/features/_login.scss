@@ -20,6 +20,11 @@ form.login {
         display: flex;
         margin-bottom: 32px;
 
+        &.error {
+            border: 1px solid $warningInputBorderColor;
+            border-radius: 2px;
+        }
+
         label {
             width: 71px;
             height: 40px;
@@ -37,6 +42,11 @@ form.login {
     div.password {
         position: relative;
         margin-bottom: 54px;
+
+        &.error {
+            border: 1px solid $warningInputBorderColor;
+            border-radius: 2px;
+        }
 
         input {
             padding-right: 30px;

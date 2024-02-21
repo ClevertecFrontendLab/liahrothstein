@@ -1,12 +1,6 @@
-import './Button.scss';
+import type { ButtonProps } from '../../types';
 
-interface ButtonProps {
-    className?: string,
-    image: string,
-    title: string,
-    disabled: boolean,
-    onClickHandler: (() => void) | undefined
-}
+import './Button.scss';
 
 export default function Button({ className, image, title, disabled, onClickHandler }: ButtonProps) {
 

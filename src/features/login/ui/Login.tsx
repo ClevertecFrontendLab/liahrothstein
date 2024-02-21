@@ -6,6 +6,7 @@ import { Button, FormInput, Loader } from "@components/index";
 
 import { logIn, switcher, validateEmail, validatePassword } from "@utils/index";
 import { useUserLoginMutation, useLazyUserGoogleLoginQuery } from "../api/login-api";
+import { setAuthDirtyInputs } from "../model/login-model";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
@@ -15,8 +16,10 @@ import './Login.scss';
 
 export default function Login() {
     const [email, setEmail] = useState<string>('');
+    const [emailDirty, setEmailDirty] = useState<boolean>(false);
     const [emailError, setEmailError] = useState<boolean>(true);
     const [password, setPassword] = useState<string>('');
+    const [passwordDirty, setPasswordDirty] = useState<boolean>(false);
     const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
@@ -34,7 +37,7 @@ export default function Login() {
         <form className="login">
             {(isSignInLoading || isSignInGoogleLoading) && <Loader />}
             {(isSignInError || isSignInGoogleError) && <Navigate to={'/result/error-login'} />}
-            <div className="email">
+            <div className={(emailDirty && emailError) ? "email error" : 'email'}>
                 <label htmlFor="email">e-mail:</label>
                 <FormInput
                     inputType={'email'}
@@ -43,9 +46,11 @@ export default function Login() {
                     inputPlaceholder={""}
                     dispatch={setEmail}
                     errorDispatch={setEmailError}
+                    setDirty={setEmailDirty}
+                    onBlurHandler={setAuthDirtyInputs}
                     onChangeHandler={validateEmail} />
             </div>
-            <div className="password">
+            <div className={(passwordDirty && passwordError) ? 'password error' : "password"}>
                 <FormInput
                     inputType={(isEyeOpen) ? 'text' : 'password'}
                     inputValue={password}
@@ -53,6 +58,8 @@ export default function Login() {
                     inputPlaceholder={"Пароль"}
                     dispatch={setPassword}
                     errorDispatch={setPasswordError}
+                    setDirty={setPasswordDirty}
+                    onBlurHandler={setAuthDirtyInputs}
                     onChangeHandler={validatePassword} />
                 <Button
                     image={(isEyeOpen) ? eyeOpened : eyeClosed}
