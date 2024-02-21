@@ -5,6 +5,8 @@ import { Login } from "@features/index";
 import clever from '../../../shared/assets/images/clever-logo.svg';
 import fit from '../../../shared/assets/images/fit-logo.svg';
 
+import './SignInWindow.scss';
+
 export default function SignUpWindow() {
 
     return (

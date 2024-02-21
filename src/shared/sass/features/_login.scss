@@ -21,8 +21,15 @@ form.login {
         margin-bottom: 32px;
 
         &.error {
-            border: 1px solid $warningInputBorderColor;
-            border-radius: 2px;
+            label {
+                border: 1px solid $warningInputBorderColor;
+                border-radius: 2px;
+            }
+
+            input {
+                border: 1px solid $warningInputBorderColor;
+                border-radius: 2px;
+            }
         }
 
         label {
@@ -44,8 +51,10 @@ form.login {
         margin-bottom: 54px;
 
         &.error {
-            border: 1px solid $warningInputBorderColor;
-            border-radius: 2px;
+            input {
+                border: 1px solid $warningInputBorderColor;
+                border-radius: 2px;
+            }
         }
 
         input {

@@ -1,0 +1,50 @@
+@use '../abstracts' as *;
+
+div.signInWindow {
+    width: 539px;
+    height: 742px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    div.logo {
+        margin-top: 72.41px;
+        display: flex;
+        align-items: flex-end;
+
+        img:first-child {
+            height: 54.98px;
+            margin-bottom: 2.5px;
+
+            &+img {
+                height: 68.01px;
+            }
+        }
+    }
+
+    div.signInAndRegisterLinks {
+        display: grid;
+        grid-template-columns: 184px 184px;
+        grid-template-rows: 46px;
+        justify-items: center;
+        align-items: center;
+        margin-top: 48px;
+        margin-bottom: 24px;
+
+        a {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 20.8px;
+
+            &:first-child {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: $activeAuthLinkColor;
+                border-bottom: 2px solid $activeAuthLinkColor;
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}
