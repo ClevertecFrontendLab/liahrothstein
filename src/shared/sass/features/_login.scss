@@ -1,0 +1,103 @@
+@use '../abstracts' as *;
+
+form.login {
+    width: 368px;
+    display: flex;
+    flex-direction: column;
+
+    input:not(input[type="checkbox"]) {
+        height: 40px;
+        width: 100%;
+        border: 1px solid $formInputBorderColor;
+        border-radius: 2px;
+        padding: 11px 12px;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+    }
+
+    div.email {
+        display: flex;
+        margin-bottom: 32px;
+
+        label {
+            width: 71px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18.2px;
+            border: 1px solid $emailLabelBorderColor;
+            border-radius: 2px 0px 0px 2px;
+        }
+    }
+
+    div.password {
+        position: relative;
+        margin-bottom: 54px;
+
+        input {
+            padding-right: 30px;
+        }
+
+        button {
+            width: 14px;
+            height: 14px;
+            position: absolute;
+            top: 13px;
+            right: 13px;
+        }
+    }
+
+    div.rememberMeAndPasswordForgot {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 24px;
+
+        div.rememberMe {
+            display: flex;
+            align-items: center;
+
+            input {
+                width: 16px;
+                height: 16px;
+                margin: 0;
+                margin-right: 8px;
+            }
+
+            label {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18.2px;
+            }
+        }
+
+        button {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18.2px;
+            color: $passwordForgotButtonColor;
+        }
+    }
+
+    button.signIn {
+        height: 40px;
+        justify-content: center;
+        gap: 10px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20.8px;
+        background-color: $signInButtonColor;
+        border-radius: 2px;
+        color: $signInButtonTextColor;
+
+        &.google {
+            margin-top: 16px;
+            background-color: $signInGoogleButtonColor;
+            border: 1px solid $signInGoogleButtonBorderColor;
+            color: $signInGoogleButtonTextColor;
+        }
+    }
+}

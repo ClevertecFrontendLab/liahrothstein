@@ -13,7 +13,7 @@ export default function SignUpWindow() {
                 <img src={clever} alt="" />
                 <img src={fit} alt="" />
             </div>
-            <div className="signUpAndRegisterLinks">
+            <div className="signInAndRegisterLinks">
                 <Link to={'/auth'}>Вход</Link>
                 <Link to={'/auth/registration'}>Регистрация</Link>
             </div>

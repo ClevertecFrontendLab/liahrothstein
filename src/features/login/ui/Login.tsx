@@ -11,6 +11,8 @@ import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
 import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
+import './Login.scss';
+
 export default function Login() {
     const [email, setEmail] = useState<string>('');
     const [emailError, setEmailError] = useState<boolean>(true);
@@ -73,11 +75,13 @@ export default function Login() {
                 </button>
             </div>
             <Button
+                className="signIn"
                 image=""
                 title="Войти"
                 disabled={(emailError || passwordError) ? true : false}
                 onClickHandler={async () => (await signIn({ email: email, password: password }))} />
             <Button
+                className="signIn google"
                 image={googlePlus}
                 title="Войти через Google"
                 disabled={false}
