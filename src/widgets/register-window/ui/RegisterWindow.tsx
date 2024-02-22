@@ -5,6 +5,8 @@ import { Registration } from "@features/index";
 import clever from '../../../shared/assets/images/clever-logo.svg';
 import fit from '../../../shared/assets/images/fit-logo.svg';
 
+import './RegisterWindow.scss';
+
 export default function RegisterWindow() {
 
     return (

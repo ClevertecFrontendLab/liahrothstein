@@ -1,8 +1,8 @@
 @use '../abstracts' as *;
 
-div.signInWindow {
+div.registerWindow {
     width: 539px;
-    height: 742px;
+    height: 686px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,12 +25,12 @@ div.signInWindow {
         }
     }
 
-    div.signInAndRegisterLinks {
+    div.signUpAndRegisterLinks {
         display: grid;
         grid-template-columns: 184px 184px;
         grid-template-rows: 46px;
         margin-top: 48px;
-        margin-bottom: 24px;
+        margin-bottom: 32px;
 
         a {
             display: flex;
@@ -41,12 +41,12 @@ div.signInWindow {
             line-height: 20.8px;
 
             &:first-child {
+                border-bottom: 1px solid $notActiveAuthLinkColor;
+            }
+
+            &:last-child {
                 color: $activeAuthLinkColor;
                 border-bottom: 2px solid $activeAuthLinkColor;
-            }
-            
-            &:last-child {
-                border-bottom: 1px solid $notActiveAuthLinkColor;
             }
         }
     }
