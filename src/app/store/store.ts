@@ -3,13 +3,15 @@ import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from "history";
 
 import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI } from '../../features';
-import { isAuthSlice } from "@utils/index";
+import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice } from "@utils/index";
 
 const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory() });
 
 const rootReducer = combineReducers({
     router: routerReducer,
     isAuth: isAuthSlice.reducer,
+    isRememberMeAuth: isRememberMeAuthSlice.reducer,
+    authStatus: authStatusSlice.reducer,
     [loginAPI.reducerPath]: loginAPI.reducer,
     [registrationAPI.reducerPath]: registrationAPI.reducer,
     [confirmEmailAPI.reducerPath]: confirmEmailAPI.reducer,
