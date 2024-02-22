@@ -1,10 +1,14 @@
 import { RegisterWindow } from "@widgets/index";
 
+import './RegisterPage.scss';
+
 export default function RegisterPage() {
 
     return (
         <div className="registerPage">
-            <RegisterWindow />
+            <div className="blur">
+                <RegisterWindow />
+            </div>
         </div>
     )
 }
