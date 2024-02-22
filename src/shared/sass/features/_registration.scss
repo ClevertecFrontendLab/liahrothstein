@@ -1,11 +1,11 @@
 @use '../abstracts' as *;
 
-form.login {
+form.registration {
     width: 368px;
     display: flex;
     flex-direction: column;
 
-    input:not(input[type="checkbox"]) {
+    input {
         height: 40px;
         width: 100%;
         border: 1px solid $formInputBorderColor;
@@ -60,12 +60,27 @@ form.login {
 
     div.password {
         position: relative;
-        margin-bottom: 54px;
+        margin-bottom: 28px;
+
+        &.secondPassword {
+            margin-bottom: 42px;
+        }
+
+        p.warn {
+            color: $registerWarnDefaultColor;
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 15.6px;
+        }
 
         &.error {
             input {
                 border: 1px solid $warningInputBorderColor;
                 border-radius: 2px;
+            }
+
+            p.warn {
+                color: $registerWarnActiveColor;
             }
         }
 
@@ -82,42 +97,7 @@ form.login {
         }
     }
 
-    div.rememberMeAndPasswordForgot {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 24px;
-
-        div.rememberMe {
-            display: flex;
-            align-items: center;
-
-            input {
-                width: 16px;
-                height: 16px;
-                margin: 0;
-                margin-right: 8px;
-            }
-
-            label {
-                font-weight: 400;
-                font-size: 14px;
-                line-height: 18.2px;
-            }
-        }
-
-        button {
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 18.2px;
-            color: $passwordForgotButtonColor;
-
-            a {
-                color: $passwordForgotButtonColor;
-            }
-        }
-    }
-
-    button.signIn {
+    button.signUp {
         height: 40px;
         justify-content: center;
         gap: 10px;
@@ -134,7 +114,6 @@ form.login {
             background-color: $authButtonDisabledBackgroundColor;
             color: $authButtonDisabledTitleColor;
         }
-
 
         &.google {
             margin-top: 16px;

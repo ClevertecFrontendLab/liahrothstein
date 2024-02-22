@@ -11,6 +11,8 @@ import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
 import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
+import './Registration.scss';
+
 export default function Registration() {
     const [email, setEmail] = useState<string>('');
     const [emailDirty, setEmailDirty] = useState<boolean>(false);
@@ -52,7 +54,7 @@ export default function Registration() {
                     onBlurHandler={setRegisterDirtyInputs}
                     onChangeHandler={validateEmail} />
             </div>
-            <div className={(firstPasswordDirty && firstPasswordError) ? "firstPassword error" : 'firstPassword'}>
+            <div className={(firstPasswordDirty && firstPasswordError) ? "firstPassword password error" : 'firstPassword password'}>
                 <FormInput
                     inputType={(isFirstEyeOpen) ? 'text' : 'password'}
                     inputValue={firstPassword}
@@ -68,8 +70,9 @@ export default function Registration() {
                     title=""
                     disabled={false}
                     onClickHandler={() => (switcher(isFirstEyeOpen, setIsFirstEyeOpen))} />
+                <p className="warn">Пароль не менее 8 символов, с заглавной буквой и цифрой</p>
             </div>
-            <div className={(secondPasswordDirty && secondPasswordError) ? "secondPassword error" : 'secondPassword'}>
+            <div className={(secondPasswordDirty && secondPasswordError) ? "secondPassword password error" : 'secondPassword password'}>
                 <FormInput
                     inputType={(isSecondEyeOpen) ? 'text' : 'password'}
                     inputValue={secondPassword}
@@ -85,13 +88,16 @@ export default function Registration() {
                     title=""
                     disabled={false}
                     onClickHandler={() => (switcher(isSecondEyeOpen, setIsSecondEyeOpen))} />
+                <p className="warn">{(secondPasswordDirty && secondPasswordError) ? 'Пароли не совпадают' : ''}</p>
             </div>
             <Button
+                className={(emailError || firstPasswordError || secondPasswordError) ? 'signUp disabled' : 'signUp'}
                 image=""
                 title="Войти"
                 disabled={(emailError || firstPasswordError || secondPasswordError) ? true : false}
                 onClickHandler={async () => (await register({ email: email, password: firstPassword }))} />
             <Button
+                className="signUp google"
                 image={googlePlus}
                 title="Регистрация через Google"
                 disabled={false}

@@ -82,7 +82,7 @@ export default function Login() {
                 </button>
             </div>
             <Button
-                className="signIn"
+                className={(emailError || passwordError) ? 'signIn disabled' : "signIn"}
                 image=""
                 title="Войти"
                 disabled={(emailError || passwordError) ? true : false}
