@@ -43,6 +43,11 @@ form.login {
             line-height: 18.2px;
             border: 1px solid $emailLabelBorderColor;
             border-radius: 2px 0px 0px 2px;
+            background-color: $emailLabelBackgroundColor;
+        }
+
+        input {
+            width: 297px;
         }
     }
 
@@ -98,6 +103,10 @@ form.login {
             font-size: 14px;
             line-height: 18.2px;
             color: $passwordForgotButtonColor;
+
+            a {
+                color: $passwordForgotButtonColor;
+            }
         }
     }
 
