@@ -4,6 +4,8 @@ import { CodeInput } from '@components/index';
 
 import { onChangeHandler, updateValues } from '../model/code-section-model';
 
+import './CodeSection.scss';
+
 interface CodeSectionProps {
     length: number,
     values: string[],
@@ -71,7 +73,7 @@ export default function CodeSection({ length, values, setValues }: CodeSectionPr
     };
 
     return (
-        <div onKeyDown={keyDownHandler}>
+        <div className='codeSection' onKeyDown={keyDownHandler}>
             {values.map((_, index) => (
                 <CodeInput
                     key={index}
