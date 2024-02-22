@@ -1,5 +1,7 @@
 import { forwardRef } from "react";
 
+import './CodeInput.scss';
+
 interface CodeInputProps {
     id: string,
     ref: React.RefObject<HTMLInputElement>,

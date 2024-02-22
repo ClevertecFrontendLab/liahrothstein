@@ -1,0 +1,12 @@
+@use '../abstracts' as *;
+
+input {
+    width: 40px;
+    height: 40px;
+    border: 1px solid $codeInputBorderColor;
+    border-radius: 2px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 18.2px;
+}

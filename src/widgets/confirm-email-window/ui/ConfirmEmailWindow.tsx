@@ -1,5 +1,7 @@
 import { ConfirmEmail } from "@features/index";
 
+import suggestedIcon from '../../../shared/assets/icons/suggested-icon.svg';
+
 interface ConfirmEmailWindowProps {
     email: string
 }
@@ -8,7 +10,7 @@ export default function ConfirmEmailWindow({ email }: ConfirmEmailWindowProps) {
 
     return (
         <div className="confirmEmailWindow">
-            <img src="" alt="" className="warn" />
+            <img src={suggestedIcon} alt="" className="warn" />
             <div className="description">
                 <p className="title">
                     Введите код<br /> для восстановления аккауанта

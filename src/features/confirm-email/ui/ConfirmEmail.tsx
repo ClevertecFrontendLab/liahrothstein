@@ -6,6 +6,8 @@ import { CodeSection } from "@entities/index";
 
 import { useUserCheckEmailMutation, useUserConfirmEmailMutation } from "../api/confirm-email-api";
 
+import './ConfirmEmail.scss';
+
 export default function ConfirmEmail() {
     const { state: email } = useLocation();
     const [checkEmail, { isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
