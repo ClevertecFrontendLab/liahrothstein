@@ -4,7 +4,7 @@ import { Link, Navigate } from "react-router-dom";
 
 import { Button, FormInput, Loader } from "@components/index";
 
-import { logIn, switcher, validateEmail, validatePassword } from "@utils/index";
+import { logIn, rememberMeLogIn, setLogIn, switcher, validateEmail, validatePassword } from "@utils/index";
 import { useUserLoginMutation, useLazyUserGoogleLoginQuery } from "../api/login-api";
 import { setAuthDirtyInputs } from "../model/login-model";
 
@@ -28,8 +28,13 @@ export default function Login() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        if (isSuccess && data !== undefined) {
-            dispatch(logIn(data.accessToken));
+        if ((isSuccess && data !== undefined) && (rememberMe)) {
+            dispatch(logIn());
+            dispatch(rememberMeLogIn(data.accessToken));
+            dispatch(setLogIn());
+        } else if ((isSuccess && data !== undefined) && (!rememberMe)) {
+            dispatch(logIn());
+            dispatch(setLogIn());
         }
     }, [isSuccess]);
 
