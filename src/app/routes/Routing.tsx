@@ -6,14 +6,14 @@ import {
     MainPage,
     PasswordRecoveryPage,
     RegisterPage,
-    ResultErrorChangePasswordPage,
-    ResultErrorCheckEmailNoExistPage,
-    ResultErrorCheckEmailPage,
-    ResultErrorLoginPage,
-    ResultErrorPage,
-    ResultErrorUserExistPage,
-    ResultSuccessChangePasswordPage,
-    ResultSuccessPage
+    ErrorChangePasswordPage,
+    ErrorCheckEmailNoExistPage,
+    ErrorCheckEmailPage,
+    ErrorLoginPage,
+    ErrorPage,
+    ErrorUserExistPage,
+    SuccessChangePasswordPage,
+    SuccessPage
 } from "@pages/index";
 
 import { useAppSelector } from "../store";
@@ -32,14 +32,14 @@ export default function Routing() {
             <Route path="/auth/registration" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
             <Route path="/auth/confirm-email" element={(currentLocation === '/auth/confirm-email') ? <ConfirmEmailPage /> : <Navigate to='/auth' />} />
             <Route path="/auth/change-password" element={(currentLocation === '/auth/confirm-email') ? <PasswordRecoveryPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/success-change-password" element={(currentLocation === '/auth/change-password') ? <ResultSuccessChangePasswordPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-change-password" element={(currentLocation === '/auth/change-password') ? <ResultErrorChangePasswordPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-check-email" element={(currentLocation === '/auth') ? <ResultErrorCheckEmailPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-check-email-no-exist" element={(currentLocation === '/auth') ? <ResultErrorCheckEmailNoExistPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error" element={(currentLocation === '/auth/registration') ? <ResultErrorPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-user-exist" element={(currentLocation === '/auth/registration') ? <ResultErrorUserExistPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/success" element={(currentLocation === '/auth/registration') ? <ResultSuccessPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-login" element={(currentLocation === '/auth') ? <ResultErrorLoginPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/success-change-password" element={(currentLocation === '/auth/change-password') ? <SuccessChangePasswordPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-change-password" element={(currentLocation === '/auth/change-password') ? <ErrorChangePasswordPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-check-email" element={(currentLocation === '/auth') ? <ErrorCheckEmailPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-check-email-no-exist" element={(currentLocation === '/auth') ? <ErrorCheckEmailNoExistPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error" element={(currentLocation === '/auth/registration') ? <ErrorPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-user-exist" element={(currentLocation === '/auth/registration') ? <ErrorUserExistPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/success" element={(currentLocation === '/auth/registration') ? <SuccessPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-login" element={(currentLocation === '/auth') ? <ErrorLoginPage /> : <Navigate to='/auth' />} />
         </Routes>
     )
 }
