@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link, Navigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 import { Button, FormInput, Loader } from "@components/index";
 
-import { logIn, rememberMeLogIn, setLogIn, switcher, validateEmail, validatePassword } from "@utils/index";
-import { useUserLoginMutation, useLazyUserGoogleLoginQuery } from "../api/login-api";
-import { setAuthDirtyInputs } from "../model/login-model";
+import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword } from "@utils/index";
+import { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } from "../api/login-api";
+import { onClickCheckEmail, setAuthDirtyInputs } from "../model/login-model";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
@@ -25,6 +25,7 @@ export default function Login() {
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
     const [signIn, { data, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
     const [signInGoogle, { isLoading: isSignInGoogleLoading, isError: isSignInGoogleError }] = useLazyUserGoogleLoginQuery();
+    const [checkEmail, { isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,8 +39,10 @@ export default function Login() {
 
     return (
         <form className="login">
-            {(isSignInLoading || isSignInGoogleLoading) && <Loader />}
+            {(isSignInLoading || isSignInGoogleLoading || isCheckEmailLoading) && <Loader />}
             {(isSignInError || isSignInGoogleError) && <Navigate to={'/result/error-login'} />}
+            {(isCheckEmailError && error?.status === 404) && <Navigate to={'/result/error-check-email-no-exist'} />}
+            {(isCheckEmailError && error?.status !== 404) && <Navigate to={'/result/error-check-email'} />}
             <div className={(emailDirty && emailError) ? "email error" : 'email'}>
                 <label htmlFor="email">e-mail:</label>
                 <FormInput
@@ -79,10 +82,11 @@ export default function Login() {
                         name="rememberMe" />
                     <label htmlFor="rememberMe">Запомнить меня</label>
                 </div>
-                <button type="button" disabled={(emailError)}>
-                    {(!emailError) && <Link to={'/auth/confirm-email'} state={email}>Забыли пароль?</Link>}
-                    {(emailError) && <p>Забыли пароль?</p>}
-                </button>
+                <Button
+                    image=""
+                    title="Забыли пароль?"
+                    disabled={emailError}
+                    onClickHandler={async () => (await onClickCheckEmail(email, dispatch, checkEmail))} />
             </div>
             <Button
                 className={(emailError || passwordError) ? 'signIn disabled' : "signIn"}

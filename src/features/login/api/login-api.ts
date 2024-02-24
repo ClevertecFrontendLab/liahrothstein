@@ -6,6 +6,14 @@ interface LoginResponse {
     accessToken: string
 }
 
+export interface CheckEmailRequest {
+    email: string
+}
+export interface CheckEmailResponse {
+    email: string,
+    message: string
+}
+
 export const loginAPI = createApi({
     reducerPath: 'loginAPI',
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
@@ -22,8 +30,15 @@ export const loginAPI = createApi({
                 url: '/auth/google',
                 method: 'GET'
             })
+        }),
+        userCheckEmail: build.mutation<CheckEmailResponse, CheckEmailRequest>({
+            query: (email: CheckEmailRequest) => ({
+                url: '/auth/check-email',
+                method: 'POST',
+                body: email
+            })
         })
     })
 });
 
-export const {useUserLoginMutation, useLazyUserGoogleLoginQuery} = loginAPI;
+export const { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } = loginAPI;
