@@ -1,6 +1,6 @@
 import { ConfirmEmail } from "@features/index";
 
-import suggestedIcon from '../../../shared/assets/icons/suggested-icon.svg';
+import warningBlue from '../../../shared/assets/icons/warning-blue-icon.svg';
 
 import './ConfirmEmailWindow.scss';
 
@@ -12,7 +12,7 @@ export default function ConfirmEmailWindow({ email }: ConfirmEmailWindowProps) {
 
     return (
         <div className="confirmEmailWindow">
-            <img src={suggestedIcon} alt="" className="warn" />
+            <img src={warningBlue} alt="" className="warn" />
             <div className="description">
                 <p className="title">
                     Введите код<br />
