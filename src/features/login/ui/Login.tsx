@@ -31,10 +31,8 @@ export default function Login() {
         if ((isSuccess && data !== undefined) && (rememberMe)) {
             dispatch(logIn());
             dispatch(rememberMeLogIn(data.accessToken));
-            dispatch(setLogIn());
         } else if ((isSuccess && data !== undefined) && (!rememberMe)) {
             dispatch(logIn());
-            dispatch(setLogIn());
         }
     }, [isSuccess]);
 

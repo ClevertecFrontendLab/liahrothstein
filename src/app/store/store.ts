@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI } from '../../features';
 import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice } from "@utils/index";
 
-const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory() });
+const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory(), savePreviousLocations: 1 });
 
 const rootReducer = combineReducers({
     router: routerReducer,
@@ -34,7 +34,7 @@ export function setupStore() {
 };
 
 export const store = setupStore();
-export const history = createReduxHistory(setupStore());
+export const history = createReduxHistory(store);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;

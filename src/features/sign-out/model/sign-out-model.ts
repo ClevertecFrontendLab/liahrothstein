@@ -1,9 +1,10 @@
 import { Dispatch } from "@reduxjs/toolkit";
+import { push } from "redux-first-history";
 
-import { logOut, rememberMeLogOut, setAuth } from '@utils/index';
+import { logOut, rememberMeLogOut } from '@utils/index';
 
 export function onClickLogOut(dispatch: Dispatch): void {
     dispatch(logOut());
     dispatch(rememberMeLogOut());
-    dispatch(setAuth());
+    dispatch(push('/auth'));
 }

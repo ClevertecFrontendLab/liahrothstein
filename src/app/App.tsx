@@ -12,11 +12,11 @@ export default function App() {
 
     return (
         <Provider store={store}>
-            <React.StrictMode>
-                <HistoryRouter history={history}>
+            <HistoryRouter history={history}>
+                <React.StrictMode>
                     <Routing />
-                </HistoryRouter>
-            </React.StrictMode>
+                </React.StrictMode>
+            </HistoryRouter>
         </Provider>
     )
 }
