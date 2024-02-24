@@ -1,5 +1,7 @@
 import { ErrorWindow } from "@widgets/index";
 
+import './ErrorPage.scss';
+
 export default function ErrorPage() {
 
     return (

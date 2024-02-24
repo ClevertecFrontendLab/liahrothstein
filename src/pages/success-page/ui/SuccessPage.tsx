@@ -1,5 +1,7 @@
 import { SuccessWindow } from "@widgets/index";
 
+import './SuccessPage.scss';
+
 export default function SuccessPage() {
 
     return (

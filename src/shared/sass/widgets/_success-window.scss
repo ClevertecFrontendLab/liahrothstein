@@ -1,0 +1,44 @@
+@use '../abstracts' as *;
+
+div.successWindow {
+    width: 539px;
+    height: 363px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 8px 0px #00000026;
+    background-color: $resultPageWindowColor;
+
+    div.description {
+        text-align: center;
+
+        p.title {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 31.2px;
+        }
+
+        p.subtitle {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18.2px;
+            color: $resultPageSubtitleColor;
+        }
+    }
+
+    button {
+        width: 368px;
+        height: 40px;
+        border-radius: 2px;
+        justify-content: center;
+        background-color: $resultPageButtonColor;
+        box-shadow: 0px 2px 0px 0px #0000000B;
+        color: white;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+    }
+}
