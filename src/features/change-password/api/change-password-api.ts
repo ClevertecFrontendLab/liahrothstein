@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { baseURL } from "@constants/index";
 import { getCookie } from '@utils/index';
 
@@ -25,4 +25,6 @@ export const changePasswordAPI = createApi({
             })
         })
     })
-})
+});
+
+export const { useUserChangePasswordMutation } = changePasswordAPI;

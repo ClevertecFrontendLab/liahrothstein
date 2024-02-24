@@ -8,4 +8,4 @@ export { default as SidebarSwitch } from './sidebar-switch/ui/SidebarSwitch';
 export { loginAPI, Login } from './login';
 export { registrationAPI, Registration } from './registration';
 export { confirmEmailAPI, ConfirmEmail } from './confirm-email';
-export { changePasswordAPI } from './change-password';
+export { changePasswordAPI, ChangePassword } from './change-password';
