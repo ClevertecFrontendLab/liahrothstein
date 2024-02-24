@@ -10,9 +10,7 @@ export default function Settings() {
         <div className="settings">
             <Button
                 title={'Настройки'}
-                image={settings}
-                disabled={false}
-                onClickHandler={undefined} />
+                image={settings} />
         </div>
     )
 }

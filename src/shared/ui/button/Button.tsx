@@ -9,7 +9,7 @@ export default function Button({ className, image, title, disabled, onClickHandl
             type="button"
             className={className}
             disabled={disabled}
-            onClick={(onClickHandler !== undefined) ? (() => (onClickHandler())) : undefined}>
+            onClick={onClickHandler}>
             {(image) && (<img src={image} alt="" />)}
             {(title) && (<p>{title}</p>)}
         </button>

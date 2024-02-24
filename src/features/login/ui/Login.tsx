@@ -69,8 +69,6 @@ export default function Login() {
                     onChangeHandler={validatePassword} />
                 <Button
                     image={(isEyeOpen) ? eyeOpened : eyeClosed}
-                    title=""
-                    disabled={false}
                     onClickHandler={() => (switcher(isEyeOpen, setIsEyeOpen))} />
             </div>
             <div className="rememberMeAndPasswordForgot">
@@ -83,14 +81,12 @@ export default function Login() {
                     <label htmlFor="rememberMe">Запомнить меня</label>
                 </div>
                 <Button
-                    image=""
                     title="Забыли пароль?"
                     disabled={emailError}
                     onClickHandler={async () => (await onClickCheckEmail(email, dispatch, checkEmail))} />
             </div>
             <Button
                 className={(emailError || passwordError) ? 'signIn disabled' : "signIn"}
-                image=""
                 title="Войти"
                 disabled={(emailError || passwordError) ? true : false}
                 onClickHandler={async () => (await signIn({ email: email, password: password }))} />
@@ -98,7 +94,6 @@ export default function Login() {
                 className="signIn google"
                 image={googlePlus}
                 title="Войти через Google"
-                disabled={false}
                 onClickHandler={() => (signInGoogle(undefined))} />
         </form>
     )

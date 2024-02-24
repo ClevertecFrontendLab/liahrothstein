@@ -20,7 +20,6 @@ export default function SignOut({ isOpen }: SignOutProps) {
             <Button
                 title={(isOpen) ? 'Выход' : ''}
                 image={signOut}
-                disabled={false}
                 onClickHandler={() => (onClickLogOut(dispatch))} />
         </div>
     )

@@ -15,14 +15,10 @@ export default function DownloadToPhone() {
             <div className="downloadButtons">
                 <Button
                     image={androidIcon}
-                    title={'Android OS'}
-                    disabled={false}
-                    onClickHandler={undefined} />
+                    title={'Android OS'} />
                 <Button
                     image={appleIcon}
-                    title={'Apple iOS'}
-                    disabled={false}
-                    onClickHandler={undefined} />
+                    title={'Apple iOS'} />
             </div>
         </article>
     )

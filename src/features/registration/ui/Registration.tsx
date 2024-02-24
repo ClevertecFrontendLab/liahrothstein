@@ -67,8 +67,6 @@ export default function Registration() {
                     onChangeHandler={validatePassword} />
                 <Button
                     image={(isFirstEyeOpen) ? eyeOpened : eyeClosed}
-                    title=""
-                    disabled={false}
                     onClickHandler={() => (switcher(isFirstEyeOpen, setIsFirstEyeOpen))} />
                 <p className="warn">Пароль не менее 8 символов, с заглавной буквой и цифрой</p>
             </div>
@@ -85,14 +83,11 @@ export default function Registration() {
                     onChangeHandler={validatePassword} />
                 <Button
                     image={(isSecondEyeOpen) ? eyeOpened : eyeClosed}
-                    title=""
-                    disabled={false}
                     onClickHandler={() => (switcher(isSecondEyeOpen, setIsSecondEyeOpen))} />
                 <p className="warn">{(secondPasswordDirty && secondPasswordError) ? 'Пароли не совпадают' : ''}</p>
             </div>
             <Button
                 className={(emailError || firstPasswordError || secondPasswordError) ? 'signUp disabled' : 'signUp'}
-                image=""
                 title="Войти"
                 disabled={(emailError || firstPasswordError || secondPasswordError) ? true : false}
                 onClickHandler={async () => (await register({ email: email, password: firstPassword }))} />
@@ -100,7 +95,6 @@ export default function Registration() {
                 className="signUp google"
                 image={googlePlus}
                 title="Регистрация через Google"
-                disabled={false}
                 onClickHandler={() => (registerGoogle(undefined))} />
         </form>
     )

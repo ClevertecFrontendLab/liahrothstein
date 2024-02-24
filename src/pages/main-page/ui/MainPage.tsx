@@ -14,10 +14,7 @@ export default function MainPage() {
                 <main>
                     <Cards />
                     <div className="reviewsAndDownload">
-                        <Button
-                            image=""
-                            title={'Смотреть отзывы'}
-                            onClickHandler={undefined} />
+                        <Button title={'Смотреть отзывы'} />
                         <DownloadToPhone />
                     </div>
                 </main>
