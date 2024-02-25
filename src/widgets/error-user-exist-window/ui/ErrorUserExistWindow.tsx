@@ -20,7 +20,8 @@ export default function ErrorUserExistWindow() {
             </div>
             <Button
                 title='Назад к регистрации'
-                onClickHandler={() => (onClickBackToRegister(dispatch))} />
+                onClickHandler={() => (onClickBackToRegister(dispatch))}
+                dataTestId='registration-back-button' />
         </div>
     )
 }

@@ -53,7 +53,8 @@ export default function ChangePassword() {
                     errorDispatch={setFirstPasswordError}
                     setDirty={setFirstPasswordDirty}
                     onBlurHandler={setChangePasswordDirtyInputs}
-                    onChangeHandler={validatePassword} />
+                    onChangeHandler={validatePassword}
+                    dataTestId="change-password" />
                 <Button
                     image={(isFirstEyeOpen) ? eyeOpened : eyeClosed}
                     onClickHandler={() => (switcher(isFirstEyeOpen, setIsFirstEyeOpen))} />
@@ -69,7 +70,8 @@ export default function ChangePassword() {
                     errorDispatch={setSecondPasswordError}
                     setDirty={setSecondPasswordDirty}
                     onBlurHandler={setChangePasswordDirtyInputs}
-                    onChangeHandler={validatePassword} />
+                    onChangeHandler={validatePassword}
+                    dataTestId="change-confirm-password" />
                 <Button
                     image={(isSecondEyeOpen) ? eyeOpened : eyeClosed}
                     onClickHandler={() => (switcher(isSecondEyeOpen, setIsSecondEyeOpen))} />
@@ -79,7 +81,8 @@ export default function ChangePassword() {
                 className={(firstPasswordError || secondPasswordError) ? 'changePassword disabled' : 'changePassword'}
                 title="Сохранить"
                 disabled={(firstPasswordError || secondPasswordError) ? true : false}
-                onClickHandler={async () => (await changePassword({ password: firstPassword, confirmPassword: secondPassword }))} />
+                onClickHandler={async () => (await changePassword({ password: firstPassword, confirmPassword: secondPassword }))}
+                dataTestId="change-submit-button" />
         </form>
     )
 }

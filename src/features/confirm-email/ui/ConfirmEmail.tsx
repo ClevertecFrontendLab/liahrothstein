@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { Loader } from "@components/index";
@@ -41,9 +41,8 @@ export default function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailPro
     }, [isSuccess]);
 
     return (
-        <form className={(isError) ? 'confirmEmail error' : "confirmEmail"}>
+        <form className={(isError) ? 'confirmEmail error' : "confirmEmail"} data-test-id='verification-input'>
             {(isLoading) && <Loader />}
-            {(!email) && <Navigate to='/auth' />}
             <CodeSection
                 length={6}
                 values={code}

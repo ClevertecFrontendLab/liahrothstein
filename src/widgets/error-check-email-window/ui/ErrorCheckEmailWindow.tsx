@@ -20,7 +20,8 @@ export default function ErrorCheckEmailWindow() {
             </div>
             <Button
                 title='Назад'
-                onClickHandler={() => (onClickToAuth(dispatch))} />
+                onClickHandler={() => (onClickToAuth(dispatch))}
+                dataTestId='check-back-button' />
         </div>
     )
 }

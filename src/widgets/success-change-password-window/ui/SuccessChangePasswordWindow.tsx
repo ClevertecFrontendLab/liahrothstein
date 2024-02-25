@@ -20,7 +20,8 @@ export default function SuccessChangePasswordWindow() {
             </div>
             <Button
                 title='Вход'
-                onClickHandler={() => (onClickToAuth(dispatch))} />
+                onClickHandler={() => (onClickToAuth(dispatch))}
+                dataTestId='change-entry-button' />
         </div>
     )
 }

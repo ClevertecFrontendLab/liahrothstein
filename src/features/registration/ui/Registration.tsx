@@ -70,7 +70,8 @@ export default function Registration() {
                     errorDispatch={setEmailError}
                     setDirty={setEmailDirty}
                     onBlurHandler={setRegisterDirtyInputs}
-                    onChangeHandler={validateEmail} />
+                    onChangeHandler={validateEmail}
+                    dataTestId="registration-email" />
             </div>
             <div className={(firstPasswordDirty && firstPasswordError) ? "firstPassword password error" : 'firstPassword password'}>
                 <FormInput
@@ -82,7 +83,8 @@ export default function Registration() {
                     errorDispatch={setFirstPasswordError}
                     setDirty={setFirstPasswordDirty}
                     onBlurHandler={setRegisterDirtyInputs}
-                    onChangeHandler={validatePassword} />
+                    onChangeHandler={validatePassword}
+                    dataTestId="registration-password" />
                 <Button
                     image={(isFirstEyeOpen) ? eyeOpened : eyeClosed}
                     onClickHandler={() => (switcher(isFirstEyeOpen, setIsFirstEyeOpen))} />
@@ -98,7 +100,8 @@ export default function Registration() {
                     errorDispatch={setSecondPasswordError}
                     setDirty={setSecondPasswordDirty}
                     onBlurHandler={setRegisterDirtyInputs}
-                    onChangeHandler={validatePassword} />
+                    onChangeHandler={validatePassword}
+                    dataTestId="registration-confirm-password" />
                 <Button
                     image={(isSecondEyeOpen) ? eyeOpened : eyeClosed}
                     onClickHandler={() => (switcher(isSecondEyeOpen, setIsSecondEyeOpen))} />
@@ -108,7 +111,8 @@ export default function Registration() {
                 className={(emailError || firstPasswordError || secondPasswordError) ? 'signUp disabled' : 'signUp'}
                 title="Войти"
                 disabled={(emailError || firstPasswordError || secondPasswordError) ? true : false}
-                onClickHandler={async () => (await register({ email: email, password: firstPassword }))} />
+                onClickHandler={async () => (await register({ email: email, password: firstPassword }))}
+                dataTestId="registration-submit-button" />
             <Button
                 className="signUp google"
                 image={googlePlus}

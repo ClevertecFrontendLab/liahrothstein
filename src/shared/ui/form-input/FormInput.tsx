@@ -1,6 +1,6 @@
 import type { FormInputProps } from '../../types';
 
-export default function FormInput({ inputType, inputValue, inputName, inputPlaceholder, dispatch, errorDispatch, onBlurHandler, setDirty, onChangeHandler }: FormInputProps) {
+export default function FormInput({ inputType, inputValue, inputName, inputPlaceholder, dispatch, errorDispatch, onBlurHandler, setDirty, onChangeHandler, dataTestId }: FormInputProps) {
 
     return (
         <input
@@ -9,6 +9,7 @@ export default function FormInput({ inputType, inputValue, inputName, inputPlace
             name={inputName}
             placeholder={inputPlaceholder}
             onBlur={(e) => (onBlurHandler(e, setDirty))}
-            onChange={(e) => (onChangeHandler(e, dispatch, errorDispatch))} />
+            onChange={(e) => (onChangeHandler(e, dispatch, errorDispatch))}
+            data-test-id={dataTestId} />
     )
 }

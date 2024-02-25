@@ -20,7 +20,8 @@ export default function SuccessWindow() {
             </div>
             <Button
                 title='Войти'
-                onClickHandler={() => (onClickToAuth(dispatch))} />
+                onClickHandler={() => (onClickToAuth(dispatch))}
+                dataTestId='registration-enter-button' />
         </div>
     )
 }

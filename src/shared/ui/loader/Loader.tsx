@@ -12,7 +12,7 @@ export default function Loader() {
     }
 
     return (
-        <div className="loader">
+        <div className="loader" data-test-id='loader'>
             <Lottie
                 options={defaultOptions}
                 height={'150px'}

@@ -20,7 +20,8 @@ export default function ErrorChangePasswordWindow() {
             </div>
             <Button
                 title='Повторить'
-                onClickHandler={() => (onClickBackToChangePassword(dispatch))} />
+                onClickHandler={() => (onClickBackToChangePassword(dispatch))}
+                dataTestId='change-retry-button' />
         </div>
     )
 }

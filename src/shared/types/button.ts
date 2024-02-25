@@ -3,5 +3,6 @@ export interface ButtonProps {
     image?: string,
     title?: string,
     disabled?: boolean,
-    onClickHandler?: () => void
+    onClickHandler?: () => void,
+    dataTestId?: string
 }

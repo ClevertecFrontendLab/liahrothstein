@@ -69,7 +69,8 @@ export default function Login() {
                     errorDispatch={setEmailError}
                     setDirty={setEmailDirty}
                     onBlurHandler={setAuthDirtyInputs}
-                    onChangeHandler={validateEmail} />
+                    onChangeHandler={validateEmail}
+                    dataTestId='login-email' />
             </div>
             <div className={(passwordDirty && passwordError) ? 'password error' : "password"}>
                 <FormInput
@@ -81,7 +82,8 @@ export default function Login() {
                     errorDispatch={setPasswordError}
                     setDirty={setPasswordDirty}
                     onBlurHandler={setAuthDirtyInputs}
-                    onChangeHandler={validatePassword} />
+                    onChangeHandler={validatePassword}
+                    dataTestId="login-password" />
                 <Button
                     image={(isEyeOpen) ? eyeOpened : eyeClosed}
                     onClickHandler={() => (switcher(isEyeOpen, setIsEyeOpen))} />
@@ -92,19 +94,22 @@ export default function Login() {
                         type="checkbox"
                         checked={rememberMe}
                         onChange={() => (switcher(rememberMe, setRememberMe))}
-                        name="rememberMe" />
+                        name="rememberMe"
+                        data-test-id='login-remember' />
                     <label htmlFor="rememberMe">Запомнить меня</label>
                 </div>
                 <Button
                     title="Забыли пароль?"
                     disabled={emailError}
-                    onClickHandler={async () => (await onClickCheckEmail(email, dispatch, checkEmail))} />
+                    onClickHandler={async () => (await onClickCheckEmail(email, dispatch, checkEmail))}
+                    dataTestId="login-forgot-button" />
             </div>
             <Button
                 className={(emailError || passwordError) ? 'signIn disabled' : "signIn"}
                 title="Войти"
                 disabled={(emailError || passwordError) ? true : false}
-                onClickHandler={async () => (await signIn({ email: email, password: password }))} />
+                onClickHandler={async () => (await signIn({ email: email, password: password }))}
+                dataTestId="login-submit-button" />
             <Button
                 className="signIn google"
                 image={googlePlus}

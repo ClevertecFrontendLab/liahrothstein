@@ -20,7 +20,8 @@ export default function ErrorCheckEmailNoExistWindow() {
             </div>
             <Button
                 title='Попробовать снова'
-                onClickHandler={() => (onClickToAuth(dispatch))} />
+                onClickHandler={() => (onClickToAuth(dispatch))}
+                dataTestId='check-retry-button' />
         </div>
     )
 }

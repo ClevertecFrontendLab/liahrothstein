@@ -20,7 +20,8 @@ export default function ErrorLoginWindow() {
             </div>
             <Button
                 title='Повторить'
-                onClickHandler={() => (onClickRepeat(dispatch))} />
+                onClickHandler={() => (onClickRepeat(dispatch))}
+                dataTestId='login-retry-button' />
         </div>
     )
 }

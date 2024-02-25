@@ -20,7 +20,8 @@ export default function ErrorWindow() {
             </div>
             <Button
                 title='Повторить'
-                onClickHandler={() => (onClickBackToRegister(dispatch))} />
+                onClickHandler={() => (onClickBackToRegister(dispatch))}
+                dataTestId='registration-retry-button' />
         </div>
     )
 }
