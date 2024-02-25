@@ -11,6 +11,8 @@ import { setChangePasswordDirtyInputs } from "../model/change-password-model";
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
 import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
+import './ChangePassword.scss';
+
 export default function ChangePassword() {
     const [firstPassword, setFirstPassword] = useState<string>('');
     const [firstPasswordDirty, setFirstPasswordDirty] = useState<boolean>(false);
@@ -74,7 +76,7 @@ export default function ChangePassword() {
                 <p className="warn">{(secondPasswordDirty && secondPasswordError) ? 'Пароли не совпадают' : ''}</p>
             </div>
             <Button
-                className={(firstPasswordError || secondPasswordError) ? 'signUp disabled' : 'signUp'}
+                className={(firstPasswordError || secondPasswordError) ? 'changePassword disabled' : 'changePassword'}
                 title="Сохранить"
                 disabled={(firstPasswordError || secondPasswordError) ? true : false}
                 onClickHandler={async () => (await changePassword({ password: firstPassword, confirmPassword: secondPassword }))} />

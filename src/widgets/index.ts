@@ -4,6 +4,7 @@ export { default as Sidebar } from './sidebar/ui/Sidebar';
 export { default as SignInWindow } from './sign-in-window/ui/SignInWindow';
 export { default as RegisterWindow } from './register-window/ui/RegisterWindow';
 export { default as ConfirmEmailWindow } from './confirm-email-window/ui/ConfirmEmailWindow';
+export { default as PasswordRecoveryWindow } from './password-recovery-window/ui/PasswordRecoveryWindow';
 export { default as ErrorChangePasswordWindow } from './error-change-password-window/ui/ErrorChangePasswordWindow';
 export { default as ErrorCheckEmailNoExistWindow } from './error-check-email-no-exist-window/ui/ErrorCheckEmailNoExistWindow';
 export { default as ErrorCheckEmailWindow } from './error-check-email-window/ui/ErrorCheckEmailWindow';

@@ -6,9 +6,9 @@ import { Loader } from "@components/index";
 import { CodeSection } from "@entities/index";
 
 import { useUserConfirmEmailMutation } from "../api/confirm-email-api";
+import { setAuthStatus } from "@utils/auth-status-slice";
 
 import './ConfirmEmail.scss';
-import { setAuthStatus } from "@utils/auth-status-slice";
 
 interface ConfirmEmailProps {
     setIsConfirmEmailError: (isError: boolean) => void
