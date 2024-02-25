@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { Button, FormInput, Loader } from "@components/index";
 
-import { comparePasswords, switcher, validateEmail, validatePassword } from "@utils/index";
+import { comparePasswords, setAuthStatus, switcher, validateEmail, validatePassword } from "@utils/index";
 import { setRegisterDirtyInputs } from "../model/registration-model";
 import { useUserRegistrationMutation, useLazyUserGoogleRegistrationQuery } from "../api/registration-api";
 
@@ -25,22 +26,39 @@ export default function Registration() {
     const [secondPasswordError, setSecondPasswordError] = useState<boolean>(true);
     const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
-    const [register, { isLoading: isRegisterLoading, isError: isRegisterError, error }] = useUserRegistrationMutation();
+    const [register, { isLoading: isRegisterLoading, isError: isRegisterError, isSuccess: isRegisterSuccess, error }] = useUserRegistrationMutation();
     const [registerGoogle, { isLoading: isRegisterGoogleLoading, isError: isRegisterGoogleError }] = useLazyUserGoogleRegistrationQuery();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        setSecondPasswordError(comparePasswords(firstPassword, secondPassword))
+        setSecondPasswordError(comparePasswords(firstPassword, secondPassword));
     }, [secondPassword]);
 
     useEffect(() => {
-        setSecondPasswordError(true)
+        setSecondPasswordError(true);
     }, []);
+
+    useEffect(() => {
+        if (isRegisterSuccess) {
+            dispatch(setAuthStatus('success'));
+            navigate('/result/success');
+        }
+    }, [isRegisterSuccess]);
+
+    useEffect(() => {
+        if ((isRegisterError) && (error?.status === 409)) {
+            dispatch(setAuthStatus('error-user-exist'));
+            navigate('/result/error-user-exist');
+        } else if (((isRegisterError) && (error?.status !== 409)) || isRegisterGoogleError) {
+            dispatch(setAuthStatus('error'));
+            navigate('/result/error');
+        }
+    }, [isRegisterError]);
 
     return (
         <form className="registration">
             {(isRegisterLoading || isRegisterGoogleLoading) && <Loader />}
-            {(isRegisterError && error?.status === 409) && <Navigate to={'/result/error-user-exist'} />}
-            {((isRegisterError && error?.status !== 409) || isRegisterGoogleError) && <Navigate to={'/result/error'} />}
             <div className={(emailDirty && emailError) ? "email error" : 'email'}>
                 <label htmlFor="email">e-mail:</label>
                 <FormInput

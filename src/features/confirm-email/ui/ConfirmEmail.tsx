@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Navigate, useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 import { Loader } from "@components/index";
 import { CodeSection } from "@entities/index";
@@ -7,11 +8,18 @@ import { CodeSection } from "@entities/index";
 import { useUserConfirmEmailMutation } from "../api/confirm-email-api";
 
 import './ConfirmEmail.scss';
+import { setAuthStatus } from "@utils/auth-status-slice";
 
-export default function ConfirmEmail() {
+interface ConfirmEmailProps {
+    setIsConfirmEmailError: (isError: boolean) => void
+}
+
+export default function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailProps) {
     const { state: email } = useLocation();
-    const [confirmEmail, { isLoading: isConfirmEmailLoading, isError: isConfirmEmailError }] = useUserConfirmEmailMutation();
+    const [confirmEmail, { isLoading, isError, isSuccess }] = useUserConfirmEmailMutation();
     const [code, setCode] = useState<string[]>(['', '', '', '', '', '']);
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (code[5]) {
@@ -19,16 +27,27 @@ export default function ConfirmEmail() {
         }
     }, [code]);
 
+    useEffect(() => {
+        if (isError) {
+            setIsConfirmEmailError(true);
+        }
+    }, [isError]);
+
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(setAuthStatus('change-password'));
+            navigate('/auth/change-password');
+        }
+    }, [isSuccess]);
+
     return (
-        <>
-            {(isConfirmEmailLoading) && <Loader />}
+        <form className={(isError) ? 'confirmEmail error' : "confirmEmail"}>
+            {(isLoading) && <Loader />}
             {(!email) && <Navigate to='/auth' />}
-            {<form className="confirmEmail">
-                <CodeSection
-                    length={6}
-                    values={code}
-                    setValues={setCode} />
-            </form>}
-        </>
+            <CodeSection
+                length={6}
+                values={code}
+                setValues={setCode} />
+        </form>
     )
 }

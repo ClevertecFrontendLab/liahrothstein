@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Button, FormInput, Loader } from "@components/index";
 
-import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword } from "@utils/index";
+import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword, setAuthStatus } from "@utils/index";
 import { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } from "../api/login-api";
 import { onClickCheckEmail, setAuthDirtyInputs } from "../model/login-model";
 
@@ -23,26 +23,41 @@ export default function Login() {
     const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
-    const [signIn, { data, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
+    const [signIn, { data: signInData, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
     const [signInGoogle, { isLoading: isSignInGoogleLoading, isError: isSignInGoogleError }] = useLazyUserGoogleLoginQuery();
-    const [checkEmail, { isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
+    const [checkEmail, { data: checkEmailData, isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     useEffect(() => {
-        if ((isSuccess && data !== undefined) && (rememberMe)) {
+        if ((isSuccess && signInData !== undefined) && (rememberMe)) {
             dispatch(logIn());
-            dispatch(rememberMeLogIn(data.accessToken));
-        } else if ((isSuccess && data !== undefined) && (!rememberMe)) {
+            dispatch(rememberMeLogIn(signInData.accessToken));
+        } else if ((isSuccess) && (!rememberMe)) {
             dispatch(logIn());
         }
     }, [isSuccess]);
 
+    useEffect(() => {
+        if (isSignInError || isSignInGoogleError) {
+            dispatch(setAuthStatus('error-login'));
+            navigate('/result/error-login');
+        }
+    }, [isSignInError, isSignInGoogleError]);
+
+    useEffect(() => {
+        if ((isCheckEmailError) && (error?.status === 404)) {
+            dispatch(setAuthStatus('error-check-email-no-exist'));
+            navigate('/result/error-check-email-no-exist');
+        } else if ((isCheckEmailError) && ((error?.status !== 404) || ((error?.status === 404) && (checkEmailData?.message !== 'Email не найден')))) {
+            dispatch(setAuthStatus('error-check-email'));
+            navigate('/result/error-check-email');
+        }
+    }, [isCheckEmailError]);
+
     return (
         <form className="login">
             {(isSignInLoading || isSignInGoogleLoading || isCheckEmailLoading) && <Loader />}
-            {(isSignInError || isSignInGoogleError) && <Navigate to={'/result/error-login'} />}
-            {(isCheckEmailError && error?.status === 404) && <Navigate to={'/result/error-check-email-no-exist'} />}
-            {(isCheckEmailError && error?.status !== 404) && <Navigate to={'/result/error-check-email'} />}
             <div className={(emailDirty && emailError) ? "email error" : 'email'}>
                 <label htmlFor="email">e-mail:</label>
                 <FormInput

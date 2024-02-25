@@ -1,9 +1,10 @@
-import { useState } from "react";
-import { Navigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { Button, FormInput, Loader } from "@components/index";
 
-import { switcher, validatePassword } from "@utils/index";
+import { setAuthStatus, switcher, validatePassword } from "@utils/index";
 import { useUserChangePasswordMutation } from "../api/change-password-api";
 import { setChangePasswordDirtyInputs } from "../model/change-password-model";
 
@@ -20,12 +21,26 @@ export default function ChangePassword() {
     const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
     const [changePassword, { isLoading, isError, isSuccess }] = useUserChangePasswordMutation();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isError) {
+            dispatch(setAuthStatus('error-change-password'));
+            navigate('/result/error-change-password');
+        }
+    }, [isError]);
+
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(setAuthStatus('success-change-password'));
+            navigate('/result/success-change-password');
+        }
+    }, [isSuccess]);
 
     return (
         <form className="changePassword">
             {isLoading && <Loader />}
-            {isError && <Navigate to='/result/error-change-password' />}
-            {isSuccess && <Navigate to='/result/success-change-password' />}
             <div className={(firstPasswordDirty && firstPasswordError) ? "firstPassword password error" : 'firstPassword password'}>
                 <FormInput
                     inputType={(isFirstEyeOpen) ? 'text' : 'password'}
