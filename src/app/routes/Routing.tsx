@@ -23,6 +23,31 @@ export default function Routing() {
     const isRememberMeAuth = useAppSelector((state) => (state.isRememberMeAuth));
     const authStatus = useAppSelector((state) => (state.authStatus));
 
+    function authStatusCheck(): JSX.Element {
+        switch (authStatus) {
+            case 'success-change-password':
+                return (<SuccessChangePasswordPage />);
+                break;
+            case 'error-check-email-no-exist':
+                return (<ErrorCheckEmailNoExistPage />);
+                break;
+            case 'error':
+                return (<ErrorPage />)
+                break;
+            case 'error-user-exist':
+                return (<ErrorUserExistPage />);
+                break;
+            case 'success':
+                return (<SuccessPage />);
+                break;
+            case 'error-login':
+                return (<ErrorLoginPage />);
+                break;
+            default:
+                return (<Navigate to='/auth' />)
+        }
+    }
+
     return (
         <Routes>
             <Route path="/" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
@@ -31,14 +56,14 @@ export default function Routing() {
             <Route path="/auth/registration" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
             <Route path="/auth/confirm-email" element={(authStatus !== 'auth') ? <ConfirmEmailPage /> : <Navigate to='/auth' />} />
             <Route path="/auth/change-password" element={(authStatus !== 'auth') ? <PasswordRecoveryPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/success-change-password" element={(authStatus === 'success-change-password') ? <SuccessChangePasswordPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/success-change-password" element={authStatusCheck()} />
             <Route path="/result/error-change-password" element={(authStatus !== 'auth') ? <ErrorChangePasswordPage /> : <Navigate to='/auth' />} />
             <Route path="/result/error-check-email" element={(authStatus !== 'auth') ? <ErrorCheckEmailPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-check-email-no-exist" element={(authStatus === 'error-check-email-no-exist') ? <ErrorCheckEmailNoExistPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error" element={(authStatus === 'error') ? <ErrorPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-user-exist" element={(authStatus === 'error-user-exist') ? <ErrorUserExistPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/success" element={(authStatus === 'success') ? <SuccessPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-login" element={(authStatus === 'error-login') ? <ErrorLoginPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-check-email-no-exist" element={authStatusCheck()} />
+            <Route path="/result/error" element={authStatusCheck()} />
+            <Route path="/result/error-user-exist" element={authStatusCheck()} />
+            <Route path="/result/success" element={authStatusCheck()} />
+            <Route path="/result/error-login" element={authStatusCheck()} />
         </Routes>
     )
 }
