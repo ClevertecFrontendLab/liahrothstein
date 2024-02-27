@@ -23,7 +23,7 @@ export default function Routing() {
     const isRememberMeAuth = useAppSelector((state) => (state.isRememberMeAuth));
     const authStatus = useAppSelector((state) => (state.authStatus));
 
-    function authStatusCheck(): JSX.Element {
+    function authStatusCheck() {
         switch (authStatus) {
             case 'success-change-password':
                 return (<SuccessChangePasswordPage />);
@@ -48,17 +48,148 @@ export default function Routing() {
         }
     }
 
+    function authStatusCheckPage(page: string) {
+        switch (page) {
+            case 'confirm-email':
+                switch (authStatus) {
+                    case 'auth':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'success-change-password':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email-no-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-user-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'success':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-login':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-change-password':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    default:
+                        return (<ConfirmEmailPage />)
+                }
+                break;
+            case 'change-password':
+                switch (authStatus) {
+                    case 'auth':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email-no-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-user-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'success':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-login':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    default:
+                        return (<PasswordRecoveryPage />)
+                }
+                break;
+            case 'error-change-password':
+                switch (authStatus) {
+                    case 'auth':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'confirm-email':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'change-password':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email-no-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-user-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'success':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-login':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    default:
+                        return (<ErrorChangePasswordPage />)
+                }
+                break;
+            case 'error-check-email':
+                switch (authStatus) {
+                    case 'auth':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'change-password':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'success-change-password':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-change-password':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-check-email-no-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-user-exist':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'success':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    case 'error-login':
+                        return (<Navigate to='/auth' />)
+                        break;
+                    default:
+                        return (<ErrorCheckEmailPage />)
+                }
+                break;
+        }
+    }
+
     return (
         <Routes>
             <Route path="/" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
             <Route path="/main" element={(isAuth || isRememberMeAuth) ? <MainPage /> : <Navigate to='/auth' />} />
             <Route path="/auth" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <AuthPage />} />
             <Route path="/auth/registration" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
-            <Route path="/auth/confirm-email" element={(authStatus !== 'auth') ? <ConfirmEmailPage /> : <Navigate to='/auth' />} />
-            <Route path="/auth/change-password" element={(authStatus !== 'auth') ? <PasswordRecoveryPage /> : <Navigate to='/auth' />} />
+            <Route path="/auth/confirm-email" element={authStatusCheckPage('confirm-email')} />
+            <Route path="/auth/change-password" element={authStatusCheckPage('change-password')} />
             <Route path="/result/success-change-password" element={authStatusCheck()} />
-            <Route path="/result/error-change-password" element={(authStatus !== 'auth') ? <ErrorChangePasswordPage /> : <Navigate to='/auth' />} />
-            <Route path="/result/error-check-email" element={(authStatus !== 'auth') ? <ErrorCheckEmailPage /> : <Navigate to='/auth' />} />
+            <Route path="/result/error-change-password" element={authStatusCheckPage('error-change-password')} />
+            <Route path="/result/error-check-email" element={authStatusCheckPage('error-check-email')} />
             <Route path="/result/error-check-email-no-exist" element={authStatusCheck()} />
             <Route path="/result/error" element={authStatusCheck()} />
             <Route path="/result/error-user-exist" element={authStatusCheck()} />
