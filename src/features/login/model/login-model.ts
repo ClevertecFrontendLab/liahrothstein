@@ -18,6 +18,8 @@ export function setAuthDirtyInputs(event: React.FocusEvent<HTMLInputElement, Ele
         case 'password':
             dispatch(true);
             break;
+        default:
+            dispatch(false);
     }
 }
 

@@ -7,7 +7,7 @@ import fit from '../../../shared/assets/images/fit-logo.svg';
 
 import './Sidebar.scss';
 
-export default function Sidebar() {
+export function Sidebar() {
     const [isOpen, setIsOpen] = useState<boolean>(true);
 
     return (

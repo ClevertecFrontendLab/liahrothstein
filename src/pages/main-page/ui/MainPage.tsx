@@ -4,7 +4,7 @@ import { Cards, Header, Sidebar } from "@widgets/index";
 
 import './MainPage.scss';
 
-export default function MainPage() {
+export function MainPage() {
 
     return (
         <div className="mainPage">

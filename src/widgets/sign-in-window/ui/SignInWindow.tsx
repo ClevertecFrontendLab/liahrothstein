@@ -7,7 +7,7 @@ import fit from '../../../shared/assets/images/fit-logo.svg';
 
 import './SignInWindow.scss';
 
-export default function SignUpWindow() {
+export function SignInWindow() {
 
     return (
         <div className="signInWindow">

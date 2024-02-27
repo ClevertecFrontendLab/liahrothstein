@@ -10,7 +10,7 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 
 import './ErrorWindow.scss';
 
-export default function ErrorWindow() {
+export function ErrorWindow() {
     const [retryRegister] = useUserRegistrationMutation();
     const dispatch = useDispatch();
     const { state } = useLocation();

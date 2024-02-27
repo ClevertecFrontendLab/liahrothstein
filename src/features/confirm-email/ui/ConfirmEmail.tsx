@@ -14,7 +14,7 @@ interface ConfirmEmailProps {
     setIsConfirmEmailError: (isError: boolean) => void
 }
 
-export default function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailProps) {
+export function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailProps) {
     const { state: email } = useLocation();
     const [confirmEmail, { isLoading: isConfirmEmailLoading, isError: isConfirmEmailError, isSuccess: isConfirmEmailSuccess }] = useUserConfirmEmailMutation();
     const [code, setCode] = useState<string>('');

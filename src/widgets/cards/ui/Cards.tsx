@@ -5,7 +5,7 @@ import { cards } from "@constants/index";
 
 import './Cards.scss';
 
-export default function Cards() {
+export function Cards() {
 
     return (
         <section className="cards">

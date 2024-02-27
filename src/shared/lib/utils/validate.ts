@@ -13,9 +13,9 @@ export function validateEmail(event: React.ChangeEvent<HTMLInputElement>, dispat
 export function validatePassword(event: React.ChangeEvent<HTMLInputElement>, dispatch: (password: string) => void, errorDispatch: (isError: boolean) => void): void {
     dispatch(event.target.value);
 
-    var re: RegExp = /^(?=.*?[0-9])(?=.*[A-Z]).{8,}$/;
+    var re: RegExp = /^(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
 
-    if ((!re.test(String(event.target.value).toLowerCase())) && (event.target.value.length < 8)) {
+    if (!re.test(String(event.target.value))) {
         errorDispatch(true)
     } else {
         errorDispatch(false)

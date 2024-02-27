@@ -8,7 +8,7 @@ interface CardActionProps {
     cardTitle: string
 }
 
-export default function CardAction({ buttonImage, buttonTitle, cardTitle }: CardActionProps) {
+export function CardAction({ buttonImage, buttonTitle, cardTitle }: CardActionProps) {
 
     return (
         <article className="cardAction">

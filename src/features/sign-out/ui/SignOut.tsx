@@ -12,7 +12,7 @@ interface SignOutProps {
     isOpen: boolean
 }
 
-export default function SignOut({ isOpen }: SignOutProps) {
+export function SignOut({ isOpen }: SignOutProps) {
     const dispatch = useDispatch();
 
     return (

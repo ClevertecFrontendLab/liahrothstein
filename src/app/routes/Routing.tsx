@@ -46,36 +46,20 @@ export default function Routing() {
             default:
                 return (<Navigate to='/auth' />)
         }
-    }
+    };
 
     function authStatusCheckPage(page: string) {
         switch (page) {
             case 'confirm-email':
                 switch (authStatus) {
                     case 'auth':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'success-change-password':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email-no-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-user-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'success':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-login':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-change-password':
                         return (<Navigate to='/auth' />)
                         break;
@@ -86,23 +70,11 @@ export default function Routing() {
             case 'change-password':
                 switch (authStatus) {
                     case 'auth':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email-no-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-user-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'success':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-login':
                         return (<Navigate to='/auth' />)
                         break;
@@ -113,29 +85,13 @@ export default function Routing() {
             case 'error-change-password':
                 switch (authStatus) {
                     case 'auth':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'confirm-email':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'change-password':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email-no-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-user-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'success':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-login':
                         return (<Navigate to='/auth' />)
                         break;
@@ -146,29 +102,13 @@ export default function Routing() {
             case 'error-check-email':
                 switch (authStatus) {
                     case 'auth':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'change-password':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'success-change-password':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-change-password':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-check-email-no-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-user-exist':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'success':
-                        return (<Navigate to='/auth' />)
-                        break;
                     case 'error-login':
                         return (<Navigate to='/auth' />)
                         break;
@@ -177,7 +117,7 @@ export default function Routing() {
                 }
                 break;
         }
-    }
+    };
 
     return (
         <Routes>

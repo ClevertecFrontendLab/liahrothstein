@@ -9,5 +9,7 @@ export function setRegisterDirtyInputs(event: React.FocusEvent<HTMLInputElement,
         case 'secondPassword':
             dispatch(true);
             break;
+        default:
+            dispatch(false);
     }
 }

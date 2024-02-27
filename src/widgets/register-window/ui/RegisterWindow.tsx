@@ -7,7 +7,7 @@ import fit from '../../../shared/assets/images/fit-logo.svg';
 
 import './RegisterWindow.scss';
 
-export default function RegisterWindow() {
+export function RegisterWindow() {
 
     return (
         <div className="registerWindow">

@@ -2,7 +2,7 @@ import { ErrorUserExistWindow } from "@widgets/index";
 
 import './ErrorUserExistPage.scss';
 
-export default function ErrorUserExistPage() {
+export function ErrorUserExistPage() {
 
     return (
         <div className="errorUserExistPage">

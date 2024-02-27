@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseURL } from "@constants/index";
+import { baseURL, confirmEmailURL } from "@constants/index";
 
 interface ConfirmEmailRequest {
     email: string,
@@ -16,7 +16,7 @@ export const confirmEmailAPI = createApi({
     endpoints: (build) => ({
         userConfirmEmail: build.mutation<ConfirmEmailResponse, ConfirmEmailRequest>({
             query: (req: ConfirmEmailRequest) => ({
-                url: '/auth/confirm-email',
+                url: confirmEmailURL,
                 method: 'POST',
                 body: req
             })

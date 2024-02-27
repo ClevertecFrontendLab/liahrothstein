@@ -14,7 +14,7 @@ import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
 import './ChangePassword.scss';
 
-export default function ChangePassword() {
+export function ChangePassword() {
     const [firstPassword, setFirstPassword] = useState<string>('');
     const [firstPasswordDirty, setFirstPasswordDirty] = useState<boolean>(false);
     const [firstPasswordError, setFirstPasswordError] = useState<boolean>(true);

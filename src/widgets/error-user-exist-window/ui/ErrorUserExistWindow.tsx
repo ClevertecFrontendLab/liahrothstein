@@ -8,7 +8,7 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 
 import './ErrorUserExistWindow.scss';
 
-export default function ErrorUserExistWindow() {
+export function ErrorUserExistWindow() {
     const dispatch = useDispatch();
 
     return (

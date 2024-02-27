@@ -15,7 +15,7 @@ import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
 import './Registration.scss';
 
-export default function Registration() {
+export function Registration() {
     const [email, setEmail] = useState<string>('');
     const [emailDirty, setEmailDirty] = useState<boolean>(false);
     const [emailError, setEmailError] = useState<boolean>(true);

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseURL } from "@constants/index";
+import { baseURL, googleLoginURL, registerURL } from "@constants/index";
 import type { UserDTO } from "../../../shared/types";
 
 interface RegistrationResponse { }
@@ -10,14 +10,14 @@ export const registrationAPI = createApi({
     endpoints: (build) => ({
         userRegistration: build.mutation<RegistrationResponse, UserDTO>({
             query: (user: UserDTO) => ({
-                url: '/auth/registration',
+                url: registerURL,
                 method: 'POST',
                 body: user
             })
         }),
         userGoogleRegistration: build.query({
             query: () => ({
-                url: '/auth/google',
+                url: googleLoginURL,
                 method: 'GET'
             })
         })

@@ -11,7 +11,7 @@ interface ConfirmEmailWindowProps {
     email: string
 }
 
-export default function ConfirmEmailWindow({ email }: ConfirmEmailWindowProps) {
+export function ConfirmEmailWindow({ email }: ConfirmEmailWindowProps) {
     const [isError, setIsError] = useState<boolean>(false);
 
     return (

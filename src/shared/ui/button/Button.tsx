@@ -2,7 +2,7 @@ import type { ButtonProps } from '../../types';
 
 import './Button.scss';
 
-export default function Button({ className, image, title, disabled, onClickHandler, dataTestId }: ButtonProps) {
+export function Button({ className, image, title, disabled, onClickHandler, dataTestId }: ButtonProps) {
 
     return (
         <button

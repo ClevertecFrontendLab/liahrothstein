@@ -8,7 +8,7 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 
 import './ErrorCheckEmailNoExistWindow.scss';
 
-export default function ErrorCheckEmailNoExistWindow() {
+export function ErrorCheckEmailNoExistWindow() {
     const dispatch = useDispatch();
 
     return (

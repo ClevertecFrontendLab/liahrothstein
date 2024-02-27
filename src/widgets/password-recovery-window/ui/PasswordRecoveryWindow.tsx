@@ -2,7 +2,7 @@ import { ChangePassword } from "@features/index";
 
 import './PasswordRecoveryWindow.scss';
 
-export default function PasswordRecoveryWindow() {
+export function PasswordRecoveryWindow() {
 
     return (
         <div className="passwordRecoveryWindow">

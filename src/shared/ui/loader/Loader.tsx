@@ -4,7 +4,7 @@ import animationData from '../../assets/images/loader.json';
 
 import './Loader.scss';
 
-export default function Loader() {
+export function Loader() {
     const defaultOptions = {
         animationData,
         loop: true,

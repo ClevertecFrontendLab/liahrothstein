@@ -4,7 +4,7 @@ import { ConfirmEmailWindow } from "@widgets/index";
 
 import './ConfirmEmailPage.scss';
 
-export default function ConfirmEmailPage() {
+export function ConfirmEmailPage() {
     const { state: email } = useLocation();
 
     return (

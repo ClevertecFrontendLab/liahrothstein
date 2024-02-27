@@ -2,7 +2,7 @@ import { SignInWindow } from "@widgets/index";
 
 import './AuthPage.scss';
 
-export default function AuthPage() {
+export function AuthPage() {
 
     return (
         <div className="authPage">

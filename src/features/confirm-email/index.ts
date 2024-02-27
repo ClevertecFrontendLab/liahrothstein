@@ -1,2 +1,2 @@
 export { confirmEmailAPI } from './api/confirm-email-api';
-export { default as ConfirmEmail } from './ui/ConfirmEmail';
+export { ConfirmEmail } from './ui/ConfirmEmail';

@@ -4,7 +4,7 @@ interface CardProps {
     cardTitle: string
 }
 
-export default function CardAction({ cardTitle }: CardProps) {
+export function Card({ cardTitle }: CardProps) {
 
     return (
         <article className="card">

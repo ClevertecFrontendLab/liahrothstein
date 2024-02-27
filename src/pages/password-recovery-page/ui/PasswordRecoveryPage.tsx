@@ -2,7 +2,7 @@ import { PasswordRecoveryWindow } from "@widgets/index";
 
 import './PasswordRecoveryPage.scss';
 
-export default function PasswordRecoveryPage() {
+export function PasswordRecoveryPage() {
 
     return (
         <div className="passwordRecoveryPage">

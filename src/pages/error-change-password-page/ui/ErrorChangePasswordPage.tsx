@@ -2,7 +2,7 @@ import { ErrorChangePasswordWindow } from "@widgets/index";
 
 import './ErrorChangePasswordPage.scss';
 
-export default function ErrorChangePasswordPage() {
+export function ErrorChangePasswordPage() {
 
     return (
         <div className="errorChangePasswordPage">

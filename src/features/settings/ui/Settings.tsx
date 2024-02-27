@@ -4,7 +4,7 @@ import settings from '../../../shared/assets/icons/settings-icon.svg';
 
 import './Settings.scss';
 
-export default function Settings() {
+export function Settings() {
 
     return (
         <div className="settings">

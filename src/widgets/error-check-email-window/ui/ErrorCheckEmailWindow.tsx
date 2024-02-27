@@ -11,7 +11,7 @@ import error from '../../../shared/assets/images/error-image.svg';
 
 import './ErrorCheckEmailWindow.scss';
 
-export default function ErrorCheckEmailWindow() {
+export function ErrorCheckEmailWindow() {
     const [retryCheckEmail, { isSuccess }] = useUserCheckEmailMutation();
     const { state } = useLocation();
     const dispatch = useDispatch();

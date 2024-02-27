@@ -6,5 +6,7 @@ export function setChangePasswordDirtyInputs(event: React.FocusEvent<HTMLInputEl
         case 'secondPassword':
             dispatch(true);
             break;
+        default:
+            dispatch(false);
     }
 }

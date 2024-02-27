@@ -11,7 +11,7 @@ interface SidebarSwitchProps {
     setIsOpen: (isOpen: boolean) => void
 }
 
-export default function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps) {
+export function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps) {
 
     return (
         <div

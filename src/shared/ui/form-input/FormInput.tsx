@@ -1,6 +1,6 @@
 import type { FormInputProps } from '../../types';
 
-export default function FormInput({ inputType, inputValue, inputName, inputPlaceholder, dispatch, errorDispatch, onBlurHandler, setDirty, onChangeHandler, dataTestId }: FormInputProps) {
+export function FormInput({ inputType, inputValue, inputName, inputPlaceholder, dispatch, errorDispatch, onBlurHandler, setDirty, onChangeHandler, dataTestId }: FormInputProps) {
 
     return (
         <input

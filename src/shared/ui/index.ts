@@ -1,3 +1,3 @@
-export { default as Button } from './button/Button';
-export { default as FormInput } from './form-input/FormInput';
-export { default as Loader } from './loader/Loader';
+export { Button } from './button/Button';
+export { FormInput } from './form-input/FormInput';
+export { Loader } from './loader/Loader';

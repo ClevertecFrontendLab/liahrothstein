@@ -8,7 +8,7 @@ import success from '../../../shared/assets/icons/success-icon.svg';
 
 import './SuccessWindow.scss';
 
-export default function SuccessWindow() {
+export function SuccessWindow() {
     const dispatch = useDispatch();
 
     return (

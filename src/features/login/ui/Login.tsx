@@ -15,7 +15,7 @@ import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
 
 import './Login.scss';
 
-export default function Login() {
+export function Login() {
     const [email, setEmail] = useState<string>('');
     const [emailDirty, setEmailDirty] = useState<boolean>(false);
     const [emailError, setEmailError] = useState<boolean>(true);
@@ -34,7 +34,8 @@ export default function Login() {
     useEffect(() => {
         if (emailError) {
             setIsActivePasswordForgot(true);
-        } else if (!emailError) {
+        }
+        if (!emailError) {
             setIsActivePasswordForgot(false);
         }
     }, [emailError]);

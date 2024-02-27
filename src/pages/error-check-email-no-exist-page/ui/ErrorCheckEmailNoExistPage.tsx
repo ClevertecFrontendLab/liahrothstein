@@ -2,7 +2,7 @@ import { ErrorCheckEmailNoExistWindow } from "@widgets/index";
 
 import './ErrorCheckEmailNoExistPage.scss';
 
-export default function ErrorCheckEmailNoExistPage() {
+export function ErrorCheckEmailNoExistPage() {
 
     return (
         <div className="errorCheckEmailNoExistPage">

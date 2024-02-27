@@ -8,7 +8,7 @@ import warningYellow from '../../../shared/assets/icons/warning-yellow-icon.svg'
 
 import './ErrorLoginWindow.scss';
 
-export default function ErrorLoginWindow() {
+export function ErrorLoginWindow() {
     const dispatch = useDispatch();
 
     return (

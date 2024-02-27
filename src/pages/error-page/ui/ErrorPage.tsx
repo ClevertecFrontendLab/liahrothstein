@@ -2,7 +2,7 @@ import { ErrorWindow } from "@widgets/index";
 
 import './ErrorPage.scss';
 
-export default function ErrorPage() {
+export function ErrorPage() {
 
     return (
         <div className="errorPage">

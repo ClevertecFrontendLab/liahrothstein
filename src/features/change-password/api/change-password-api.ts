@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseURL } from "@constants/index";
+import { baseURL, changePasswordURL } from "@constants/index";
 import { getCookie } from '@utils/index';
 
 interface ChangePasswordRequest {
@@ -16,7 +16,7 @@ export const changePasswordAPI = createApi({
     endpoints: (build) => ({
         userChangePassword: build.mutation<ChangePasswordResponse, ChangePasswordRequest>({
             query: (req: ChangePasswordRequest) => ({
-                url: '/auth/change-password',
+                url: changePasswordURL,
                 method: 'POST',
                 body: req,
                 headers: {

@@ -4,7 +4,7 @@ import { cardActions } from '@constants/index';
 
 import './CardActions.scss';
 
-export default function CardActions() {
+export function CardActions() {
 
     return (
         <div className="cardActions">

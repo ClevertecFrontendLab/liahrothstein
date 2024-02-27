@@ -2,7 +2,7 @@ import { ErrorCheckEmailWindow } from "@widgets/index";
 
 import './ErrorCheckEmailPage.scss';
 
-export default function ErrorCheckEmailtPage() {
+export function ErrorCheckEmailPage() {
 
     return (
         <div className="errorCheckEmailPage">

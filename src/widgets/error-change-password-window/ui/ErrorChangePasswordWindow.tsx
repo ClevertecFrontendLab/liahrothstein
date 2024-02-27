@@ -11,7 +11,7 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 
 import './ErrorChangePasswordWindow.scss';
 
-export default function ErrorChangePasswordWindow() {
+export function ErrorChangePasswordWindow() {
     const { state } = useLocation();
     const [retryChangePassword, { isLoading, isSuccess }] = useUserChangePasswordMutation();
     const dispatch = useDispatch();

@@ -5,7 +5,7 @@ import appleIcon from '../../../shared/assets/icons/apple-icon.svg';
 
 import './DownloadToPhone.scss';
 
-export default function DownloadToPhone() {
+export function DownloadToPhone() {
 
     return (
         <article className="downloadToPhoneCard">

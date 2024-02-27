@@ -2,7 +2,7 @@ import { RegisterWindow } from "@widgets/index";
 
 import './RegisterPage.scss';
 
-export default function RegisterPage() {
+export function RegisterPage() {
 
     return (
         <div className="registerPage">

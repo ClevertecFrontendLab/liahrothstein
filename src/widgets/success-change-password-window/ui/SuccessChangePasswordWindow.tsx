@@ -8,7 +8,7 @@ import success from '../../../shared/assets/icons/success-icon.svg';
 
 import './SuccessChangePasswordWindow.scss';
 
-export default function SuccessChangePasswordWindow() {
+export function SuccessChangePasswordWindow() {
     const dispatch = useDispatch();
 
     return (

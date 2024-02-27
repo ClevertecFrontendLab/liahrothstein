@@ -2,7 +2,7 @@ import { SuccessWindow } from "@widgets/index";
 
 import './SuccessPage.scss';
 
-export default function SuccessPage() {
+export function SuccessPage() {
 
     return (
         <div className="successPage">
