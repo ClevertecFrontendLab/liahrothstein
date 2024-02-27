@@ -5,6 +5,10 @@ form.confirmEmail {
         height: 40px;
         gap: 12px;
 
+        @media (max-width: $tablet) {
+            gap: 8px;
+        }
+
         div.vi__character {
             display: flex;
             width: 40px;

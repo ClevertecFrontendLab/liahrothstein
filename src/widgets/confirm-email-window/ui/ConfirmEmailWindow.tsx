@@ -15,12 +15,12 @@ export default function ConfirmEmailWindow({ email }: ConfirmEmailWindowProps) {
     const [isError, setIsError] = useState<boolean>(false);
 
     return (
-        <div className="confirmEmailWindow">
+        <div className={(isError) ? "confirmEmailWindow error" : "confirmEmailWindow"}>
             <img src={(isError) ? warningRed : warningBlue} alt="" className="warn" />
             <div className="description">
                 {(isError) ?
                     <p className="title">
-                        Неверный код. Введите код<br />
+                        Неверный код. Введите код
                         для восстановления аккауанта
                     </p> :
                     <p className="title">

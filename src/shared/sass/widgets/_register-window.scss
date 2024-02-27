@@ -10,17 +10,34 @@ div.registerWindow {
     box-shadow: 0px 2px 8px 0px #00000026;
     background-color: $authWindowBackgroundColor;
 
+    @media (max-width: $tablet) {
+        width: 91.11vw;
+        height: 564px;
+    }
+
     div.logo {
         margin-top: 72.41px;
         display: flex;
         align-items: flex-end;
 
+        @media (max-width: $tablet) {
+            margin-top: 32px;
+        }
+
         img:first-child {
             height: 54.98px;
             margin-bottom: 2.5px;
 
+            @media (max-width: $tablet) {
+                height: 36.17px;
+            }
+
             &+img {
                 height: 68.01px;
+
+                @media (max-width: $tablet) {
+                    height: 44.74px;
+                }
             }
         }
     }
@@ -32,6 +49,12 @@ div.registerWindow {
         margin-top: 48px;
         margin-bottom: 32px;
 
+        @media (max-width: $tablet) {
+            margin-top: 32px;
+            margin-bottom: 24px;
+            grid-template-columns: 148px 148px;
+        }
+
         a {
             display: flex;
             justify-content: center;
@@ -39,6 +62,11 @@ div.registerWindow {
             font-weight: 400;
             font-size: 16px;
             line-height: 20.8px;
+
+            @media (max-width: $tablet) {
+                font-size: 14px;
+                line-height: 18.2px;
+            }
 
             &:first-child {
                 border-bottom: 1px solid $notActiveAuthLinkColor;

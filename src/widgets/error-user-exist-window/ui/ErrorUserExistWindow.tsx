@@ -16,7 +16,7 @@ export default function ErrorUserExistWindow() {
             <img src={warningRed} alt="" />
             <div className="description">
                 <p className="title">Данные не сохранились</p>
-                <p className="subtitle">Такой e-mail уже записан в системе. Попробуйте<br />зарегистрироваться по другому e-mail.</p>
+                <p className="subtitle">Такой e-mail уже записан в системе. Попробуйте зарегистрироваться по другому e-mail.</p>
             </div>
             <Button
                 title='Назад к регистрации'

@@ -16,7 +16,7 @@ export default function ErrorCheckEmailNoExistWindow() {
             <img src={warningRed} alt="" />
             <div className="description">
                 <p className="title">Такой e-mail не зарегистрирован</p>
-                <p className="subtitle">Мы не нашли в базе вашего e-mail. Попробуйте<br /> войти с другим e-mail.</p>
+                <p className="subtitle">Мы не нашли в базе вашего e-mail. Попробуйте войти с другим e-mail.</p>
             </div>
             <Button
                 title='Попробовать снова'

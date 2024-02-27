@@ -5,6 +5,10 @@ form.login {
     display: flex;
     flex-direction: column;
 
+    @media (max-width: $tablet) {
+        width: 296px;
+    }
+
     input:not(input[type="checkbox"]) {
         height: 40px;
         width: 100%;
@@ -55,6 +59,10 @@ form.login {
 
         input {
             width: 297px;
+
+            @media (max-width: $tablet) {
+                width: 225px;
+            }
         }
     }
 
@@ -141,6 +149,12 @@ form.login {
             background-color: $signInGoogleButtonColor;
             border: 1px solid $signInGoogleButtonBorderColor;
             color: $signInGoogleButtonTextColor;
+
+            img {
+                @media (max-width: $tablet) {
+                    display: none;
+                }
+            }
         }
     }
 }

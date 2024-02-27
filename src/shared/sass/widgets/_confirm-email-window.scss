@@ -12,8 +12,23 @@ div.confirmEmailWindow {
     background-color: $authWindowBackgroundColor;
     text-align: center;
 
+    @media (max-width: $tablet) {
+        width: 91.11vw;
+        height: 457px;
+    }
+
+    &.error p.title {
+        @media (max-width: $tablet) {
+            width: 330px;
+        }
+    }
+
     img.warn {
         margin-top: 64px;
+
+        @media (max-width: $tablet) {
+            margin-top: 32px;
+        }
     }
 
     p.subtitle {
@@ -21,14 +36,29 @@ div.confirmEmailWindow {
         font-size: 14px;
         line-height: 18.2px;
         color: $confirmEmailSubTitleColor;
+
+        @media (max-width: $tablet) {
+            width: 258px;
+        }
     }
 
     div.description {
+        @media (max-width: $tablet) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         p.title {
             font-weight: 500;
             font-size: 24px;
             line-height: 31.2px;
+        }
+
+        p.subtitle {
+            @media (max-width: $tablet) {
+                width: 312px;
+            }
         }
     }
 }
