@@ -1,18 +1,32 @@
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
 
-import { Button } from '@components/index';
+import { Button, Loader } from '@components/index';
 
-import { onClickBackToChangePassword } from '../model/error-change-password-window-model';
+import { useUserChangePasswordMutation } from '@features/change-password/api/change-password-api';
+import { setAuthStatus } from '@utils/auth-status-slice';
 
 import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 
 import './ErrorChangePasswordWindow.scss';
 
 export default function ErrorChangePasswordWindow() {
+    const { state } = useLocation();
+    const [retryChangePassword, { isLoading, isSuccess }] = useUserChangePasswordMutation();
     const dispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (isSuccess) {
+            dispatch(setAuthStatus('success-change-password'));
+            navigate('/result/success-change-password');
+        }
+    }, [isSuccess]);
 
     return (
         <div className="errorChangePasswordWindow">
+            {isLoading && <Loader />}
             <img src={warningRed} alt="" />
             <div className="description">
                 <p className="title">Данные не сохранились</p>
@@ -20,7 +34,7 @@ export default function ErrorChangePasswordWindow() {
             </div>
             <Button
                 title='Повторить'
-                onClickHandler={() => (onClickBackToChangePassword(dispatch))}
+                onClickHandler={() => (retryChangePassword({ password: state.password, confirmPassword: state.confirmPassword }))}
                 dataTestId='change-retry-button' />
         </div>
     )

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import VerificationInput from "react-verification-input";
 
 import { Loader } from "@components/index";
-import { CodeSection } from "@entities/index";
 
 import { useUserConfirmEmailMutation } from "../api/confirm-email-api";
 import { setAuthStatus } from "@utils/auth-status-slice";
@@ -16,37 +16,38 @@ interface ConfirmEmailProps {
 
 export default function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailProps) {
     const { state: email } = useLocation();
-    const [confirmEmail, { isLoading, isError, isSuccess }] = useUserConfirmEmailMutation();
-    const [code, setCode] = useState<string[]>(['', '', '', '', '', '']);
+    const [confirmEmail, { isLoading: isConfirmEmailLoading, isError: isConfirmEmailError, isSuccess: isConfirmEmailSuccess }] = useUserConfirmEmailMutation();
+    const [code, setCode] = useState<string>('');
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (code[5]) {
-            confirmEmail({ email: email, code: code.reduce((prv, crrnt) => (prv + crrnt)) })
+            confirmEmail({ email: email, code: code });
+            setCode('');
         }
     }, [code]);
 
     useEffect(() => {
-        if (isError) {
+        if (isConfirmEmailError) {
             setIsConfirmEmailError(true);
         }
-    }, [isError]);
+    }, [isConfirmEmailError]);
 
     useEffect(() => {
-        if (isSuccess) {
+        if (isConfirmEmailSuccess) {
             dispatch(setAuthStatus('change-password'));
             navigate('/auth/change-password');
         }
-    }, [isSuccess]);
+    }, [isConfirmEmailSuccess]);
 
     return (
-        <form className={(isError) ? 'confirmEmail error' : "confirmEmail"} data-test-id='verification-input'>
-            {(isLoading) && <Loader />}
-            <CodeSection
+        <form className={(isConfirmEmailError) ? 'confirmEmail error' : "confirmEmail"} data-test-id='verification-input'>
+            {(isConfirmEmailLoading) && <Loader />}
+            <VerificationInput
                 length={6}
-                values={code}
-                setValues={setCode} />
+                value={code}
+                onChange={setCode} />
         </form>
     )
 }

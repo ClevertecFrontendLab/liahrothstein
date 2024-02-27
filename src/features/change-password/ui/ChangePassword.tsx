@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { push } from "redux-first-history";
 
 import { Button, FormInput, Loader } from "@components/index";
 
@@ -22,27 +23,27 @@ export default function ChangePassword() {
     const [secondPasswordError, setSecondPasswordError] = useState<boolean>(true);
     const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
-    const [changePassword, { isLoading, isError, isSuccess }] = useUserChangePasswordMutation();
+    const [changePassword, { isLoading: isChangePasswordLoading, isError: isChangePasswordError, isSuccess: isChangePasswordSuccess }] = useUserChangePasswordMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
-        if (isError) {
+        if (isChangePasswordError) {
             dispatch(setAuthStatus('error-change-password'));
-            navigate('/result/error-change-password');
+            dispatch(push('/result/error-change-password', { password: firstPassword, confirmPassword: secondPassword }))
         }
-    }, [isError]);
+    }, [isChangePasswordError]);
 
     useEffect(() => {
-        if (isSuccess) {
+        if (isChangePasswordSuccess) {
             dispatch(setAuthStatus('success-change-password'));
             navigate('/result/success-change-password');
         }
-    }, [isSuccess]);
+    }, [isChangePasswordSuccess]);
 
     return (
         <form className="changePassword">
-            {isLoading && <Loader />}
+            {isChangePasswordLoading && <Loader />}
             <div className={(firstPasswordDirty && firstPasswordError) ? "firstPassword password error" : 'firstPassword password'}>
                 <FormInput
                     inputType={(isFirstEyeOpen) ? 'text' : 'password'}

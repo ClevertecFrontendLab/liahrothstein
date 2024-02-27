@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
-const initialState: string = '/auth';
+const initialState: string = 'auth';
 
 export const authStatusSlice = createSlice({
     name: 'authStatus',

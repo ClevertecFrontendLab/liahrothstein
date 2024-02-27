@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { push } from "redux-first-history";
 
 import { Button, FormInput, Loader } from "@components/index";
 
@@ -52,7 +53,7 @@ export default function Registration() {
             navigate('/result/error-user-exist');
         } else if (((isRegisterError) && (error?.status !== 409)) || isRegisterGoogleError) {
             dispatch(setAuthStatus('error'));
-            navigate('/result/error');
+            dispatch(push('/result/error', { email: email, password: firstPassword }));
         }
     }, [isRegisterError]);
 

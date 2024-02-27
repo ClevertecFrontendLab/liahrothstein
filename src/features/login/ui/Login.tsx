@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { push } from "redux-first-history";
 
 import { Button, FormInput, Loader } from "@components/index";
 
 import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword, setAuthStatus } from "@utils/index";
 import { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } from "../api/login-api";
-import { onClickCheckEmail, setAuthDirtyInputs } from "../model/login-model";
+import { onClickCheckEmail, onClickSignIn, setAuthDirtyInputs } from "../model/login-model";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
@@ -23,11 +24,24 @@ export default function Login() {
     const [passwordError, setPasswordError] = useState<boolean>(true);
     const [rememberMe, setRememberMe] = useState<boolean>(false);
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
+    const [isActivePasswordForgot, setIsActivePasswordForgot] = useState<boolean>(false);
     const [signIn, { data: signInData, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
     const [signInGoogle, { isLoading: isSignInGoogleLoading, isError: isSignInGoogleError }] = useLazyUserGoogleLoginQuery();
     const [checkEmail, { data: checkEmailData, isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        if (emailError) {
+            setIsActivePasswordForgot(true);
+        } else if (!emailError) {
+            setIsActivePasswordForgot(false);
+        }
+    }, [emailError]);
+
+    useEffect(() => {
+        setIsActivePasswordForgot(false);
+    }, []);
 
     useEffect(() => {
         if ((isSuccess && signInData !== undefined) && (rememberMe)) {
@@ -51,7 +65,7 @@ export default function Login() {
             navigate('/result/error-check-email-no-exist');
         } else if ((isCheckEmailError) && ((error?.status !== 404) || ((error?.status === 404) && (checkEmailData?.message !== 'Email не найден')))) {
             dispatch(setAuthStatus('error-check-email'));
-            navigate('/result/error-check-email');
+            dispatch(push('/result/error-check-email', email));
         }
     }, [isCheckEmailError]);
 
@@ -100,15 +114,14 @@ export default function Login() {
                 </div>
                 <Button
                     title="Забыли пароль?"
-                    disabled={emailError}
-                    onClickHandler={async () => (await onClickCheckEmail(email, dispatch, checkEmail))}
+                    disabled={isActivePasswordForgot}
+                    onClickHandler={async () => (await onClickCheckEmail(email, dispatch, checkEmail, isActivePasswordForgot, emailError, setIsActivePasswordForgot))}
                     dataTestId="login-forgot-button" />
             </div>
             <Button
                 className={(emailError || passwordError) ? 'signIn disabled' : "signIn"}
                 title="Войти"
-                disabled={(emailError || passwordError) ? true : false}
-                onClickHandler={async () => (await signIn({ email: email, password: password }))}
+                onClickHandler={async () => (await onClickSignIn(emailError, passwordError, email, password, signIn))}
                 dataTestId="login-submit-button" />
             <Button
                 className="signIn google"
