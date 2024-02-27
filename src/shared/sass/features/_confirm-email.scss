@@ -1,0 +1,32 @@
+@use '../abstracts' as *;
+
+form.confirmEmail {
+    div.vi__container {
+        height: 40px;
+        gap: 12px;
+
+        @media (max-width: $tablet) {
+            gap: 8px;
+        }
+
+        div.vi__character {
+            display: flex;
+            width: 40px;
+            height: 40px;
+            border: 1px solid $codeInputBorderColor;
+            border-radius: 2px;
+            justify-content: center;
+            align-items: center;
+            font-weight: 400;
+            font-size: 14px;
+
+            &.vi__character--inactive {
+                background-color: white;
+            }
+        }
+    }
+
+    &.error div.vi__container div.vi__character {
+        border: 1px solid $warningInputBorderColor;
+    }
+}

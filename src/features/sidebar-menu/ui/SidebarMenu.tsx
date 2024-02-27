@@ -7,7 +7,7 @@ interface SidebarMenuProps {
     isOpen: boolean
 }
 
-export default function SidebarMenu({ isOpen }: SidebarMenuProps) {
+export function SidebarMenu({ isOpen }: SidebarMenuProps) {
 
     return (
         <div className="sidebarMenu">

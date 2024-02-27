@@ -1,11 +1,11 @@
 import { Button } from "@components/index";
 
-import androidIcon from '../../../shared/assets/images/android-icon.svg';
-import appleIcon from '../../../shared/assets/images/apple-icon.svg';
+import androidIcon from '../../../shared/assets/icons/android-icon.svg';
+import appleIcon from '../../../shared/assets/icons/apple-icon.svg';
 
 import './DownloadToPhone.scss';
 
-export default function DownloadToPhone() {
+export function DownloadToPhone() {
 
     return (
         <article className="downloadToPhoneCard">
@@ -13,8 +13,12 @@ export default function DownloadToPhone() {
             <h2 className="description">Доступно в PRO-тарифе</h2>
             <hr />
             <div className="downloadButtons">
-                <Button image={androidIcon} title={'Android OS'} />
-                <Button image={appleIcon} title={'Apple iOS'} />
+                <Button
+                    image={androidIcon}
+                    title={'Android OS'} />
+                <Button
+                    image={appleIcon}
+                    title={'Apple iOS'} />
             </div>
         </article>
     )

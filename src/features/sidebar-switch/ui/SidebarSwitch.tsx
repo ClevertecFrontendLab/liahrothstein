@@ -1,8 +1,8 @@
 import { Button } from "@components/index";
-import switcher from "../model/switcher";
+import { switcher } from "@utils/index";
 
-import sidebarSwitchOn from '../../../shared/assets/images/sidebar-switch-on-icon.svg';
-import sidebarSwitchOff from '../../../shared/assets/images/sidebar-switch-off-icon.svg';
+import sidebarSwitchOn from '../../../shared/assets/icons/sidebar-switch-on-icon.svg';
+import sidebarSwitchOff from '../../../shared/assets/icons/sidebar-switch-off-icon.svg';
 
 import './SidebarSwitch.scss';
 
@@ -11,15 +11,15 @@ interface SidebarSwitchProps {
     setIsOpen: (isOpen: boolean) => void
 }
 
-export default function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps) {
+export function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps) {
 
     return (
-        <button
+        <div
             className="sidebarSwitch"
-            type="button"
-            data-test-id={(document.body.clientWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}
-            onClick={() => switcher(setIsOpen, isOpen)}>
-            <Button image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff} title="" />
-        </button>
+            data-test-id={(document.body.clientWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}>
+            <Button
+                image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff}
+                onClickHandler={() => (switcher(isOpen, setIsOpen))} />
+        </div>
     )
 }

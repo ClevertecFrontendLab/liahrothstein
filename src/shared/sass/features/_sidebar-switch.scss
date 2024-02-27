@@ -1,8 +1,10 @@
 @use '../abstracts' as *;
 
-button.sidebarSwitch {
+div.sidebarSwitch {
     width: 20px;
     height: 66px;
+    display: flex;
+    align-items: center;
     clip-path: polygon(0.00% 0.00%, 100.00% 15%, 100.00% 85%, 0.00% 100%, 0% 50%);
     position: absolute;
     right: -19px;
@@ -15,5 +17,9 @@ button.sidebarSwitch {
         right: -31px;
         width: 32px;
         height: 48px;
+    }
+
+    button {
+        height: 100%;
     }
 }

@@ -1,14 +1,16 @@
+import type { ButtonProps } from '../../types';
+
 import './Button.scss';
 
-interface ButtonProps {
-    image: string,
-    title: string
-}
-
-export default function Button({ image, title }: ButtonProps) {
+export function Button({ className, image, title, disabled, onClickHandler, dataTestId }: ButtonProps) {
 
     return (
-        <button type="button">
+        <button
+            type="button"
+            className={className}
+            disabled={disabled}
+            onClick={onClickHandler}
+            data-test-id={dataTestId}>
             {(image) && (<img src={image} alt="" />)}
             {(title) && (<p>{title}</p>)}
         </button>

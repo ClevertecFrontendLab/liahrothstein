@@ -1,7 +1,9 @@
 @use '../abstracts' as *;
 
-button.signOut {
+div.signOut {
     width: 100%;
+    display: flex;
+    align-items: center;
     padding: 7px 16px;
     border-top: 1px solid $signOutBorderColor;
     position: absolute;

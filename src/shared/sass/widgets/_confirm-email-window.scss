@@ -1,0 +1,64 @@
+@use '../abstracts' as *;
+
+div.confirmEmailWindow {
+    width: 539px;
+    height: 428px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    border-radius: 2px;
+    box-shadow: 0px 2px 8px 0px #00000026;
+    background-color: $authWindowBackgroundColor;
+    text-align: center;
+
+    @media (max-width: $tablet) {
+        width: 91.11vw;
+        height: 457px;
+    }
+
+    &.error p.title {
+        @media (max-width: $tablet) {
+            width: 330px;
+        }
+    }
+
+    img.warn {
+        margin-top: 64px;
+
+        @media (max-width: $tablet) {
+            margin-top: 32px;
+        }
+    }
+
+    p.subtitle {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18.2px;
+        color: $confirmEmailSubTitleColor;
+
+        @media (max-width: $tablet) {
+            width: 258px;
+        }
+    }
+
+    div.description {
+        @media (max-width: $tablet) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        p.title {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 31.2px;
+        }
+
+        p.subtitle {
+            @media (max-width: $tablet) {
+                width: 312px;
+            }
+        }
+    }
+}

@@ -4,7 +4,7 @@ import { Cards, Header, Sidebar } from "@widgets/index";
 
 import './MainPage.scss';
 
-export default function MainPage() {
+export function MainPage() {
 
     return (
         <div className="mainPage">
@@ -14,7 +14,7 @@ export default function MainPage() {
                 <main>
                     <Cards />
                     <div className="reviewsAndDownload">
-                        <Button image="" title={'Смотреть отзывы'} />
+                        <Button title={'Смотреть отзывы'} />
                         <DownloadToPhone />
                     </div>
                 </main>
