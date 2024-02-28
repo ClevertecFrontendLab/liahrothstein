@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import { push } from "redux-first-history";
 
 import { Button, FormInput, Loader } from "@components/index";
 
+import { useAppDispatch } from "@store/hooks";
 import { comparePasswords, setAuthStatus, switcher, validateEmail, validatePassword } from "@utils/index";
 import { setRegisterDirtyInputs } from "../model/registration-model";
 import { useUserRegistrationMutation, useLazyUserGoogleRegistrationQuery } from "../api/registration-api";
@@ -29,7 +29,7 @@ export function Registration() {
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
     const [register, { isLoading: isRegisterLoading, isError: isRegisterError, isSuccess: isRegisterSuccess, error }] = useUserRegistrationMutation();
     const [registerGoogle, { isLoading: isRegisterGoogleLoading, isError: isRegisterGoogleError }] = useLazyUserGoogleRegistrationQuery();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {

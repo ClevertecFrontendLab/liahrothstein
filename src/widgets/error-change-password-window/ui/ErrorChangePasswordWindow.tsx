@@ -1,9 +1,9 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import { Button, Loader } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { useUserChangePasswordMutation } from '@features/change-password/api/change-password-api';
 import { setAuthStatus } from '@utils/auth-status-slice';
 
@@ -14,7 +14,7 @@ import './ErrorChangePasswordWindow.scss';
 export function ErrorChangePasswordWindow() {
     const { state } = useLocation();
     const [retryChangePassword, { isLoading, isSuccess }] = useUserChangePasswordMutation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {

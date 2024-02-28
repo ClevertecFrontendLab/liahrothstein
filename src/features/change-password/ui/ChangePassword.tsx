@@ -1,10 +1,10 @@
-import { useDispatch } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { push } from "redux-first-history";
 
 import { Button, FormInput, Loader } from "@components/index";
 
+import { useAppDispatch } from "@store/hooks";
 import { setAuthStatus, switcher, validatePassword } from "@utils/index";
 import { useUserChangePasswordMutation } from "../api/change-password-api";
 import { setChangePasswordDirtyInputs } from "../model/change-password-model";
@@ -24,7 +24,7 @@ export function ChangePassword() {
     const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
     const [changePassword, { isLoading: isChangePasswordLoading, isError: isChangePasswordError, isSuccess: isChangePasswordSuccess }] = useUserChangePasswordMutation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {

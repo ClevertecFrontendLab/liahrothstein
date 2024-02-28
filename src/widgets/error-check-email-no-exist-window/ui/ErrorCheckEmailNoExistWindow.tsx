@@ -1,7 +1,6 @@
-import { useDispatch } from 'react-redux';
-
 import { Button } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { onClickToAuth } from '../model/error-check-email-no-exist-window-model';
 
 import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
@@ -9,7 +8,7 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 import './ErrorCheckEmailNoExistWindow.scss';
 
 export function ErrorCheckEmailNoExistWindow() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return (
         <div className="errorCheckEmailNoExistWindow">

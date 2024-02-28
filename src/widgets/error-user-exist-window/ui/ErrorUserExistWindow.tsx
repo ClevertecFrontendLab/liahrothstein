@@ -1,7 +1,6 @@
-import { useDispatch } from 'react-redux';
-
 import { Button } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { onClickBackToRegister } from '../model/error-user-exist-window-model';
 
 import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
@@ -9,7 +8,7 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 import './ErrorUserExistWindow.scss';
 
 export function ErrorUserExistWindow() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return (
         <div className="errorUserExistWindow">

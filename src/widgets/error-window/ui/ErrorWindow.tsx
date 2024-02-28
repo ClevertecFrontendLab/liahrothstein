@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 import { Button } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { useUserRegistrationMutation } from '@features/registration/api/registration-api';
 import { onClickBackToRegister } from '../model/error-window-model';
 
@@ -12,7 +12,7 @@ import './ErrorWindow.scss';
 
 export function ErrorWindow() {
     const [retryRegister] = useUserRegistrationMutation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const { state } = useLocation();
 
     return (

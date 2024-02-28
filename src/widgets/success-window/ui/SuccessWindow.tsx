@@ -1,7 +1,6 @@
-import { useDispatch } from 'react-redux';
-
 import { Button } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { onClickToAuth } from '../model/success-window-model';
 
 import success from '../../../shared/assets/icons/success-icon.svg';
@@ -9,7 +8,7 @@ import success from '../../../shared/assets/icons/success-icon.svg';
 import './SuccessWindow.scss';
 
 export function SuccessWindow() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return (
         <div className="successWindow">

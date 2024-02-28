@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
 import VerificationInput from "react-verification-input";
 
 import { Loader } from "@components/index";
 
+import { useAppDispatch } from "@store/hooks";
 import { useUserConfirmEmailMutation } from "../api/confirm-email-api";
 import { setAuthStatus } from "@utils/auth-status-slice";
 
@@ -18,7 +18,7 @@ export function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailProps) {
     const { state: email } = useLocation();
     const [confirmEmail, { isLoading: isConfirmEmailLoading, isError: isConfirmEmailError, isSuccess: isConfirmEmailSuccess }] = useUserConfirmEmailMutation();
     const [code, setCode] = useState<string>('');
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
