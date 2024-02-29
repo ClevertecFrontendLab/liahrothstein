@@ -13,7 +13,8 @@ import {
     ErrorPage,
     ErrorUserExistPage,
     SuccessChangePasswordPage,
-    SuccessPage
+    SuccessPage,
+    FeedbacksPage
 } from "@pages/index";
 
 import { useAppSelector } from "../store";
@@ -124,6 +125,7 @@ export default function Routing() {
         <Routes>
             <Route path="/" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
             <Route path={RoutePaths.Main} element={(isAuth || isRememberMeAuth) ? <MainPage /> : <Navigate to='/auth' />} />
+            <Route path={RoutePaths.Feedbacks} element={(isAuth || isRememberMeAuth) ? <FeedbacksPage /> : <Navigate to='/auth' />} />
             <Route path={RoutePaths.Auth} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <AuthPage />} />
             <Route path={RoutePaths.Registration} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
             <Route path={RoutePaths.ConfirmEmail} element={authStatusCheckPage('confirm-email')} />
