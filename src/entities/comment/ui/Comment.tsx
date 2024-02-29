@@ -1,5 +1,5 @@
 import { CommentProps } from "../../../shared/types";
-import { ratingStars } from "../model/comment-model";
+import { dateParse, ratingStars } from "../model/comment-model";
 
 import userAvatar from '../../../shared/assets/icons/user-avatar.svg'
 
@@ -16,7 +16,7 @@ export function Comment({ avatar, fullName, rating, createdAt, message }: Commen
                     {ratingStars(rating).map((star) => (
                         <img key={star} src={star} alt="" />
                     ))}
-                    <p className="date">{createdAt}</p>
+                    <p className="date">{dateParse(createdAt)}</p>
                 </div>
                 <p className="message">{message}</p>
             </div>

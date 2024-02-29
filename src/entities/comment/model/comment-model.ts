@@ -12,4 +12,10 @@ export function ratingStars(rating: number): string[] {
     };
 
     return (array)
+};
+
+export function dateParse(createdAt: string): string {
+    var date: Date = new Date(createdAt);
+
+    return (`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`)
 }
