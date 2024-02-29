@@ -1,5 +1,4 @@
-import { Button } from "@components/index";
-import { DownloadToPhone } from "@features/index";
+import { DownloadToPhone, ViewReviews } from "@features/index";
 import { Cards, Header, Sidebar } from "@widgets/index";
 
 import './MainPage.scss';
@@ -14,7 +13,7 @@ export function MainPage() {
                 <main>
                     <Cards />
                     <div className="reviewsAndDownload">
-                        <Button title={'Смотреть отзывы'} />
+                        <ViewReviews />
                         <DownloadToPhone />
                     </div>
                 </main>

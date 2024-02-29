@@ -1,5 +1,6 @@
 export enum RoutePaths {
     Main = '/main',
+    Feedbacks = '/feedbacks',
     Auth = '/auth',
     Registration = "/auth/registration",
     ConfirmEmail = "/auth/confirm-email",
