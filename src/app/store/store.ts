@@ -2,7 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from "history";
 
-import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI, viewReviewsAPI } from '../../features';
+import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI, viewReviewsAPI, writeCommentAPI } from '../../features';
 import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice } from "@utils/index";
 
 const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory(), savePreviousLocations: 1 });
@@ -16,7 +16,8 @@ const rootReducer = combineReducers({
     [registrationAPI.reducerPath]: registrationAPI.reducer,
     [confirmEmailAPI.reducerPath]: confirmEmailAPI.reducer,
     [changePasswordAPI.reducerPath]: changePasswordAPI.reducer,
-    [viewReviewsAPI.reducerPath]: viewReviewsAPI.reducer
+    [viewReviewsAPI.reducerPath]: viewReviewsAPI.reducer,
+    [writeCommentAPI.reducerPath]: writeCommentAPI.reducer
 });
 
 export function setupStore() {
@@ -30,6 +31,7 @@ export function setupStore() {
                 .concat(confirmEmailAPI.middleware)
                 .concat(changePasswordAPI.middleware)
                 .concat(viewReviewsAPI.middleware)
+                .concat(writeCommentAPI.middleware)
             )
         })
     )

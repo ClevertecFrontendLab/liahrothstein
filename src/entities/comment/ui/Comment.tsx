@@ -9,7 +9,7 @@ export function Comment({ avatar, fullName, rating, createdAt, message }: Commen
         <article className="comment">
             <div className="user">
                 <img src={(avatar !== null) ? avatar : userAvatar} alt="" />
-                <h4 className="userName">{fullName}</h4>
+                <h4 className="userName">{(fullName !== null) ? fullName : 'Пользователь'}</h4>
             </div>
             <div className="ratingDateAndMessage">
                 <div className="ratingAndDate">

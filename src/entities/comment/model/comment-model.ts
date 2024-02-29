@@ -17,5 +17,5 @@ export function ratingStars(rating: number): string[] {
 export function dateParse(createdAt: string): string {
     var date: Date = new Date(createdAt);
 
-    return (`${date.getDate()}.${date.getMonth()}.${date.getFullYear()}`)
+    return (`${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`)
 }

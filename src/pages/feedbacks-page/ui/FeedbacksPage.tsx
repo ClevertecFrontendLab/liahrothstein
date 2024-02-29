@@ -1,4 +1,4 @@
-import { Header, Sidebar } from "@widgets/index";
+import { Header, Reviews, Sidebar } from "@widgets/index";
 import { useLocation } from "react-router-dom";
 
 export function FeedbacksPage() {
@@ -11,7 +11,7 @@ export function FeedbacksPage() {
             <div className="headerAndMain">
                 <Header />
                 <main>
-
+                    <Reviews />
                 </main>
             </div>
         </div>
