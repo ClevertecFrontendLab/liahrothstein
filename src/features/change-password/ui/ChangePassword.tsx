@@ -8,6 +8,7 @@ import { useAppDispatch } from "@store/hooks";
 import { setAuthStatus, switcher, validatePassword } from "@utils/index";
 import { useUserChangePasswordMutation } from "../api/change-password-api";
 import { setChangePasswordDirtyInputs } from "../model/change-password-model";
+import { RoutePaths } from "../../../shared/types";
 
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
 import eyeOpened from '../../../shared/assets/icons/eye-opened-icon.svg';
@@ -30,14 +31,14 @@ export function ChangePassword() {
     useEffect(() => {
         if (isChangePasswordError) {
             dispatch(setAuthStatus('error-change-password'));
-            dispatch(push('/result/error-change-password', { password: firstPassword, confirmPassword: secondPassword }))
+            dispatch(push(RoutePaths.ErrorChangePassword, { password: firstPassword, confirmPassword: secondPassword }))
         }
     }, [isChangePasswordError]);
 
     useEffect(() => {
         if (isChangePasswordSuccess) {
             dispatch(setAuthStatus('success-change-password'));
-            navigate('/result/success-change-password');
+            navigate(RoutePaths.SuccessChangePassword);
         }
     }, [isChangePasswordSuccess]);
 

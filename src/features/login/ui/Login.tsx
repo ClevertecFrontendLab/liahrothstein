@@ -8,6 +8,7 @@ import { useAppDispatch } from "@store/hooks";
 import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword, setAuthStatus } from "@utils/index";
 import { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } from "../api/login-api";
 import { onClickCheckEmail, onClickSignIn, setAuthDirtyInputs } from "../model/login-model";
+import { RoutePaths } from "../../../shared/types";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
@@ -56,17 +57,17 @@ export function Login() {
     useEffect(() => {
         if (isSignInError || isSignInGoogleError) {
             dispatch(setAuthStatus('error-login'));
-            navigate('/result/error-login');
+            navigate(RoutePaths.ErrorLogin);
         }
     }, [isSignInError, isSignInGoogleError]);
 
     useEffect(() => {
         if ((isCheckEmailError) && (error?.status === 404)) {
             dispatch(setAuthStatus('error-check-email-no-exist'));
-            navigate('/result/error-check-email-no-exist');
+            navigate(RoutePaths.ErrorCheckEmailNoExist);
         } else if ((isCheckEmailError) && ((error?.status !== 404) || ((error?.status === 404) && (checkEmailData?.message !== 'Email не найден')))) {
             dispatch(setAuthStatus('error-check-email'));
-            dispatch(push('/result/error-check-email', email));
+            dispatch(push(RoutePaths.ErrorCheckEmail, email));
         }
     }, [isCheckEmailError]);
 

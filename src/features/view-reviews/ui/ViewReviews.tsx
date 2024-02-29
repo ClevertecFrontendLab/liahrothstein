@@ -6,6 +6,7 @@ import { Button, Loader } from "@components/index";
 import { useAppDispatch } from "@store/hooks";
 import { useLazyGetReviewsQuery } from "../api/view-reviews-api";
 import { isErrorForbidden } from "../model/view-reviews-model";
+import { RoutePaths } from '../../../shared/types';
 
 export function ViewReviews() {
     const [getReviews, { isError, isLoading, isSuccess, data, error }] = useLazyGetReviewsQuery();
@@ -13,7 +14,7 @@ export function ViewReviews() {
 
     useEffect(() => {
         if (isSuccess) {
-            dispatch(push('/feedbacks', data))
+            dispatch(push(RoutePaths.Feedbacks, data))
         }
     }, [isSuccess]);
 

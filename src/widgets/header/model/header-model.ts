@@ -1,6 +1,8 @@
+import { RoutePaths } from '../../../shared/types';
+
 export function setBreadCrumbs(location: string): string {
     switch (location) {
-        case '/feedbacks':
+        case RoutePaths.Feedbacks:
             return ('Отзывы пользователей');
             break;
         default:

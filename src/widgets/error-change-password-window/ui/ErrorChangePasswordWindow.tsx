@@ -6,6 +6,7 @@ import { Button, Loader } from '@components/index';
 import { useAppDispatch } from '@store/hooks';
 import { useUserChangePasswordMutation } from '@features/change-password/api/change-password-api';
 import { setAuthStatus } from '@utils/auth-status-slice';
+import { RoutePaths } from "../../../shared/types";
 
 import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 
@@ -20,7 +21,7 @@ export function ErrorChangePasswordWindow() {
     useEffect(() => {
         if (isSuccess) {
             dispatch(setAuthStatus('success-change-password'));
-            navigate('/result/success-change-password');
+            navigate(RoutePaths.SuccessChangePassword);
         }
     }, [isSuccess]);
 

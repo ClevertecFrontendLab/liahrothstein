@@ -5,6 +5,7 @@ import { Button } from '@components/index';
 import { useAppDispatch } from '@store/hooks';
 import { useUserCheckEmailMutation } from '@features/login/api/login-api';
 import { setAuthStatus } from '@utils/auth-status-slice';
+import { RoutePaths } from "../../../shared/types";
 
 import error from '../../../shared/assets/images/error-image.svg';
 
@@ -19,7 +20,7 @@ export function ErrorCheckEmailWindow() {
     useEffect(() => {
         if (isSuccess) {
             dispatch(setAuthStatus('confirm-email'));
-            navigate('/auth/confirm-email');
+            navigate(RoutePaths.ConfirmEmail);
         }
     }, [isSuccess]);
 

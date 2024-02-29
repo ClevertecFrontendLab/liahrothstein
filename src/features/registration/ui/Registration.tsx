@@ -8,6 +8,7 @@ import { useAppDispatch } from "@store/hooks";
 import { comparePasswords, setAuthStatus, switcher, validateEmail, validatePassword } from "@utils/index";
 import { setRegisterDirtyInputs } from "../model/registration-model";
 import { useUserRegistrationMutation, useLazyUserGoogleRegistrationQuery } from "../api/registration-api";
+import { RoutePaths } from "../../../shared/types";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
 import eyeClosed from '../../../shared/assets/icons/eye-closed-icon.svg';
@@ -43,17 +44,17 @@ export function Registration() {
     useEffect(() => {
         if (isRegisterSuccess) {
             dispatch(setAuthStatus('success'));
-            navigate('/result/success');
+            navigate(RoutePaths.Success);
         }
     }, [isRegisterSuccess]);
 
     useEffect(() => {
         if ((isRegisterError) && (error?.status === 409)) {
             dispatch(setAuthStatus('error-user-exist'));
-            navigate('/result/error-user-exist');
+            navigate(RoutePaths.ErrorUserExist);
         } else if (((isRegisterError) && (error?.status !== 409)) || isRegisterGoogleError) {
             dispatch(setAuthStatus('error'));
-            dispatch(push('/result/error', { email: email, password: firstPassword }));
+            dispatch(push(RoutePaths.Error, { email: email, password: firstPassword }));
         }
     }, [isRegisterError]);
 

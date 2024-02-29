@@ -7,6 +7,7 @@ import { Loader } from "@components/index";
 import { useAppDispatch } from "@store/hooks";
 import { useUserConfirmEmailMutation } from "../api/confirm-email-api";
 import { setAuthStatus } from "@utils/auth-status-slice";
+import { RoutePaths } from "../../../shared/types";
 
 import './ConfirmEmail.scss';
 
@@ -37,7 +38,7 @@ export function ConfirmEmail({ setIsConfirmEmailError }: ConfirmEmailProps) {
     useEffect(() => {
         if (isConfirmEmailSuccess) {
             dispatch(setAuthStatus('change-password'));
-            navigate('/auth/change-password');
+            navigate(RoutePaths.ChangePassword);
         }
     }, [isConfirmEmailSuccess]);
 
