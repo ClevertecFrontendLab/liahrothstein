@@ -1,7 +1,9 @@
 import { CommentProps } from "../../../shared/types";
 import { dateParse, ratingStars } from "../model/comment-model";
 
-import userAvatar from '../../../shared/assets/icons/user-avatar.svg'
+import userAvatar from '../../../shared/assets/icons/user-avatar.svg';
+
+import './Comment.scss';
 
 export function Comment({ avatar, fullName, rating, createdAt, message }: CommentProps) {
 
@@ -13,9 +15,11 @@ export function Comment({ avatar, fullName, rating, createdAt, message }: Commen
             </div>
             <div className="ratingDateAndMessage">
                 <div className="ratingAndDate">
-                    {ratingStars(rating).map((star) => (
-                        <img key={Math.random()} src={star} alt="" />
-                    ))}
+                    <div className="rating">
+                        {ratingStars(rating).map((star) => (
+                            <img key={Math.random()} src={star} alt="" />
+                        ))}
+                    </div>
                     <p className="date">{dateParse(createdAt)}</p>
                 </div>
                 <p className="message">{message}</p>
