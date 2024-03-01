@@ -1,0 +1,12 @@
+div.feedbacksPage {
+    display: flex;
+    background-image: url('./src/shared/assets/images/main-page-background.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    div.headerAndMain {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+}

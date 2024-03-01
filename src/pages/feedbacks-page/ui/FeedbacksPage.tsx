@@ -1,5 +1,7 @@
 import { Header, Reviews, Sidebar } from "@widgets/index";
 
+import './FeedbacksPage.scss';
+
 export function FeedbacksPage() {
 
     return (

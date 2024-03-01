@@ -9,6 +9,8 @@ import { CommentType } from "../../../shared/types";
 import { sortComments } from "../model/reviews-model";
 import switcher from "@utils/switcher";
 
+import './Reviews.scss';
+
 export function Reviews() {
     const { state } = useLocation();
     const [isAllView, setIsAllView] = useState<boolean>(false);
