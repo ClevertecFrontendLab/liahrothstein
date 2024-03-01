@@ -14,7 +14,7 @@ export function Comment({ avatar, fullName, rating, createdAt, message }: Commen
             <div className="ratingDateAndMessage">
                 <div className="ratingAndDate">
                     {ratingStars(rating).map((star) => (
-                        <img key={star} src={star} alt="" />
+                        <img key={Math.random()} src={star} alt="" />
                     ))}
                     <p className="date">{dateParse(createdAt)}</p>
                 </div>
