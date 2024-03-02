@@ -1,3 +1,5 @@
+@use '../abstracts' as*;
+
 div.feedbacksPage {
     display: flex;
     background-image: url('./src/shared/assets/images/main-page-background.svg');
@@ -13,5 +15,9 @@ div.feedbacksPage {
         width: 100%;
         display: flex;
         flex-direction: column;
+
+        header.header h6.breadCrumbs a {
+            color: $breadCrumbsInActiveColor;
+        }
     }
 }
