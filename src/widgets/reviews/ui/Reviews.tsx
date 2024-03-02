@@ -34,6 +34,7 @@ export function Reviews() {
             <div className="buttons">
                 <WriteComment />
                 <Button
+                    className="allView"
                     title={(isAllView) ? 'Свернуть все отзывы' : "Развернуть все отзывы"}
                     onClickHandler={() => (switcher(isAllView, setIsAllView))} />
             </div>
