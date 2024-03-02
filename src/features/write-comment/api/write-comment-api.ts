@@ -23,8 +23,15 @@ export const writeCommentAPI = createApi({
                 headers: { Authorization: `Bearer ${token}` },
                 body: comment
             })
+        }),
+        updateComments: build.query({
+            query: () => ({
+                url: getOrCreateFeedbacksURL,
+                method: 'GET',
+                headers: { Authorization: `Bearer ${token}` }
+            })
         })
     })
 });
 
-export const { useCreateCommentMutation } = writeCommentAPI;
+export const { useCreateCommentMutation, useLazyUpdateCommentsQuery } = writeCommentAPI;

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Button } from "@components/index";
 
+import { publishComment } from "../model/write-comment-model";
 import { useCreateCommentMutation } from "../api/write-comment-api";
 import { switcher } from "@utils/index";
 
@@ -54,7 +55,7 @@ export function WriteComment() {
                             <Button
                                 title="Опубликовать"
                                 className="publish"
-                                onClickHandler={async () => (await createComment({ message: message, rating: rating }))} />
+                                onClickHandler={async () => (await publishComment(message, rating, createComment, setMessage, setRating, setIsModalOpen))} />
                         </div>
                     </div>
                 </div>}
