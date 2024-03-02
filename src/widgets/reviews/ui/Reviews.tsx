@@ -32,7 +32,11 @@ export function Reviews() {
                     message={comment.message} />
             ))}
             <div className="buttons">
-                <WriteComment />
+                <WriteComment
+                    sortComments={sortComments}
+                    setComments={setComments}
+                    isAllView={isAllView}
+                    state={state} />
                 <Button
                     className="allView"
                     title={(isAllView) ? 'Свернуть все отзывы' : "Развернуть все отзывы"}

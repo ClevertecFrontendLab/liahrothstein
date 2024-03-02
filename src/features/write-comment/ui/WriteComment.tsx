@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 
 import { Button, Loader } from "@components/index";
 
-import { publishComment, retryWrite } from "../model/write-comment-model";
+import { publishComment, retryWrite, updateComments } from "../model/write-comment-model";
 import { useCreateCommentMutation } from "../api/write-comment-api";
 import { switcher } from "@utils/index";
+import { CommentType } from "../../../shared/types";
 
 import filledStar from '../../../shared/assets/icons/star-icon.svg';
 import emptyStar from '../../../shared/assets/icons/empty-star-icon.svg';
@@ -14,13 +15,20 @@ import success from '../../../shared/assets/icons/success-icon.svg';
 
 import './WriteComment.scss';
 
-export function WriteComment() {
+interface WriteCommentProps {
+    sortComments: (comments: CommentType[], setComments: (comments: CommentType[]) => void, isAllView: boolean) => void,
+    setComments: (comments: CommentType[]) => void,
+    isAllView: boolean,
+    state: any
+}
+
+export function WriteComment({ sortComments, setComments, isAllView, state }: WriteCommentProps) {
     const [isWriteModalOpen, setIsWriteModalOpen] = useState<boolean>(false);
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
     const [isErrorModalOpen, setIsErrorModalOpen] = useState<boolean>(false);
     const [message, setMessage] = useState<string>('');
     const [rating, setRating] = useState<number>(0);
-    const [createComment, { isError, isSuccess, isLoading }] = useCreateCommentMutation();
+    const [createComment, { isError, isSuccess: isCreateCommentSuccess, isLoading }] = useCreateCommentMutation();
 
     var stars: number[] = [1, 2, 3, 4, 5];
 
@@ -28,10 +36,13 @@ export function WriteComment() {
         if (isError) {
             setIsErrorModalOpen(true);
         }
-        if (isSuccess) {
+        if (isCreateCommentSuccess) {
             setIsSuccessModalOpen(true);
+            sortComments([updateComments(rating, message), ...state], setComments, isAllView);
+            setMessage('');
+            setRating(0);
         }
-    }, [isError, isSuccess])
+    }, [isError, isCreateCommentSuccess])
 
     return (
         <>
@@ -68,7 +79,7 @@ export function WriteComment() {
                         <Button
                             title="Опубликовать"
                             className="publish"
-                            onClickHandler={async () => (await publishComment(message, rating, createComment, setMessage, setRating, setIsWriteModalOpen))} />
+                            onClickHandler={async () => (await publishComment(message, rating, createComment, setIsWriteModalOpen))} />
                     </div>
                 </div>
             </div>}

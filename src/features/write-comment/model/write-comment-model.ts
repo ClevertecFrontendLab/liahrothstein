@@ -12,17 +12,22 @@ interface CreateCommentResponse {
 export async function publishComment(message: string,
     rating: number,
     createComment: (arg: CreateCommentRequest) => MutationActionCreatorResult<MutationDefinition<CreateCommentRequest, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, CreateCommentResponse, "writeCommentAPI">>,
-    setMessage: (message: string) => void,
-    setRating: (rating: number) => void,
     setIsModalOpen: (isOpen: boolean) => void) {
 
     await createComment({ message: message, rating: rating });
-    setMessage('');
-    setRating(0);
+
     setIsModalOpen(false);
 }
 
 export function retryWrite(setIsErrorModalOpen: (isOpen: boolean) => void, setIsWriteModalOpen: (isOpen: boolean) => void) {
     setIsErrorModalOpen(false);
     setIsWriteModalOpen(true);
+}
+
+export function updateComments(rating: number, message: string) {
+    var createdAt = new Date().toISOString();
+    var fullName = null;
+    var imageSrc = null;
+
+    return ({ createdAt: createdAt, fullName: fullName, imageSrc: imageSrc, message: message, rating: rating })
 }
