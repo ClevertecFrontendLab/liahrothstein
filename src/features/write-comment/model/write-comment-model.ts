@@ -21,3 +21,8 @@ export async function publishComment(message: string,
     setRating(0);
     setIsModalOpen(false);
 }
+
+export function retryWrite(setIsErrorModalOpen: (isOpen: boolean) => void, setIsWriteModalOpen: (isOpen: boolean) => void) {
+    setIsErrorModalOpen(false);
+    setIsWriteModalOpen(true);
+}
