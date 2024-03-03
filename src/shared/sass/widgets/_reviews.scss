@@ -6,9 +6,18 @@ section.reviews {
     flex-direction: column;
     gap: 20px;
 
+    @media (max-width: $tablet) {
+        margin: 16px;
+    }
+
     &.noComments {
         justify-content: center;
         align-items: center;
+
+        @media (max-width: $tablet) {
+            height: 90.5vh;
+            justify-content: flex-start;
+        }
 
         article.writeFirstComment {
             width: 100%;
@@ -22,6 +31,12 @@ section.reviews {
             background-color: white;
             border-radius: 2px;
             box-shadow: 0px 2px 0px 0px #0000000B;
+            text-align: center;
+
+            @media (max-width: $tablet) {
+                margin: 24px 16px;
+                height: 314px;
+            }
 
             h2.title {
                 color: $noCommentsTitleColor;
@@ -31,16 +46,23 @@ section.reviews {
             }
 
             p.subtitle {
-                text-align: center;
                 color: $noCommentsSubtitleColor;
                 font-weight: 400;
                 font-size: 14px;
                 line-height: 18.2px;
+
+                @media (max-width: $tablet) {
+                    width: 264px;
+                }
             }
         }
 
         div.buttons {
             margin: 0;
+
+            @media (max-width: $tablet) {
+                width: 100%;
+            }
         }
     }
 
@@ -48,6 +70,12 @@ section.reviews {
         margin-top: 112px;
         display: flex;
         gap: 8px;
+
+        @media (max-width: $tablet) {
+            margin-top: 28px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
         button.writeComment {
             width: 142px;
@@ -60,6 +88,10 @@ section.reviews {
             font-size: 14px;
             line-height: 18.2px;
             justify-content: center;
+
+            @media (max-width: $tablet) {
+                width: 100%;
+            }
         }
 
         button.allView {
