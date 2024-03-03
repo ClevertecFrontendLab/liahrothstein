@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import {
@@ -17,13 +18,17 @@ import {
     FeedbacksPage
 } from "@pages/index";
 
-import { useAppSelector } from "../store";
+import { useAppDispatch, useAppSelector } from "../store";
 import { RoutePaths } from '../../shared/types';
+import { logIn, rememberMeLogIn } from "@utils/index";
 
 export default function Routing() {
     const isAuth = useAppSelector((state) => (state.isAuth));
     const isRememberMeAuth = useAppSelector((state) => (state.isRememberMeAuth));
     const authStatus = useAppSelector((state) => (state.authStatus));
+    const dispatch = useAppDispatch();
+
+    var token = new URLSearchParams(window.location.search).get('accessToken');
 
     function authStatusCheck() {
         switch (authStatus) {
@@ -121,9 +126,16 @@ export default function Routing() {
         }
     };
 
+    useEffect(() => {
+        if (token) {
+            dispatch(logIn());
+            dispatch(rememberMeLogIn(token));
+        }
+    }, []);
+
     return (
         <Routes>
-            <Route path="/" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
+            <Route path="/" element={(isAuth || isRememberMeAuth || token) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
             <Route path={RoutePaths.Main} element={(isAuth || isRememberMeAuth) ? <MainPage /> : <Navigate to='/auth' />} />
             <Route path={RoutePaths.Feedbacks} element={(isAuth || isRememberMeAuth) ? <FeedbacksPage /> : <Navigate to='/auth' />} />
             <Route path={RoutePaths.Auth} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <AuthPage />} />

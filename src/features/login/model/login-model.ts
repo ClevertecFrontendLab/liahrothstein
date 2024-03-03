@@ -39,3 +39,7 @@ export async function onClickSignIn(emailError: boolean, passwordError: boolean,
         await mutationTrigger({ email: email, password: password })
     }
 }
+
+export function googleAuth() {
+    window.location.href = 'https://marathon-api.clevertec.ru/auth/google';
+}

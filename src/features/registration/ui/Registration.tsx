@@ -6,8 +6,8 @@ import { Button, FormInput, Loader } from "@components/index";
 
 import { useAppDispatch } from "@store/hooks";
 import { comparePasswords, setAuthStatus, switcher, validateEmail, validatePassword } from "@utils/index";
-import { setRegisterDirtyInputs } from "../model/registration-model";
-import { useUserRegistrationMutation, useLazyUserGoogleRegistrationQuery } from "../api/registration-api";
+import { setRegisterDirtyInputs, googleRegister } from "../model/registration-model";
+import { useUserRegistrationMutation } from "../api/registration-api";
 import { RoutePaths } from "../../../shared/types";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
@@ -29,7 +29,6 @@ export function Registration() {
     const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
     const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
     const [register, { isLoading: isRegisterLoading, isError: isRegisterError, isSuccess: isRegisterSuccess, error }] = useUserRegistrationMutation();
-    const [registerGoogle, { isLoading: isRegisterGoogleLoading, isError: isRegisterGoogleError }] = useLazyUserGoogleRegistrationQuery();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -52,7 +51,7 @@ export function Registration() {
         if ((isRegisterError) && (error?.status === 409)) {
             dispatch(setAuthStatus('error-user-exist'));
             navigate(RoutePaths.ErrorUserExist);
-        } else if (((isRegisterError) && (error?.status !== 409)) || isRegisterGoogleError) {
+        } else if ((isRegisterError) && (error?.status !== 409)) {
             dispatch(setAuthStatus('error'));
             dispatch(push(RoutePaths.Error, { email: email, password: firstPassword }));
         }
@@ -60,7 +59,7 @@ export function Registration() {
 
     return (
         <form className="registration">
-            {(isRegisterLoading || isRegisterGoogleLoading) && <Loader />}
+            {(isRegisterLoading) && <Loader />}
             <div className={(emailDirty && emailError) ? "email error" : 'email'}>
                 <label htmlFor="email">e-mail:</label>
                 <FormInput
@@ -119,7 +118,7 @@ export function Registration() {
                 className="signUp google"
                 image={googlePlus}
                 title="Регистрация через Google"
-                onClickHandler={() => (registerGoogle(undefined))} />
+                onClickHandler={() => (googleRegister())} />
         </form>
     )
 }

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseURL, checkEmailURL, googleLoginURL, loginURL } from "@constants/index";
+import { baseURL, checkEmailURL, loginURL } from "@constants/index";
 import type { UserDTO } from "../../../shared/types";
 
 interface LoginResponse {
@@ -25,12 +25,6 @@ export const loginAPI = createApi({
                 body: user
             })
         }),
-        userGoogleLogin: build.query({
-            query: () => ({
-                url: googleLoginURL,
-                method: 'GET'
-            })
-        }),
         userCheckEmail: build.mutation<CheckEmailResponse, CheckEmailRequest>({
             query: (email: CheckEmailRequest) => ({
                 url: checkEmailURL,
@@ -41,4 +35,4 @@ export const loginAPI = createApi({
     })
 });
 
-export const { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } = loginAPI;
+export const { useUserLoginMutation, useUserCheckEmailMutation } = loginAPI;

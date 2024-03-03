@@ -6,8 +6,8 @@ import { Button, FormInput, Loader } from "@components/index";
 
 import { useAppDispatch } from "@store/hooks";
 import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword, setAuthStatus } from "@utils/index";
-import { useUserLoginMutation, useLazyUserGoogleLoginQuery, useUserCheckEmailMutation } from "../api/login-api";
-import { onClickCheckEmail, onClickSignIn, setAuthDirtyInputs } from "../model/login-model";
+import { useUserLoginMutation, useUserCheckEmailMutation } from "../api/login-api";
+import { onClickCheckEmail, onClickSignIn, setAuthDirtyInputs, googleAuth } from "../model/login-model";
 import { RoutePaths } from "../../../shared/types";
 
 import googlePlus from '../../../shared/assets/icons/google-plus-icon.svg';
@@ -27,7 +27,6 @@ export function Login() {
     const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
     const [isActivePasswordForgot, setIsActivePasswordForgot] = useState<boolean>(false);
     const [signIn, { data: signInData, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
-    const [signInGoogle, { isLoading: isSignInGoogleLoading, isError: isSignInGoogleError }] = useLazyUserGoogleLoginQuery();
     const [checkEmail, { data: checkEmailData, isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -55,11 +54,11 @@ export function Login() {
     }, [isSuccess]);
 
     useEffect(() => {
-        if (isSignInError || isSignInGoogleError) {
+        if (isSignInError) {
             dispatch(setAuthStatus('error-login'));
             navigate(RoutePaths.ErrorLogin);
         }
-    }, [isSignInError, isSignInGoogleError]);
+    }, [isSignInError]);
 
     useEffect(() => {
         if ((isCheckEmailError) && (error?.status === 404)) {
@@ -73,7 +72,7 @@ export function Login() {
 
     return (
         <form className="login">
-            {(isSignInLoading || isSignInGoogleLoading || isCheckEmailLoading) && <Loader />}
+            {(isSignInLoading || isCheckEmailLoading) && <Loader />}
             <div className={(emailDirty && emailError) ? "email error" : 'email'}>
                 <label htmlFor="email">e-mail:</label>
                 <FormInput
@@ -129,7 +128,7 @@ export function Login() {
                 className="signIn google"
                 image={googlePlus}
                 title="Войти через Google"
-                onClickHandler={() => (signInGoogle(undefined))} />
+                onClickHandler={() => (googleAuth())} />
         </form>
     )
 }
