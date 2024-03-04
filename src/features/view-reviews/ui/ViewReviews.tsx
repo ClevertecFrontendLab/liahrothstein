@@ -49,6 +49,7 @@ export function ViewReviews() {
             </div>}
             <Button
                 title={'Смотреть отзывы'}
+                dataTestId="see-reviews"
                 onClickHandler={() => (getReviews(undefined))} />
         </>
     )

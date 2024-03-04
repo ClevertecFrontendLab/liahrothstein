@@ -48,6 +48,7 @@ export function WriteComment({ sortComments, setComments, isAllView, state }: Wr
         <>
             <Button
                 className="writeComment"
+                dataTestId="write-review"
                 onClickHandler={() => (switcher(isWriteModalOpen, setIsWriteModalOpen))}
                 title="Написать отзыв" />
             {isLoading && <Loader />}
@@ -79,6 +80,7 @@ export function WriteComment({ sortComments, setComments, isAllView, state }: Wr
                         <Button
                             title="Опубликовать"
                             className="publish"
+                            dataTestId="new-review-submit-button"
                             onClickHandler={async () => (await publishComment(message, rating, createComment, setIsWriteModalOpen))} />
                     </div>
                 </div>
@@ -93,6 +95,7 @@ export function WriteComment({ sortComments, setComments, isAllView, state }: Wr
                     <div className="buttons">
                         <Button
                             title='Написать отзыв'
+                            dataTestId="write-review-not-saved-modal"
                             onClickHandler={() => (retryWrite(setIsErrorModalOpen, setIsWriteModalOpen))} />
                         <Button
                             title='Закрыть'

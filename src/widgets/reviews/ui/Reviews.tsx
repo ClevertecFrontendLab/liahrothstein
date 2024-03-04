@@ -52,6 +52,7 @@ export function Reviews() {
                 {(!isNoComments) && <Button
                     className="allView"
                     title={(isAllView) ? 'Свернуть все отзывы' : "Развернуть все отзывы"}
+                    dataTestId="all-reviews-button"
                     onClickHandler={() => (switcher(isAllView, setIsAllView))} />}
             </div>
         </section>
