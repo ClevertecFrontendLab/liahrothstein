@@ -2,20 +2,21 @@ import star from '../../../shared/assets/icons/star-icon.svg';
 import emptyStar from '../../../shared/assets/icons/empty-star-icon.svg';
 
 export function ratingStars(rating: number): string[] {
-    var array: string[] = [];
+    let array: string[] = [];
 
-    for (var i = 0; i < rating; i++) {
-        array.push(star);
-    };
-    for (var i = 0; i < (5 - rating); i++) {
-        array.push(emptyStar)
+    for (let i = 0; i < 5; i++) {
+        if (i < rating) {
+            array.push(star);
+        } else {
+            array.push(emptyStar)
+        }
     };
 
     return (array)
 };
 
 export function dateParse(createdAt: string): string {
-    var date: Date = new Date(createdAt);
+    let date: Date = new Date(createdAt);
 
     return (`${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear()}`)
 }

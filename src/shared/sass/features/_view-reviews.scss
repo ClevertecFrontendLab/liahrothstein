@@ -9,7 +9,7 @@ div.errorViewReviewsWindow {
     justify-content: center;
     gap: 24px;
     border-radius: 2px;
-    box-shadow: 0px 2px 8px 0px #00000026;
+    box-shadow: 0px 2px 8px 0px $boxShadowErrorViewReviewsColor;
     background-color: $resultPageWindowColor;
 
     @media (max-width: $tablet) {
@@ -40,7 +40,7 @@ div.errorViewReviewsWindow {
         border-radius: 2px;
         justify-content: center;
         background-color: $resultPageButtonColor;
-        box-shadow: 0px 2px 0px 0px #0000000B;
+        box-shadow: 0px 2px 0px 0px $boxShadowErrorViewReviewsButtonColor;
         color: white;
         font-weight: 400;
         font-size: 14px;

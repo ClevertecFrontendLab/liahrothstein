@@ -8,7 +8,7 @@ import fit from '../../../shared/assets/images/fit-logo.svg';
 import './Sidebar.scss';
 
 export function Sidebar() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isOpen, setIsOpen] = useState(false);
 
     return (
         <aside className={(isOpen) ? 'sidebar opened' : 'sidebar closed'}>

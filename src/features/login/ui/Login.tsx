@@ -18,18 +18,20 @@ import './Login.scss';
 
 export function Login() {
     const [email, setEmail] = useState<string>('');
-    const [emailDirty, setEmailDirty] = useState<boolean>(false);
-    const [emailError, setEmailError] = useState<boolean>(true);
+    const [emailDirty, setEmailDirty] = useState(false);
+    const [emailError, setEmailError] = useState(true);
     const [password, setPassword] = useState<string>('');
-    const [passwordDirty, setPasswordDirty] = useState<boolean>(false);
-    const [passwordError, setPasswordError] = useState<boolean>(true);
-    const [rememberMe, setRememberMe] = useState<boolean>(false);
-    const [isEyeOpen, setIsEyeOpen] = useState<boolean>(false);
-    const [isActivePasswordForgot, setIsActivePasswordForgot] = useState<boolean>(false);
+    const [passwordDirty, setPasswordDirty] = useState(false);
+    const [passwordError, setPasswordError] = useState(true);
+    const [rememberMe, setRememberMe] = useState(false);
+    const [isEyeOpen, setIsEyeOpen] = useState(false);
+    const [isActivePasswordForgot, setIsActivePasswordForgot] = useState(false);
     const [signIn, { data: signInData, isSuccess, isLoading: isSignInLoading, isError: isSignInError }] = useUserLoginMutation();
     const [checkEmail, { data: checkEmailData, isLoading: isCheckEmailLoading, isError: isCheckEmailError, error }] = useUserCheckEmailMutation();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    let errorStatus = error?.status;
 
     useEffect(() => {
         if (emailError) {
@@ -62,10 +64,10 @@ export function Login() {
     }, [isSignInError]);
 
     useEffect(() => {
-        if ((isCheckEmailError) && (error?.status === 404)) {
+        if ((isCheckEmailError) && (errorStatus === 404)) {
             dispatch(setAuthStatus('error-check-email-no-exist'));
             navigate(RoutePaths.ErrorCheckEmailNoExist);
-        } else if ((isCheckEmailError) && ((error?.status !== 404) || ((error?.status === 404) && (checkEmailData?.message !== 'Email не найден')))) {
+        } else if ((isCheckEmailError) && ((errorStatus !== 404) || ((errorStatus === 404) && (checkEmailData?.message !== 'Email не найден')))) {
             dispatch(setAuthStatus('error-check-email'));
             dispatch(push(RoutePaths.ErrorCheckEmail, email));
         }

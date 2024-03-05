@@ -18,19 +18,21 @@ import './Registration.scss';
 
 export function Registration() {
     const [email, setEmail] = useState<string>('');
-    const [emailDirty, setEmailDirty] = useState<boolean>(false);
-    const [emailError, setEmailError] = useState<boolean>(true);
+    const [emailDirty, setEmailDirty] = useState(false);
+    const [emailError, setEmailError] = useState(true);
     const [firstPassword, setFirstPassword] = useState<string>('');
-    const [firstPasswordDirty, setFirstPasswordDirty] = useState<boolean>(false);
-    const [firstPasswordError, setFirstPasswordError] = useState<boolean>(true);
+    const [firstPasswordDirty, setFirstPasswordDirty] = useState(false);
+    const [firstPasswordError, setFirstPasswordError] = useState(true);
     const [secondPassword, setSecondPassword] = useState<string>('');
-    const [secondPasswordDirty, setSecondPasswordDirty] = useState<boolean>(false);
-    const [secondPasswordError, setSecondPasswordError] = useState<boolean>(true);
-    const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
-    const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
+    const [secondPasswordDirty, setSecondPasswordDirty] = useState(false);
+    const [secondPasswordError, setSecondPasswordError] = useState(true);
+    const [isFirstEyeOpen, setIsFirstEyeOpen] = useState(false);
+    const [isSecondEyeOpen, setIsSecondEyeOpen] = useState(false);
     const [register, { isLoading: isRegisterLoading, isError: isRegisterError, isSuccess: isRegisterSuccess, error }] = useUserRegistrationMutation();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+
+    let errorStatus = error?.status;
 
     useEffect(() => {
         setSecondPasswordError(comparePasswords(firstPassword, secondPassword));
@@ -48,10 +50,10 @@ export function Registration() {
     }, [isRegisterSuccess]);
 
     useEffect(() => {
-        if ((isRegisterError) && (error?.status === 409)) {
+        if ((isRegisterError) && (errorStatus === 409)) {
             dispatch(setAuthStatus('error-user-exist'));
             navigate(RoutePaths.ErrorUserExist);
-        } else if ((isRegisterError) && (error?.status !== 409)) {
+        } else if ((isRegisterError) && (errorStatus !== 409)) {
             dispatch(setAuthStatus('error'));
             dispatch(push(RoutePaths.Error, { email: email, password: firstPassword }));
         }

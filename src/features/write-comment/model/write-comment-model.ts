@@ -5,13 +5,9 @@ interface CreateCommentRequest {
     rating: number
 }
 
-interface CreateCommentResponse {
-
-}
-
 export async function publishComment(message: string,
     rating: number,
-    createComment: (arg: CreateCommentRequest) => MutationActionCreatorResult<MutationDefinition<CreateCommentRequest, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, CreateCommentResponse, "writeCommentAPI">>,
+    createComment: (arg: CreateCommentRequest) => MutationActionCreatorResult<MutationDefinition<CreateCommentRequest, BaseQueryFn<string | FetchArgs, unknown, FetchBaseQueryError, {}, FetchBaseQueryMeta>, never, {}, "writeCommentAPI">>,
     setIsModalOpen: (isOpen: boolean) => void) {
 
     await createComment({ message: message, rating: rating });

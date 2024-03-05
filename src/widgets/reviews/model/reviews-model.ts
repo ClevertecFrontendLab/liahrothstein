@@ -5,8 +5,8 @@ import { setError } from "@utils/get-reviews-error-slice";
 
 export function sortComments(comments: CommentType[], setComments: (comments: CommentType[]) => void, isAllView: boolean): void {
     function compare(a: CommentType, b: CommentType) {
-        var dateA: number = Date.parse(a.createdAt);
-        var dateB: number = Date.parse(b.createdAt);
+        let dateA: number = Date.parse(a.createdAt);
+        let dateB: number = Date.parse(b.createdAt);
 
         if (dateA > dateB) {
             return (-1)
@@ -17,8 +17,8 @@ export function sortComments(comments: CommentType[], setComments: (comments: Co
         }
     };
 
-    var sortedComments: CommentType[] = comments.sort(compare);
-    var lastFourComments: CommentType[] = sortedComments.slice(0, 4);
+    let sortedComments: CommentType[] = comments.sort(compare);
+    let lastFourComments: CommentType[] = sortedComments.slice(0, 4);
 
     if (isAllView) {
         setComments(sortedComments)

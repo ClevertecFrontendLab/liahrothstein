@@ -64,8 +64,7 @@ export function Reviews() {
                 <WriteComment
                     sortComments={sortComments}
                     setComments={setComments}
-                    isAllView={isAllView}
-                    state={state} />
+                    isAllView={isAllView} />
                 {(!isNoComments) && <Button
                     className="allView"
                     title={(isAllView) ? 'Свернуть все отзывы' : "Развернуть все отзывы"}

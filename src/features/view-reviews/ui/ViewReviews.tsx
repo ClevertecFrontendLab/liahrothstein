@@ -16,6 +16,8 @@ export function ViewReviews() {
     const token = useAppSelector((state) => (state.saveToken));
     const dispatch = useAppDispatch();
 
+    let errorStatus = error?.status;
+
     useEffect(() => {
         if (isSuccess) {
             dispatch(push(RoutePaths.Feedbacks, data))
@@ -23,10 +25,10 @@ export function ViewReviews() {
     }, [isSuccess]);
 
     useEffect(() => {
-        if ((isError) && (error?.status === 403)) {
+        if ((isError) && (errorStatus === 403)) {
             isErrorForbidden(dispatch)
         }
-        if ((isError) && (error?.status !== 403)) {
+        if ((isError) && (errorStatus !== 403)) {
             dispatch(push(RoutePaths.Feedbacks, []))
             dispatch(setError(true))
         }

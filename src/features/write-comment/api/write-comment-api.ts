@@ -14,15 +14,11 @@ interface CreateCommentRequest {
     rating: number
 }
 
-interface CreateCommentResponse {
-
-}
-
 export const writeCommentAPI = createApi({
     reducerPath: 'writeCommentAPI',
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
     endpoints: (build) => ({
-        createComment: build.mutation<CreateCommentResponse, CreateCommentRequest>({
+        createComment: build.mutation<{}, CreateCommentRequest>({
             query: (comment) => ({
                 url: getOrCreateFeedbacksURL,
                 method: 'POST',

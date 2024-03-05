@@ -17,13 +17,13 @@ import './ChangePassword.scss';
 
 export function ChangePassword() {
     const [firstPassword, setFirstPassword] = useState<string>('');
-    const [firstPasswordDirty, setFirstPasswordDirty] = useState<boolean>(false);
-    const [firstPasswordError, setFirstPasswordError] = useState<boolean>(true);
+    const [firstPasswordDirty, setFirstPasswordDirty] = useState(false);
+    const [firstPasswordError, setFirstPasswordError] = useState(true);
     const [secondPassword, setSecondPassword] = useState<string>('');
-    const [secondPasswordDirty, setSecondPasswordDirty] = useState<boolean>(false);
-    const [secondPasswordError, setSecondPasswordError] = useState<boolean>(true);
-    const [isFirstEyeOpen, setIsFirstEyeOpen] = useState<boolean>(false);
-    const [isSecondEyeOpen, setIsSecondEyeOpen] = useState<boolean>(false);
+    const [secondPasswordDirty, setSecondPasswordDirty] = useState(false);
+    const [secondPasswordError, setSecondPasswordError] = useState(true);
+    const [isFirstEyeOpen, setIsFirstEyeOpen] = useState(false);
+    const [isSecondEyeOpen, setIsSecondEyeOpen] = useState(false);
     const [changePassword, { isLoading: isChangePasswordLoading, isError: isChangePasswordError, isSuccess: isChangePasswordSuccess }] = useUserChangePasswordMutation();
     const dispatch = useAppDispatch();
     const navigate = useNavigate();

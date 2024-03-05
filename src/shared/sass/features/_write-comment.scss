@@ -20,7 +20,7 @@ div.blur {
         justify-content: center;
         gap: 24px;
         border-radius: 2px;
-        box-shadow: 0px 2px 8px 0px #00000026;
+        box-shadow: 0px 2px 8px 0px $boxShadowWriteCommentErrorColor;
         background-color: $resultPageWindowColor;
 
         @media (max-width: $tablet) {
@@ -54,7 +54,7 @@ div.blur {
                 border-radius: 2px;
                 justify-content: center;
                 background-color: $resultPageButtonColor;
-                box-shadow: 0px 2px 0px 0px #0000000B;
+                box-shadow: 0px 2px 0px 0px $boxShadowWriteCommentErrorButtonColor;
                 color: white;
                 font-weight: 400;
                 font-size: 14px;
@@ -76,7 +76,7 @@ div.blur {
         justify-content: center;
         gap: 24px;
         border-radius: 2px;
-        box-shadow: 0px 2px 8px 0px #00000026;
+        box-shadow: 0px 2px 8px 0px $boxShadowWriteCommentSuccessColor;
         background-color: $resultPageWindowColor;
 
         @media (max-width: $tablet) {
@@ -96,7 +96,7 @@ div.blur {
             border-radius: 2px;
             justify-content: center;
             background-color: $resultPageButtonColor;
-            box-shadow: 0px 2px 0px 0px #0000000B;
+            box-shadow: 0px 2px 0px 0px $boxShadowWriteCommentSuccessButtonColor;
             color: white;
             font-weight: 400;
             font-size: 14px;
@@ -124,7 +124,7 @@ div.ant-modal-wrap {
         height: 247px;
         background-color: white;
         border-radius: 2px;
-        box-shadow: 0px 9px 28px 8px #0000000D;
+        box-shadow: 0px 9px 28px 8px $boxShadowWriteCommentColor;
 
         @media (max-width: $tablet) {
             width: 90vw;
@@ -185,7 +185,7 @@ div.ant-modal-wrap {
                 height: 40px;
                 background-color: $feedbacksButtonColor;
                 border-radius: 2px;
-                box-shadow: 0px 2px 0px 0px #0000000B;
+                box-shadow: 0px 2px 0px 0px $boxShadowWriteCommentButtonColor;
                 color: white;
                 font-weight: 400;
                 font-size: 14px;

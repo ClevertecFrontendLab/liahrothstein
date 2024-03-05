@@ -21,7 +21,7 @@ form.confirmEmail {
             font-size: 14px;
 
             &.vi__character--inactive {
-                background-color: white;
+                background-color: $codeInputBackgroundColor;
             }
         }
     }

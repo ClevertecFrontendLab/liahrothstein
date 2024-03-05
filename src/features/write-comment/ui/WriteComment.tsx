@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
-import { Modal, Rate } from "antd";
+import { Modal } from "antd";
 
 import { Button, Loader } from "@components/index";
 
 import { publishComment, retryWrite } from "../model/write-comment-model";
 import { useCreateCommentMutation, useLazyUpdateCommentsQuery } from "../api/write-comment-api";
 import { switcher } from "@utils/index";
-import { CommentType } from "../../../shared/types";
+import { useAppSelector } from "@store/hooks";
+import type { CommentType } from "../../../shared/types";
 
 import filledStar from '../../../shared/assets/icons/star-icon.svg';
 import emptyStar from '../../../shared/assets/icons/empty-star-icon.svg';
@@ -15,16 +16,15 @@ import warningRed from '../../../shared/assets/icons/warning-red-icon.svg';
 import success from '../../../shared/assets/icons/success-icon.svg';
 
 import './WriteComment.scss';
-import { useAppSelector } from "@store/hooks";
 
+let stars: number[] = [1, 2, 3, 4, 5];
 interface WriteCommentProps {
     sortComments: (comments: CommentType[], setComments: (comments: CommentType[]) => void, isAllView: boolean) => void,
     setComments: (comments: CommentType[]) => void,
-    isAllView: boolean,
-    state: any
+    isAllView: boolean
 }
 
-export function WriteComment({ sortComments, setComments, isAllView, state }: WriteCommentProps) {
+export function WriteComment({ sortComments, setComments, isAllView }: WriteCommentProps) {
     const [isWriteModalOpen, setIsWriteModalOpen] = useState<boolean>(false);
     const [isSuccessModalOpen, setIsSuccessModalOpen] = useState<boolean>(false);
     const [isErrorModalOpen, setIsErrorModalOpen] = useState<boolean>(false);
@@ -34,7 +34,6 @@ export function WriteComment({ sortComments, setComments, isAllView, state }: Wr
     const [updateComments, { isSuccess: isUpdateCommentsSuccess, data }] = useLazyUpdateCommentsQuery();
     const token = useAppSelector((state) => (state.saveToken));
 
-    var stars: number[] = [1, 2, 3, 4, 5];
 
     useEffect(() => {
         if (isError) {
@@ -79,7 +78,6 @@ export function WriteComment({ sortComments, setComments, isAllView, state }: Wr
                                         onClickHandler={() => (setRating(star))} />
                                 </li>
                             ))}
-                            {/* <Rate /> */}
                         </ul>
                         <textarea
                             placeholder="Autosize height based on content lines"
