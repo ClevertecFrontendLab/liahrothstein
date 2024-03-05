@@ -23,11 +23,3 @@ export function retryWrite(setIsErrorModalOpen: (isOpen: boolean) => void, setIs
     setIsErrorModalOpen(false);
     setIsWriteModalOpen(true);
 }
-
-export function updateComments(rating: number, message: string) {
-    var createdAt = new Date().toISOString();
-    var fullName = null;
-    var imageSrc = null;
-
-    return ({ createdAt: createdAt, fullName: fullName, imageSrc: imageSrc, message: message, rating: rating })
-}

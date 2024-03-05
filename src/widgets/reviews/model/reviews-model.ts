@@ -1,4 +1,7 @@
+import { Dispatch } from "@reduxjs/toolkit";
 import { CommentType } from "../../../shared/types";
+import { push } from "redux-first-history";
+import { setError } from "@utils/get-reviews-error-slice";
 
 export function sortComments(comments: CommentType[], setComments: (comments: CommentType[]) => void, isAllView: boolean): void {
     function compare(a: CommentType, b: CommentType) {
@@ -22,4 +25,9 @@ export function sortComments(comments: CommentType[], setComments: (comments: Co
     } else {
         setComments(lastFourComments)
     }
+}
+
+export function backToMainGetReviewsError(dispatch: Dispatch) {
+    dispatch(setError(false));
+    dispatch(push('/main'));
 }

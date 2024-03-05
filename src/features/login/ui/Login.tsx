@@ -5,7 +5,7 @@ import { push } from "redux-first-history";
 import { Button, FormInput, Loader } from "@components/index";
 
 import { useAppDispatch } from "@store/hooks";
-import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword, setAuthStatus } from "@utils/index";
+import { logIn, rememberMeLogIn, switcher, validateEmail, validatePassword, setAuthStatus, saveToken } from "@utils/index";
 import { useUserLoginMutation, useUserCheckEmailMutation } from "../api/login-api";
 import { onClickCheckEmail, onClickSignIn, setAuthDirtyInputs, googleAuth } from "../model/login-model";
 import { RoutePaths } from "../../../shared/types";
@@ -48,8 +48,9 @@ export function Login() {
         if ((isSuccess && signInData !== undefined) && (rememberMe)) {
             dispatch(logIn());
             dispatch(rememberMeLogIn(signInData.accessToken));
-        } else if ((isSuccess) && (!rememberMe)) {
+        } else if ((isSuccess && signInData !== undefined) && (!rememberMe)) {
             dispatch(logIn());
+            dispatch(saveToken(signInData?.accessToken))
         }
     }, [isSuccess]);
 

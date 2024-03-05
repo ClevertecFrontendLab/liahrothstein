@@ -3,7 +3,7 @@ import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from "history";
 
 import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI, viewReviewsAPI, writeCommentAPI } from '../../features';
-import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice } from "@utils/index";
+import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice, getReviewsErrorSlice, saveTokenSlice } from "@utils/index";
 
 const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory(), savePreviousLocations: 1 });
 
@@ -12,6 +12,8 @@ const rootReducer = combineReducers({
     isAuth: isAuthSlice.reducer,
     isRememberMeAuth: isRememberMeAuthSlice.reducer,
     authStatus: authStatusSlice.reducer,
+    getReviewsError: getReviewsErrorSlice.reducer,
+    saveToken: saveTokenSlice.reducer,
     [loginAPI.reducerPath]: loginAPI.reducer,
     [registrationAPI.reducerPath]: registrationAPI.reducer,
     [confirmEmailAPI.reducerPath]: confirmEmailAPI.reducer,
