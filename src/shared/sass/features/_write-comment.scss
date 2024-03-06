@@ -1,0 +1,205 @@
+@use '../abstracts' as *;
+
+div.blur {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+
+    div.errorModal {
+        width: 539px;
+        height: 345px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        border-radius: 2px;
+        box-shadow: 0px 2px 8px 0px $boxShadowWriteCommentErrorColor;
+        background-color: $resultPageWindowColor;
+
+        @media (max-width: $tablet) {
+            width: 91.11vw;
+            height: 299px;
+        }
+
+        div.description {
+            text-align: center;
+
+            p.title {
+                font-weight: 500;
+                font-size: 24px;
+                line-height: 31.2px;
+            }
+
+            p.subtitle {
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18.2px;
+                color: $resultPageSubtitleColor;
+            }
+        }
+
+        div.buttons {
+            margin: 0;
+
+            button {
+                width: 180px;
+                height: 40px;
+                border-radius: 2px;
+                justify-content: center;
+                background-color: $resultPageButtonColor;
+                box-shadow: 0px 2px 0px 0px $boxShadowWriteCommentErrorButtonColor;
+                color: white;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18.2px;
+
+                @media (max-width: $tablet) {
+                    width: 144px;
+                }
+            }
+        }
+    }
+
+    div.successModal {
+        width: 539px;
+        height: 327px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 24px;
+        border-radius: 2px;
+        box-shadow: 0px 2px 8px 0px $boxShadowWriteCommentSuccessColor;
+        background-color: $resultPageWindowColor;
+
+        @media (max-width: $tablet) {
+            width: 91.11vw;
+            height: 317px;
+        }
+
+        p.title {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 31.2px;
+        }
+
+        button {
+            width: 368px;
+            height: 40px;
+            border-radius: 2px;
+            justify-content: center;
+            background-color: $resultPageButtonColor;
+            box-shadow: 0px 2px 0px 0px $boxShadowWriteCommentSuccessButtonColor;
+            color: white;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 18.2px;
+
+            @media (max-width: $tablet) {
+                width: 296px;
+            }
+        }
+    }
+}
+
+div.ant-modal-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100dvw;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    div.writeCommentModal {
+        width: 539px;
+        height: 247px;
+        background-color: white;
+        border-radius: 2px;
+        box-shadow: 0px 9px 28px 8px $boxShadowWriteCommentColor;
+
+        @media (max-width: $tablet) {
+            width: 90vw;
+        }
+
+        div.titleAndCloseButton {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 19.5px 16px 24px;
+
+            h2.title {
+                font-weight: 500;
+                font-size: 16px;
+                line-height: 20.8px;
+            }
+        }
+
+        hr {
+            border: none;
+            border-bottom: 1px solid $feedbacksModalHrColor;
+        }
+
+        div.starsAndTextarea {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            padding: 24px;
+
+            ul.stars {
+                display: flex;
+                gap: 4px;
+
+                img {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
+
+            textarea {
+                color: $feedbacksTextareaColor;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18.2px;
+                padding: 5px 12px;
+                border: 1px solid $feedbacksTextareaBorderColor;
+                border-radius: 2px;
+            }
+        }
+
+        div.publishButton {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 24px;
+
+            button.publish {
+                width: 130px;
+                height: 40px;
+                background-color: $feedbacksButtonColor;
+                border-radius: 2px;
+                box-shadow: 0px 2px 0px 0px $boxShadowWriteCommentButtonColor;
+                color: white;
+                font-weight: 400;
+                font-size: 14px;
+                line-height: 18.2px;
+                justify-content: center;
+            }
+        }
+
+        button.ant-modal-close {
+            display: none;
+        }
+
+        div.ant-modal-footer {
+            display: none;
+        }
+    }
+}

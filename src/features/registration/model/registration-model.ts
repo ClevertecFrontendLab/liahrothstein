@@ -13,3 +13,7 @@ export function setRegisterDirtyInputs(event: React.FocusEvent<HTMLInputElement,
             dispatch(false);
     }
 }
+
+export function googleRegister() {
+    window.location.href = 'https://marathon-api.clevertec.ru/auth/google';
+}

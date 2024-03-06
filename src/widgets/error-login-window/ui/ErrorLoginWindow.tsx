@@ -1,7 +1,6 @@
-import { useDispatch } from 'react-redux';
-
 import { Button } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { onClickRepeat } from '../model/error-login-window-model';
 
 import warningYellow from '../../../shared/assets/icons/warning-yellow-icon.svg';
@@ -9,7 +8,7 @@ import warningYellow from '../../../shared/assets/icons/warning-yellow-icon.svg'
 import './ErrorLoginWindow.scss';
 
 export function ErrorLoginWindow() {
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     return (
         <div className="errorLoginWindow">

@@ -12,11 +12,12 @@ interface SidebarSwitchProps {
 }
 
 export function SidebarSwitch({ isOpen, setIsOpen }: SidebarSwitchProps) {
+    let windowWidth = document.body.clientWidth;
 
     return (
         <div
             className="sidebarSwitch"
-            data-test-id={(document.body.clientWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}>
+            data-test-id={(windowWidth > 360) ? 'sider-switch' : 'sider-switch-mobile'}>
             <Button
                 image={(isOpen) ? sidebarSwitchOn : sidebarSwitchOff}
                 onClickHandler={() => (switcher(isOpen, setIsOpen))} />

@@ -1,3 +1,5 @@
+@use '../abstracts' as *;
+
 div.errorCheckEmailNoExistPage {
     height: 100vh;
     background-image: url('../src/shared/assets/images/auth-page-background.svg');
@@ -9,6 +11,6 @@ div.errorCheckEmailNoExistPage {
         justify-content: center;
         align-items: center;
         height: 100%;
-        backdrop-filter: blur(5px);
+        backdrop-filter: blur($modalBlurSize);
     }
 }

@@ -5,6 +5,7 @@ import { push } from "redux-first-history";
 import { setAuthStatus } from "@utils/auth-status-slice";
 import { CheckEmailRequest, CheckEmailResponse } from "../api/login-api";
 import type { UserDTO } from "../../../shared/types/user-dto";
+import { RoutePaths } from "../../../shared/types";
 
 interface LoginResponse {
     accessToken: string
@@ -29,7 +30,7 @@ export async function onClickCheckEmail(email: string, dispatch: Dispatch, mutat
     } else if (!isActivePasswordForgot && !emailError) {
         await mutationTrigger({ email: email });
         dispatch(setAuthStatus('confirm-email'));
-        dispatch(push('/auth/confirm-email', email));
+        dispatch(push(RoutePaths.ConfirmEmail, email));
     }
 }
 
@@ -37,4 +38,8 @@ export async function onClickSignIn(emailError: boolean, passwordError: boolean,
     if (!emailError && !passwordError) {
         await mutationTrigger({ email: email, password: password })
     }
+}
+
+export function googleAuth() {
+    window.location.href = 'https://marathon-api.clevertec.ru/auth/google';
 }

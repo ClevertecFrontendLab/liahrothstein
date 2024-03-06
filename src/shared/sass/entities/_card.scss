@@ -3,7 +3,7 @@
 article.card {
     padding: 24px;
     border-radius: 2px;
-    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.04);
+    box-shadow: 0px 2px 0px 0px $boxShadowCardColor;
     background-color: $sidebarBackgroundColor;
 
     &:first-child {

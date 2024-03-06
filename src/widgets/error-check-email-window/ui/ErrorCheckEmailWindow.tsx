@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-
 import { Button } from '@components/index';
 
+import { useAppDispatch } from '@store/hooks';
 import { useUserCheckEmailMutation } from '@features/login/api/login-api';
 import { setAuthStatus } from '@utils/auth-status-slice';
+import { RoutePaths } from "../../../shared/types";
 
 import error from '../../../shared/assets/images/error-image.svg';
 
@@ -14,13 +14,13 @@ import './ErrorCheckEmailWindow.scss';
 export function ErrorCheckEmailWindow() {
     const [retryCheckEmail, { isSuccess }] = useUserCheckEmailMutation();
     const { state } = useLocation();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
     useEffect(() => {
         if (isSuccess) {
             dispatch(setAuthStatus('confirm-email'));
-            navigate('/auth/confirm-email');
+            navigate(RoutePaths.ConfirmEmail);
         }
     }, [isSuccess]);
 

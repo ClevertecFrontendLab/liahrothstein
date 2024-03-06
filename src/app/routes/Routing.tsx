@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 
 import {
@@ -13,15 +14,21 @@ import {
     ErrorPage,
     ErrorUserExistPage,
     SuccessChangePasswordPage,
-    SuccessPage
+    SuccessPage,
+    FeedbacksPage
 } from "@pages/index";
 
-import { useAppSelector } from "../store";
+import { useAppDispatch, useAppSelector } from "../store";
+import { RoutePaths } from '../../shared/types';
+import { logIn, rememberMeLogIn } from "@utils/index";
 
 export default function Routing() {
     const isAuth = useAppSelector((state) => (state.isAuth));
     const isRememberMeAuth = useAppSelector((state) => (state.isRememberMeAuth));
     const authStatus = useAppSelector((state) => (state.authStatus));
+    const dispatch = useAppDispatch();
+
+    var token = new URLSearchParams(window.location.search).get('accessToken');
 
     function authStatusCheck() {
         switch (authStatus) {
@@ -119,22 +126,30 @@ export default function Routing() {
         }
     };
 
+    useEffect(() => {
+        if (token) {
+            dispatch(logIn());
+            dispatch(rememberMeLogIn(token));
+        }
+    }, []);
+
     return (
         <Routes>
-            <Route path="/" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
-            <Route path="/main" element={(isAuth || isRememberMeAuth) ? <MainPage /> : <Navigate to='/auth' />} />
-            <Route path="/auth" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <AuthPage />} />
-            <Route path="/auth/registration" element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
-            <Route path="/auth/confirm-email" element={authStatusCheckPage('confirm-email')} />
-            <Route path="/auth/change-password" element={authStatusCheckPage('change-password')} />
-            <Route path="/result/success-change-password" element={authStatusCheck()} />
-            <Route path="/result/error-change-password" element={authStatusCheckPage('error-change-password')} />
-            <Route path="/result/error-check-email" element={authStatusCheckPage('error-check-email')} />
-            <Route path="/result/error-check-email-no-exist" element={authStatusCheck()} />
-            <Route path="/result/error" element={authStatusCheck()} />
-            <Route path="/result/error-user-exist" element={authStatusCheck()} />
-            <Route path="/result/success" element={authStatusCheck()} />
-            <Route path="/result/error-login" element={authStatusCheck()} />
+            <Route path="/" element={(isAuth || isRememberMeAuth || token) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
+            <Route path={RoutePaths.Main} element={(isAuth || isRememberMeAuth) ? <MainPage /> : <Navigate to='/auth' />} />
+            <Route path={RoutePaths.Feedbacks} element={(isAuth || isRememberMeAuth) ? <FeedbacksPage /> : <Navigate to='/auth' />} />
+            <Route path={RoutePaths.Auth} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <AuthPage />} />
+            <Route path={RoutePaths.Registration} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
+            <Route path={RoutePaths.ConfirmEmail} element={authStatusCheckPage('confirm-email')} />
+            <Route path={RoutePaths.ChangePassword} element={authStatusCheckPage('change-password')} />
+            <Route path={RoutePaths.SuccessChangePassword} element={authStatusCheck()} />
+            <Route path={RoutePaths.ErrorChangePassword} element={authStatusCheckPage('error-change-password')} />
+            <Route path={RoutePaths.ErrorCheckEmail} element={authStatusCheckPage('error-check-email')} />
+            <Route path={RoutePaths.ErrorCheckEmailNoExist} element={authStatusCheck()} />
+            <Route path={RoutePaths.Error} element={authStatusCheck()} />
+            <Route path={RoutePaths.ErrorUserExist} element={authStatusCheck()} />
+            <Route path={RoutePaths.Success} element={authStatusCheck()} />
+            <Route path={RoutePaths.ErrorLogin} element={authStatusCheck()} />
         </Routes>
     )
 }

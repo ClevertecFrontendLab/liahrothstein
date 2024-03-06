@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 
 import { Registration } from "@features/index";
 
+import { RoutePaths } from "../../../shared/types";
+
 import clever from '../../../shared/assets/images/clever-logo.svg';
 import fit from '../../../shared/assets/images/fit-logo.svg';
 
@@ -16,8 +18,8 @@ export function RegisterWindow() {
                 <img src={fit} alt="" />
             </div>
             <div className="signUpAndRegisterLinks">
-                <Link to={'/auth'}>Вход</Link>
-                <Link to={'/auth/registration'}>Регистрация</Link>
+                <Link to={RoutePaths.Auth}>Вход</Link>
+                <Link to={RoutePaths.Registration}>Регистрация</Link>
             </div>
             <Registration />
         </div>

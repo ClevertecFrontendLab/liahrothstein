@@ -11,5 +11,5 @@ div.loader {
     justify-content: center;
     align-items: center;
     background-color: $loaderBackgroundColor;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur($loaderBlurSize);
 }

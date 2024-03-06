@@ -2,8 +2,8 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { createReduxHistoryContext } from "redux-first-history";
 import { createBrowserHistory } from "history";
 
-import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI } from '../../features';
-import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice } from "@utils/index";
+import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI, viewReviewsAPI, writeCommentAPI } from '../../features';
+import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice, getReviewsErrorSlice, saveTokenSlice } from "@utils/index";
 
 const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory(), savePreviousLocations: 1 });
 
@@ -12,10 +12,14 @@ const rootReducer = combineReducers({
     isAuth: isAuthSlice.reducer,
     isRememberMeAuth: isRememberMeAuthSlice.reducer,
     authStatus: authStatusSlice.reducer,
+    getReviewsError: getReviewsErrorSlice.reducer,
+    saveToken: saveTokenSlice.reducer,
     [loginAPI.reducerPath]: loginAPI.reducer,
     [registrationAPI.reducerPath]: registrationAPI.reducer,
     [confirmEmailAPI.reducerPath]: confirmEmailAPI.reducer,
-    [changePasswordAPI.reducerPath]: changePasswordAPI.reducer
+    [changePasswordAPI.reducerPath]: changePasswordAPI.reducer,
+    [viewReviewsAPI.reducerPath]: viewReviewsAPI.reducer,
+    [writeCommentAPI.reducerPath]: writeCommentAPI.reducer
 });
 
 export function setupStore() {
@@ -28,6 +32,8 @@ export function setupStore() {
                 .concat(registrationAPI.middleware)
                 .concat(confirmEmailAPI.middleware)
                 .concat(changePasswordAPI.middleware)
+                .concat(viewReviewsAPI.middleware)
+                .concat(writeCommentAPI.middleware)
             )
         })
     )
@@ -38,4 +44,4 @@ export const history = createReduxHistory(store);
 
 export type RootState = ReturnType<typeof rootReducer>;
 export type AppStore = ReturnType<typeof setupStore>;
-export type AppDispatch = AppStore['dispatch'];
+export type AppDispatch = typeof store.dispatch;

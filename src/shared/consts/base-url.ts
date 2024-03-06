@@ -6,3 +6,5 @@ export const checkEmailURL: string = '/auth/check-email';
 export const registerURL: string = '/auth/registration';
 export const confirmEmailURL: string = '/auth/confirm-email';
 export const changePasswordURL: string = '/auth/change-password';
+
+export const getOrCreateFeedbacksURL: string = '/feedback';
