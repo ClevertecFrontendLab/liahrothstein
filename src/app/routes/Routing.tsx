@@ -22,6 +22,7 @@ import {
 import { useAppDispatch, useAppSelector } from "../store";
 import { RoutePaths } from '../../shared/types';
 import { logIn, rememberMeLogIn } from "@utils/index";
+import ProtectedRoute from "./ProtectedRoute";
 
 export default function Routing() {
     const isAuth = useAppSelector((state) => (state.isAuth));
@@ -29,7 +30,7 @@ export default function Routing() {
     const authStatus = useAppSelector((state) => (state.authStatus));
     const dispatch = useAppDispatch();
 
-    var token = new URLSearchParams(window.location.search).get('accessToken');
+    let token = new URLSearchParams(window.location.search).get('accessToken');
 
     function authStatusCheck() {
         switch (authStatus) {
@@ -52,7 +53,7 @@ export default function Routing() {
                 return (<ErrorLoginPage />);
                 break;
             default:
-                return (<Navigate to='/auth' />)
+                return (<Navigate to={RoutePaths.Auth} />)
         }
     };
 
@@ -69,7 +70,7 @@ export default function Routing() {
                     case 'success':
                     case 'error-login':
                     case 'error-change-password':
-                        return (<Navigate to='/auth' />)
+                        return (<Navigate to={RoutePaths.Auth} />)
                         break;
                     default:
                         return (<ConfirmEmailPage />)
@@ -84,7 +85,7 @@ export default function Routing() {
                     case 'error-user-exist':
                     case 'success':
                     case 'error-login':
-                        return (<Navigate to='/auth' />)
+                        return (<Navigate to={RoutePaths.Auth} />)
                         break;
                     default:
                         return (<PasswordRecoveryPage />)
@@ -101,7 +102,7 @@ export default function Routing() {
                     case 'error-user-exist':
                     case 'success':
                     case 'error-login':
-                        return (<Navigate to='/auth' />)
+                        return (<Navigate to={RoutePaths.Auth} />)
                         break;
                     default:
                         return (<ErrorChangePasswordPage />)
@@ -118,7 +119,7 @@ export default function Routing() {
                     case 'error-user-exist':
                     case 'success':
                     case 'error-login':
-                        return (<Navigate to='/auth' />)
+                        return (<Navigate to={RoutePaths.Auth} />)
                         break;
                     default:
                         return (<ErrorCheckEmailPage />)
@@ -136,12 +137,16 @@ export default function Routing() {
 
     return (
         <Routes>
-            <Route path="/" element={(isAuth || isRememberMeAuth || token) ? <Navigate to='/main' /> : <Navigate to='/auth' />} />
-            <Route path={RoutePaths.Main} element={(isAuth || isRememberMeAuth) ? <MainPage /> : <Navigate to='/auth' />} />
-            <Route path={RoutePaths.Feedbacks} element={(isAuth || isRememberMeAuth) ? <FeedbacksPage /> : <Navigate to='/auth' />} />
-            <Route path={RoutePaths.Calendar} element={(isAuth || isRememberMeAuth) ? <CalendarPage /> : <Navigate to='/auth' />} />
-            <Route path={RoutePaths.Auth} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <AuthPage />} />
-            <Route path={RoutePaths.Registration} element={(isAuth || isRememberMeAuth) ? <Navigate to='/main' /> : <RegisterPage />} />
+            <Route path="/" element={(isAuth || isRememberMeAuth || token) ? <Navigate to={RoutePaths.Main} /> : <Navigate to={RoutePaths.Auth} />} />
+            <Route element={<ProtectedRoute isAuth={isAuth} isRememberMeAuth={isRememberMeAuth} redirectPath={RoutePaths.Auth} />}>
+                <Route path={RoutePaths.Main} element={<MainPage />} />
+                <Route path={RoutePaths.Feedbacks} element={<FeedbacksPage />} />
+                <Route path={RoutePaths.Calendar} element={<CalendarPage />} />
+            </Route>
+            <Route element={<ProtectedRoute isAuth={isAuth} isRememberMeAuth={isRememberMeAuth} redirectPath={RoutePaths.Main} />}>
+                <Route path={RoutePaths.Auth} element={<AuthPage />} />
+                <Route path={RoutePaths.Registration} element={<RegisterPage />} />
+            </Route>
             <Route path={RoutePaths.ConfirmEmail} element={authStatusCheckPage('confirm-email')} />
             <Route path={RoutePaths.ChangePassword} element={authStatusCheckPage('change-password')} />
             <Route path={RoutePaths.SuccessChangePassword} element={authStatusCheck()} />
