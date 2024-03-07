@@ -1,5 +1,6 @@
 export { MainPage } from './main-page/ui/MainPage';
 export { FeedbacksPage } from './feedbacks-page/ui/FeedbacksPage';
+export { CalendarPage } from './calendar-page/ui/CalendarPage';
 
 export { AuthPage } from './auth-page/ui/AuthPage';
 export { PasswordRecoveryPage } from './password-recovery-page/ui/PasswordRecoveryPage';

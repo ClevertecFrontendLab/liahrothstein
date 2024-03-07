@@ -1,7 +1,7 @@
 export function validateEmail(event: React.ChangeEvent<HTMLInputElement>, dispatch: (email: string) => void, errorDispatch: (isError: boolean) => void): void {
     dispatch(event.target.value);
 
-    var re: RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re: RegExp = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!re.test(String(event.target.value).toLowerCase())) {
         errorDispatch(true)
@@ -13,7 +13,7 @@ export function validateEmail(event: React.ChangeEvent<HTMLInputElement>, dispat
 export function validatePassword(event: React.ChangeEvent<HTMLInputElement>, dispatch: (password: string) => void, errorDispatch: (isError: boolean) => void): void {
     dispatch(event.target.value);
 
-    var re: RegExp = /^(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
+    let re: RegExp = /^(?=.*[0-9])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/;
 
     if (!re.test(String(event.target.value))) {
         errorDispatch(true)

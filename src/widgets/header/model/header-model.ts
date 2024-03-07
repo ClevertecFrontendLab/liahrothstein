@@ -5,6 +5,9 @@ export function setBreadCrumbs(location: string): string {
         case RoutePaths.Feedbacks:
             return ('Отзывы пользователей');
             break;
+        case RoutePaths.Calendar:
+            return ('Календарь');
+            break;
         default:
             return ('')
     }

@@ -11,6 +11,7 @@ export function CardActions() {
             {cardActions.map((e) => (
                 <CardAction
                     key={e.buttonTitle}
+                    className={e.className}
                     buttonTitle={e.buttonTitle}
                     buttonImage={e.buttonImage}
                     cardTitle={e.cardTitle} />

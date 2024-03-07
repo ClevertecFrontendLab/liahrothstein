@@ -7,18 +7,22 @@ import profile from '../assets/icons/profile-menu-icon.svg';
 
 export const sidebarMenu: SidebarMenu[] = [
     {
+        className: 'calendar',
         buttonImage: calendar,
         buttonTitle: 'Календарь'
     },
     {
+        className: 'heart',
         buttonImage: heart,
         buttonTitle: 'Тренировки'
     },
     {
+        className: 'achievements',
         buttonImage: achievements,
         buttonTitle: 'Достижения'
     },
     {
+        className: 'profile',
         buttonImage: profile,
         buttonTitle: 'Профиль'
     }

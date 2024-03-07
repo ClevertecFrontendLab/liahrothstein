@@ -17,12 +17,11 @@ export function Header() {
                 {setBreadCrumbs(pathname)}
             </h6>
             <div className="welcomeAndSettings">
-                {(pathname === RoutePaths.Main) ?
-                    <>
-                        <h1 className="welcome">Приветствуем тебя в CleverFit — приложении,<br />которое поможет тебе добиться своей мечты!</h1>
-                        <Settings />
-                    </> :
-                    ''}
+                {(pathname === RoutePaths.Main) && <>
+                    <h1 className="welcome">Приветствуем тебя в CleverFit — приложении,<br />которое поможет тебе добиться своей мечты!</h1>
+                    <Settings />
+                </>}
+                {(pathname === RoutePaths.Calendar) && <Settings />}
             </div>
         </header>
     )
