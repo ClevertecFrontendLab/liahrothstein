@@ -1,5 +1,5 @@
+import { baseURL, trainingURL } from "@constants/index";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { baseURL, getOrCreateFeedbacksURL } from "@constants/index";
 
 function getToken(token: string) {
     if (localStorage.getItem('accessToken')) {
@@ -9,13 +9,13 @@ function getToken(token: string) {
     }
 };
 
-export const viewReviewsAPI = createApi({
-    reducerPath: 'viewReviewsAPI',
+export const cardActionsAPI = createApi({
+    reducerPath: 'cardActionsAPI',
     baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
     endpoints: (build) => ({
-        getReviews: build.query({
+        getTrainings: build.query({
             query: (token: string) => ({
-                url: getOrCreateFeedbacksURL,
+                url: trainingURL,
                 method: 'GET',
                 headers: { Authorization: `Bearer ${getToken(token)}` }
             })
@@ -23,4 +23,4 @@ export const viewReviewsAPI = createApi({
     })
 });
 
-export const { useLazyGetReviewsQuery } = viewReviewsAPI;
+export const { useLazyGetTrainingsQuery } = cardActionsAPI;

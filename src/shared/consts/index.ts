@@ -1,4 +1,3 @@
-export { cardActions } from './card-actions';
 export { sidebarMenu } from './sidebar-menu';
 export { cards } from './cards';
 export {
@@ -9,5 +8,6 @@ export {
     changePasswordURL,
     checkEmailURL,
     confirmEmailURL,
-    getOrCreateFeedbacksURL
+    getOrCreateFeedbacksURL,
+    trainingURL
 } from './base-url';

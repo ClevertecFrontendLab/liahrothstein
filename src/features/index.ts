@@ -1,6 +1,6 @@
-export { CardActions } from './card-actions/ui/CardActions';
+export { CardActions, cardActionsAPI } from './card-actions';
 export { DownloadToPhone } from './download-to-phone/ui/DownloadToPhone';
-export { SidebarMenu } from './sidebar-menu/ui/SidebarMenu';
+export { SidebarMenu, sidebarMenuAPI } from './sidebar-menu';
 export { SignOut } from './sign-out/ui/SignOut';
 export { Settings } from './settings/ui/Settings';
 export { SidebarSwitch } from './sidebar-switch/ui/SidebarSwitch';

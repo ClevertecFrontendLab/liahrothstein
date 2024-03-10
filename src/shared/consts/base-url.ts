@@ -8,3 +8,5 @@ export const confirmEmailURL: string = '/auth/confirm-email';
 export const changePasswordURL: string = '/auth/change-password';
 
 export const getOrCreateFeedbacksURL: string = '/feedback';
+
+export const trainingURL: string = '/training';

@@ -1,19 +1,16 @@
 import { Button } from "@components/index";
 
-import { onClickCheckHandler } from "../model/card-action-model";
-import { useAppDispatch } from "@store/hooks";
-
 import './CardAction.scss';
 
 interface CardActionProps {
     className: string,
     buttonImage: string,
     buttonTitle: string,
-    cardTitle: string
+    cardTitle: string,
+    onClick?: () => void
 }
 
-export function CardAction({ buttonImage, buttonTitle, cardTitle, className }: CardActionProps) {
-    const dispatch = useAppDispatch();
+export function CardAction({ buttonImage, buttonTitle, cardTitle, className, onClick }: CardActionProps) {
 
     return (
         <article className="cardAction">
@@ -21,7 +18,7 @@ export function CardAction({ buttonImage, buttonTitle, cardTitle, className }: C
             <hr />
             <Button
                 className={className}
-                onClickHandler={onClickCheckHandler(className, dispatch)}
+                onClickHandler={onClick}
                 image={buttonImage}
                 title={buttonTitle} />
         </article>
