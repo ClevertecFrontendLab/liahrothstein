@@ -1,0 +1,70 @@
+@use '../abstracts' as *;
+
+div.calendarPage {
+    display: flex;
+    background-color: $backgroundCalendarColor;
+
+    div.headerAndMain {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        header.header {
+            h6.breadCrumbs a {
+                color: $breadCrumbsInActiveColor;
+            }
+
+            div.welcomeAndSettings {
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: $tablet) {
+            position: absolute;
+            z-index: 1;
+            background-color: $backgroundCalendarColor;
+        }
+
+        main {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            @media (max-width: $tablet) {
+                align-items: center;
+            }
+
+            div.reviewsAndDownload {
+                padding: 0 24px;
+                padding-bottom: 42px;
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+
+                @media (max-width: $tablet) {
+                    flex-direction: column-reverse;
+                    align-items: center;
+                    gap: 33.5px;
+                }
+
+                button:first-child:not(article.downloadToPhoneCard div.downloadButtons button:first-child) {
+                    color: $reviewsButtonColor;
+                }
+            }
+        }
+    }
+
+    aside.sidebar.opened+div.headerAndMain {
+        section.cards {
+            @media (max-width: $laptop) {
+                max-width: 578px;
+                width: 100%;
+            }
+
+            @media (max-width: $tablet) {
+                max-width: fit-content;
+            }
+        }
+    }
+}

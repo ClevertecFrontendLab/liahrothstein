@@ -1,4 +1,6 @@
-import { Header, Sidebar } from "@widgets/index";
+import { Header, Sidebar, TrainingCalendar } from "@widgets/index";
+
+import './CalendarPage.scss';
 
 export function CalendarPage() {
 
@@ -8,7 +10,7 @@ export function CalendarPage() {
             <div className="headerAndMain">
                 <Header />
                 <main>
-                    
+                    <TrainingCalendar />
                 </main>
             </div>
         </div>

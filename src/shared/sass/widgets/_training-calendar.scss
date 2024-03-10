@@ -1,0 +1,24 @@
+@use '../abstracts' as *;
+
+.ant-picker-calendar {
+    margin: 24px !important;
+
+    .ant-picker-calendar-header {
+        background-color: $backgroundCalendarColor;
+    }
+
+    .ant-picker-panel .ant-picker-body {
+        background-color: $backgroundCalendarColor;
+    }
+}
+
+.ant-picker-calendar-full .ant-picker-panel {
+
+    .ant-picker-calendar-date {
+        background-color: $white;
+    }
+
+    .ant-picker-body th {
+        color: $daysCalendarColor;
+    }
+}
