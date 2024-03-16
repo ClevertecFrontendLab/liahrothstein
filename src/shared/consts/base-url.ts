@@ -10,3 +10,4 @@ export const changePasswordURL: string = '/auth/change-password';
 export const getOrCreateFeedbacksURL: string = '/feedback';
 
 export const trainingURL: string = '/training';
+export const getTrainingListURL: string = '/catalogs/training-list';

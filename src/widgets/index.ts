@@ -2,7 +2,7 @@ export { Cards } from './cards/ui/Cards';
 export { Header } from './header/ui/Header';
 export { Sidebar } from './sidebar/ui/Sidebar';
 export { Reviews } from './reviews/ui/Reviews';
-export { TrainingCalendar } from './training-calendar/ui/TrainingCalendar';
+export { TrainingCalendar, trainingCalendarAPI } from './training-calendar';
 
 export { SignInWindow } from './sign-in-window/ui/SignInWindow';
 export { RegisterWindow } from './register-window/ui/RegisterWindow';

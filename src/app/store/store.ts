@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 
 import { loginAPI, registrationAPI, confirmEmailAPI, changePasswordAPI, viewReviewsAPI, writeCommentAPI, sidebarMenuAPI, cardActionsAPI } from '../../features';
 import { authStatusSlice, isAuthSlice, isRememberMeAuthSlice, getReviewsErrorSlice, saveTokenSlice } from "@utils/index";
+import { trainingCalendarAPI } from "@widgets/index";
 
 const { routerReducer, routerMiddleware, createReduxHistory } = createReduxHistoryContext({ history: createBrowserHistory(), savePreviousLocations: 1 });
 
@@ -21,7 +22,8 @@ const rootReducer = combineReducers({
     [viewReviewsAPI.reducerPath]: viewReviewsAPI.reducer,
     [writeCommentAPI.reducerPath]: writeCommentAPI.reducer,
     [sidebarMenuAPI.reducerPath]: sidebarMenuAPI.reducer,
-    [cardActionsAPI.reducerPath]: cardActionsAPI.reducer
+    [cardActionsAPI.reducerPath]: cardActionsAPI.reducer,
+    [trainingCalendarAPI.reducerPath]: trainingCalendarAPI.reducer
 });
 
 export function setupStore() {
@@ -38,6 +40,7 @@ export function setupStore() {
                 .concat(writeCommentAPI.middleware)
                 .concat(sidebarMenuAPI.middleware)
                 .concat(cardActionsAPI.middleware)
+                .concat(trainingCalendarAPI.middleware)
             )
         })
     )

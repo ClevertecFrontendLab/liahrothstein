@@ -9,5 +9,6 @@ export {
     checkEmailURL,
     confirmEmailURL,
     getOrCreateFeedbacksURL,
-    trainingURL
+    trainingURL,
+    getTrainingListURL
 } from './base-url';

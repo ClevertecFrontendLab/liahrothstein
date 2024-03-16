@@ -1,0 +1,19 @@
+.ant-picker-calendar-date {
+    position: relative;
+
+    &.ant-picker-cell-selected {
+        div.modalCreateTraining {
+            width: 264px;
+            min-height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    }
+
+    button.openModal {
+        width: 100%;
+        height: 100%;
+    }
+
+}
